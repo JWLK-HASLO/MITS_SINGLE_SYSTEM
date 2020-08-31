@@ -211,7 +211,7 @@
             this.ImagingBox.Location = new System.Drawing.Point(5, 19);
             this.ImagingBox.Name = "ImagingBox";
             this.ImagingBox.Size = new System.Drawing.Size(800, 600);
-            this.ImagingBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.ImagingBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImagingBox.TabIndex = 6;
             this.ImagingBox.TabStop = false;
             this.ImagingBox.SizeChanged += new System.EventHandler(this.ImagingBox_SizeChanged);
@@ -237,7 +237,7 @@
             // SystemBoardOUTEndpoint
             // 
             this.SystemBoardOUTEndpoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SystemBoardOUTEndpoint.Font = new System.Drawing.Font("D2Coding", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SystemBoardOUTEndpoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.SystemBoardOUTEndpoint.FormattingEnabled = true;
             this.SystemBoardOUTEndpoint.Location = new System.Drawing.Point(89, 63);
             this.SystemBoardOUTEndpoint.Name = "SystemBoardOUTEndpoint";
@@ -247,7 +247,7 @@
             // SystemBoardINEndpoint
             // 
             this.SystemBoardINEndpoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SystemBoardINEndpoint.Font = new System.Drawing.Font("D2Coding", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SystemBoardINEndpoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.SystemBoardINEndpoint.FormattingEnabled = true;
             this.SystemBoardINEndpoint.Location = new System.Drawing.Point(89, 41);
             this.SystemBoardINEndpoint.Name = "SystemBoardINEndpoint";
@@ -257,7 +257,7 @@
             // SystemBoardConnection
             // 
             this.SystemBoardConnection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SystemBoardConnection.Font = new System.Drawing.Font("D2Coding", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SystemBoardConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.SystemBoardConnection.FormattingEnabled = true;
             this.SystemBoardConnection.Location = new System.Drawing.Point(89, 19);
             this.SystemBoardConnection.Name = "SystemBoardConnection";
@@ -320,7 +320,7 @@
             this.SystemLogBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.SystemLogBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SystemLogBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SystemLogBox.Font = new System.Drawing.Font("D2Coding", 7F);
+            this.SystemLogBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.SystemLogBox.ForeColor = System.Drawing.Color.White;
             this.SystemLogBox.Location = new System.Drawing.Point(3, 17);
             this.SystemLogBox.Multiline = true;
@@ -361,7 +361,7 @@
             this.tabPage1_main.BackColor = System.Drawing.Color.White;
             this.tabPage1_main.Controls.Add(this.groupBox1);
             this.tabPage1_main.Controls.Add(this.groupBox_CH1);
-            this.tabPage1_main.Font = new System.Drawing.Font("D2Coding", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tabPage1_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tabPage1_main.Location = new System.Drawing.Point(4, 34);
             this.tabPage1_main.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1_main.Name = "tabPage1_main";
@@ -1486,7 +1486,7 @@
             // 
             // Param_ScanlineTestDataViewValue
             // 
-            this.Param_ScanlineTestDataViewValue.Font = new System.Drawing.Font("D2Coding", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Param_ScanlineTestDataViewValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Param_ScanlineTestDataViewValue.Location = new System.Drawing.Point(5, 42);
             this.Param_ScanlineTestDataViewValue.Name = "Param_ScanlineTestDataViewValue";
             this.Param_ScanlineTestDataViewValue.Size = new System.Drawing.Size(128, 21);
@@ -1522,7 +1522,7 @@
             // textBox_timer
             // 
             this.textBox_timer.BackColor = System.Drawing.Color.White;
-            this.textBox_timer.Font = new System.Drawing.Font("D2Coding", 9F);
+            this.textBox_timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.textBox_timer.ForeColor = System.Drawing.Color.Black;
             this.textBox_timer.Location = new System.Drawing.Point(6, 43);
             this.textBox_timer.Name = "textBox_timer";
@@ -1614,7 +1614,7 @@
             // 
             // Param_ScanlineViewValue
             // 
-            this.Param_ScanlineViewValue.Font = new System.Drawing.Font("D2Coding", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Param_ScanlineViewValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Param_ScanlineViewValue.Location = new System.Drawing.Point(8, 36);
             this.Param_ScanlineViewValue.Name = "Param_ScanlineViewValue";
             this.Param_ScanlineViewValue.Size = new System.Drawing.Size(128, 21);
@@ -1678,7 +1678,7 @@
             // 
             // Param_ScanlineCounterValue
             // 
-            this.Param_ScanlineCounterValue.Font = new System.Drawing.Font("D2Coding", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Param_ScanlineCounterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Param_ScanlineCounterValue.Location = new System.Drawing.Point(8, 36);
             this.Param_ScanlineCounterValue.Name = "Param_ScanlineCounterValue";
             this.Param_ScanlineCounterValue.Size = new System.Drawing.Size(128, 21);
@@ -1729,11 +1729,11 @@
             // 
             // Param_BinaryNumber
             // 
-            this.Param_BinaryNumber.Font = new System.Drawing.Font("D2Coding", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Param_BinaryNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Param_BinaryNumber.Location = new System.Drawing.Point(142, 36);
             this.Param_BinaryNumber.Name = "Param_BinaryNumber";
             this.Param_BinaryNumber.ReadOnly = true;
-            this.Param_BinaryNumber.Size = new System.Drawing.Size(242, 23);
+            this.Param_BinaryNumber.Size = new System.Drawing.Size(242, 22);
             this.Param_BinaryNumber.TabIndex = 20;
             this.Param_BinaryNumber.Text = "10000100000101010000000011111111";
             this.Param_BinaryNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1752,7 +1752,7 @@
             // 
             // Param_HexNumber
             // 
-            this.Param_HexNumber.Font = new System.Drawing.Font("D2Coding", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Param_HexNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Param_HexNumber.Location = new System.Drawing.Point(8, 36);
             this.Param_HexNumber.Name = "Param_HexNumber";
             this.Param_HexNumber.Size = new System.Drawing.Size(128, 21);

@@ -63,7 +63,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             textBox_timer.Text = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
             timer = new System.Timers.Timer();
-            timer.Interval = 100;
+            timer.Interval = 50;
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
         }
 
@@ -88,17 +88,9 @@ namespace MITS_SINGLE_SYSTEM
                 for (int y = 0; y < height_ImagingBox; y++)
                 {
                     TEST_DataArray[x][y] = (y + raiseCounter) % 4096;
-                    //rgbIndex = (y + raiseCounter) % 4096;
-                    //bitmapImaging.SetPixel(x, y, colorStepArrayBackGround[rgbIndex]);
                 }
             }
             //*/
-            //this.Invoke(new Action(delegate ()
-            //{
-            //    ImagingBox.Image = bitmapImaging;
-            //    ImagingBox.Update();
-            //}
-            //));
             if (!drawResultFlag)
             {
                 drawResultFlag = true;
@@ -119,7 +111,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             while (true)
             {
-                Thread.Sleep(16);
+                Thread.Sleep(33);
                 if (drawResultFlag)
                 {
                     drawResultFlag = false;
