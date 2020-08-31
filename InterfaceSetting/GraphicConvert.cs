@@ -42,7 +42,11 @@ namespace MITS_SINGLE_SYSTEM
             Console.WriteLine("Data Convert Complete");
 
             //Draw Flag
-            drawResultFlag = true;
+            if (!drawResultFlag)
+            {
+                drawResultFlag = true;
+
+            }
         }
 
         /* TEST DATA INIT */
@@ -121,9 +125,15 @@ namespace MITS_SINGLE_SYSTEM
                         {
                             for (int y = 0; y < height_ImagingBox; y++)
                             {
-                                rgbIndex = TEST_DataArray[x][y];
-                                rgb = colorStepArrayBackGround[rgbIndex];
+                                /*/ Real Data
+                                rgbIndex = CH1_DataArray[x][y];
+                                //*/
 
+                                //*/ Test Data
+                                rgbIndex = TEST_DataArray[x][y];
+                                //*/
+
+                                rgb = colorStepArrayBackGround[rgbIndex];
                                 bitmapImaging.SetPixel(x, y, rgb);
                             }
                         }
