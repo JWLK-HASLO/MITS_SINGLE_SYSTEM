@@ -125,11 +125,11 @@ namespace MITS_SINGLE_SYSTEM
                         {
                             for (int y = 0; y < height_ImagingBox; y++)
                             {
-                                /*/ Real Data
+                                //*/ Real Data
                                 rgbIndex = CH1_DataArray[x][y];
                                 //*/
 
-                                //*/ Test Data
+                                /*/ Test Data
                                 rgbIndex = TEST_DataArray[x][y];
                                 //*/
 

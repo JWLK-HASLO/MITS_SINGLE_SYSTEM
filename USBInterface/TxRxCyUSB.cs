@@ -24,66 +24,59 @@ namespace MITS_SINGLE_SYSTEM
 
         public void ReadThread()
         {
-            /*try
-            {*/
-                while (true)
-                {
-                    Thread.Sleep(1);
+            while (true)
+            {
+                Thread.Sleep(1);
 
-                    int xferlength = xferLen_Read;
-                    readResultFlag = inEndpoint.XferData(ref inData, ref xferlength);
+                int xferlength = xferLen_Read;
+                readResultFlag = inEndpoint.XferData(ref inData, ref xferlength);
 
                 //Buffer.BlockCopy 형태로 리뉴얼 시켜서 테스트
                 //Buffer.BlockCopy(sources, 0, target, 0, sources.Length);
                 //bulkCounter 이용해서 source => target 버퍼로 
 
                 if (readResultFlag && setSaveDataFlag)
+                {
+
+
+                    for (int i = 0; i < XFERSIZE; i += 4)
                     {
-
-                        for (int i = 0; i < XFERSIZE; i += 4)
-                        {
-                            lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
-                            //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
-                            //Console.WriteLine(scanRealData);
-                        }
-
-                        for (int i = 0; i < XFERSIZE; i++)
-                        {
-                            bulkByteSaver[bulkCounter][i] = inData[i];
-                            //Console.WriteLine("{0} / {1}", bulkCounter, i);
-                        }
-
-                        //*/ Bulk Counter
-                        bulkCounter++;
-
-                        if (lastScanlineFinder == (CH1_Scanline_data - 1) && setSaveDataFlag)
-                        {
-                            Param_ScanlineTotalViewFunction();
-                            setSaveDataFlag = false;
-                            convertDataFlag = true;
-                        }
-
-                        if (convertDataFlag)
-                        {
-                            convertDataFlag = false;
-                            this.Invoke(new Action(delegate ()
-                            {
-                                GraphicConvertByteToInt();
-                                //Set Timer Setting
-                                timer.Stop();
-                                //Set StopWatch
-                                stopWatch.Stop();
-                            }));
-                        }
-
+                        lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
+                        //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
+                        //Console.WriteLine(scanRealData);
                     }
 
+                    for (int i = 0; i < XFERSIZE; i++)
+                    {
+                        bulkByteSaver[bulkCounter][i] = inData[i];
+                        //Console.WriteLine("{0} / {1}", bulkCounter, i);
+                    }
+
+                    if (bulkCounter == (CH1_Scanline_data - 1))
+                    {
+                        Param_ScanlineTotalViewFunction();
+                        setSaveDataFlag = false;
+                        Console.WriteLine("setSaveDataFlag {0}", setSaveDataFlag);
+                        convertDataFlag = true;
+                    }
+
+                    if (convertDataFlag)
+                    {
+                        convertDataFlag = false;
+                        this.Invoke(new Action(delegate ()
+                        {
+                            GraphicConvertByteToInt();
+                        }));
+                    }
+
+
+                    //*/ Bulk Counter
+                    //Console.WriteLine("bulkCounter {0}", bulkCounter);
+                    bulkCounter++;
+
                 }
-            /*} 
-            catch(Exception e)
-            {
-                Console.WriteLine("ReadTrhead Exception : {0}", e);
-            }*/
+
+            }
             
         }
 

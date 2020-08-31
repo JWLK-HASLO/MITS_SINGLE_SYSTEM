@@ -67,7 +67,7 @@ namespace MITS_SINGLE_SYSTEM
                 stopWatch.Start();
 
 
-                /* DrawThread Start */
+                //*/ DrawThread Star
                 if(graphicDrawThread == null)
                 {
                     graphicDrawThread = new Thread(new ThreadStart(DrawThread));
@@ -75,7 +75,7 @@ namespace MITS_SINGLE_SYSTEM
                     graphicDrawThread.Priority = ThreadPriority.Highest;
                     graphicDrawThread.Start();
                 }
-
+                //*/
             }
             else
             {

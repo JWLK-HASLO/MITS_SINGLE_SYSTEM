@@ -359,7 +359,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             _8800_DAC_Conf = "88000001";
             _8802_DAC_Data = String.Format("88020{0}0", CH1_HV_data.ToString("X2"));
-            Console.WriteLine("_8802_DAC_Data : " + _8802_DAC_Data);
+            //Console.WriteLine("_8802_DAC_Data : " + _8802_DAC_Data);
 
             Tx_data[RegisterSequencyCounter] = int.Parse(_8800_DAC_Conf, styleHex); RegisterSequencyCounter++;
             //Delay 1 Clock
@@ -392,7 +392,7 @@ namespace MITS_SINGLE_SYSTEM
             CH1_ADCLoad();
             CH1_ClockLoad();
 
-            Console.WriteLine(String.Format("RegisterSequencyCounter:{0}", RegisterSequencyCounter));
+            //Console.WriteLine(String.Format("RegisterSequencyCounter:{0}", RegisterSequencyCounter));
             SystemLogBox.AppendText(String.Format("RegisterSequencyCounter:{0}", RegisterSequencyCounter) + "\r\n");
         }
 

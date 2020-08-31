@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -498,8 +499,6 @@ namespace MITS_SINGLE_SYSTEM
         {
             try
             {
-                //_8C05_DebugMode = "80050001";
-                //Tx_data[RegisterSequencyCounter] = int.Parse(_8C05_DebugMode, styleHex); RegisterSequencyCounter++;
                 CH1_SCANInterface(SCAN_Loop);
 
                 if (SCAN_Loop)
@@ -509,6 +508,17 @@ namespace MITS_SINGLE_SYSTEM
                     //*/ Test Data
                     //*/
                     writeSendFlag = true;
+
+
+                    //*/ DrawThread Star
+                    if (graphicDrawThread == null)
+                    {
+                        graphicDrawThread = new Thread(new ThreadStart(DrawThread));
+                        graphicDrawThread.IsBackground = true;
+                        graphicDrawThread.Priority = ThreadPriority.Highest;
+                        graphicDrawThread.Start();
+                    }
+                    //*/
                 }
                 else
                 {
@@ -530,7 +540,8 @@ namespace MITS_SINGLE_SYSTEM
 
         private void CH1_Reset_Click(object sender, EventArgs e)
         {
-
+            SendParameterReset();
+            GraphicImagingDataReset();
         }
 
 
