@@ -66,6 +66,11 @@ namespace MITS_SINGLE_SYSTEM
             {
                 CH1_Scanline_data = int.Parse(string.Format("{0:D}", CH1_Scanline.Text), styleInteger);
                 Console.WriteLine(String.Format("CH1_Scanline_data: {0}", CH1_Scanline_data));
+                ConvertSaveArray = new double[CH1_Scanline_data][];
+                for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
+                {
+                    ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
+                }
             } 
             catch(Exception ex)
             {

@@ -41,7 +41,7 @@ namespace MITS_SINGLE_SYSTEM
                 }
             }
             //Console.WriteLine("Data Convert Complete");
-            SignalProcessing(CH1_DataArray);
+            //SignalProcessing(CH1_DataArray);
             //Draw Flag
             if (!drawResultFlag)
             {
@@ -68,7 +68,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             textBox_timer.Text = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
             timer = new System.Timers.Timer();
-            timer.Interval = 100;
+            timer.Interval = 1000;
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
         }
 
@@ -128,17 +128,21 @@ namespace MITS_SINGLE_SYSTEM
                         {
                             for (int y = 0; y < ConvertSaveArray[x].Length; y++)
                             {
-                                //*/ Real Data
-                                rgbIndex = (int)ConvertSaveArray[x][y];
+                                /*/ TERST Data
+                                rgbIndex = TEST_DataArray[x][y];
+                                rgb = colorStepArrayBackGround[rgbIndex];
                                 //*/
 
-                                //rgb = colorStepArrayBackGround[rgbIndex];
+                                //*/ Real Data
+                                rgbIndex = (int)ConvertSaveArray[x][y];
                                 rgb = Color.FromArgb(rgbIndex, rgbIndex, rgbIndex);
+                                //*/
+
                                 bitmapRenew.SetPixel(x, y, rgb);
                             }
                         }
-                        ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
                         ImagingBox.Image = bitmapRenew;
+                        ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
                         ImagingBox.Update();
 
                     }

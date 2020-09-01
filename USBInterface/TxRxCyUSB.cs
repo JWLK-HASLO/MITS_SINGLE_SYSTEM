@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MITS_SINGLE_SYSTEM
 {
@@ -126,11 +127,19 @@ namespace MITS_SINGLE_SYSTEM
                 bulkByteSaver[i] = new byte[CH1_Rx_data * 4];
             }
 
+            ConvertSaveArray = new double[CH1_Scanline_data][];
+            for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
+            {
+                ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
+            }
+
             CH1_DataArray = new int[CH1_Scanline_data][];
             for (int i = 0; i < CH1_DataArray.GetLength(0); i++)
             {
                 CH1_DataArray[i] = new int[CH1_Rx_data];
             }
+
+
         }
 
 
@@ -155,6 +164,7 @@ namespace MITS_SINGLE_SYSTEM
             height_ImagingBox = ImagingBox.Height;
             bitmapImaging = new Bitmap(512, 1331);
             bitmapRenew = bitmapImaging as Bitmap;
+            ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
             ImagingBox.Image = bitmapRenew;
         }
 
