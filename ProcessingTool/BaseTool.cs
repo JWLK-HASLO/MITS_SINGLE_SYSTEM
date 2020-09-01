@@ -65,7 +65,7 @@ namespace MITS_SINGLE_SYSTEM
 
 
             //*/ LPF QD Data
-            LPF_DECI_Load = File.ReadAllLines("LPF_DECI2.txt");
+            //LPF_DECI_Load = File.ReadAllLines("LPF_DECI2.txt");
             LPF_DECI_Length = LPF_DECI_Load.Length;
             LPF_DECI_Data = new double[LPF_DECI_Length];
             for (int i = 0; i < LPF_DECI_Length; i++)

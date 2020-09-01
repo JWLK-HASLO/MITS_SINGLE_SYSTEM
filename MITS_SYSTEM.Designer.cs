@@ -145,6 +145,22 @@
             this.Param_BinaryNumber = new System.Windows.Forms.TextBox();
             this.label_ParamHexNumber = new System.Windows.Forms.Label();
             this.Param_HexNumber = new System.Windows.Forms.TextBox();
+            this.tabPage_motorControl = new System.Windows.Forms.TabPage();
+            this.groupBox_motorPositionInfo = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.motor_PositionCheck = new System.Windows.Forms.Button();
+            this.motor_PositionReset = new System.Windows.Forms.Button();
+            this.motor_PositionSet = new System.Windows.Forms.Button();
+            this.motor_MovingPosition = new System.Windows.Forms.TextBox();
+            this.motor_PresentPosition = new System.Windows.Forms.TextBox();
+            this.label_moving_position = new System.Windows.Forms.Label();
+            this.label_present_position = new System.Windows.Forms.Label();
+            this.groupBox_motorConnectionInfo = new System.Windows.Forms.GroupBox();
+            this.motor_ConnectionControl = new System.Windows.Forms.Button();
+            this.motor_ServoID = new System.Windows.Forms.TextBox();
+            this.motor_Comport = new System.Windows.Forms.ComboBox();
+            this.label_servo_id = new System.Windows.Forms.Label();
+            this.label_motor_comport = new System.Windows.Forms.Label();
             this.GraphicGroup.SuspendLayout();
             this.groupBox_ImagingView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).BeginInit();
@@ -170,6 +186,9 @@
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox_HexToBinary.SuspendLayout();
+            this.tabPage_motorControl.SuspendLayout();
+            this.groupBox_motorPositionInfo.SuspendLayout();
+            this.groupBox_motorConnectionInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // GraphicGroup
@@ -345,6 +364,7 @@
             // 
             this.tabMainControl.Controls.Add(this.tabPage1_main);
             this.tabMainControl.Controls.Add(this.tabPage2_option);
+            this.tabMainControl.Controls.Add(this.tabPage_motorControl);
             this.tabMainControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMainControl.ItemSize = new System.Drawing.Size(110, 30);
             this.tabMainControl.Location = new System.Drawing.Point(3, 17);
@@ -530,9 +550,9 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(95, 20);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(116, 16);
+            this.radioButton3.Size = new System.Drawing.Size(74, 16);
             this.radioButton3.TabIndex = 1;
-            this.radioButton3.Text = "STIMULATION";
+            this.radioButton3.Text = "STIMUL";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton4
@@ -1045,9 +1065,9 @@
             this.CH1_Mode_Stimul.AutoSize = true;
             this.CH1_Mode_Stimul.Location = new System.Drawing.Point(95, 20);
             this.CH1_Mode_Stimul.Name = "CH1_Mode_Stimul";
-            this.CH1_Mode_Stimul.Size = new System.Drawing.Size(116, 16);
+            this.CH1_Mode_Stimul.Size = new System.Drawing.Size(74, 16);
             this.CH1_Mode_Stimul.TabIndex = 1;
-            this.CH1_Mode_Stimul.Text = "STIMULATION";
+            this.CH1_Mode_Stimul.Text = "STIMUL";
             this.CH1_Mode_Stimul.UseVisualStyleBackColor = true;
             this.CH1_Mode_Stimul.CheckedChanged += new System.EventHandler(this.CH1_Mode_Stimul_CheckedChanged);
             // 
@@ -1729,11 +1749,11 @@
             // 
             // Param_BinaryNumber
             // 
-            this.Param_BinaryNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Param_BinaryNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.Param_BinaryNumber.Location = new System.Drawing.Point(142, 36);
             this.Param_BinaryNumber.Name = "Param_BinaryNumber";
             this.Param_BinaryNumber.ReadOnly = true;
-            this.Param_BinaryNumber.Size = new System.Drawing.Size(242, 22);
+            this.Param_BinaryNumber.Size = new System.Drawing.Size(242, 20);
             this.Param_BinaryNumber.TabIndex = 20;
             this.Param_BinaryNumber.Text = "10000100000101010000000011111111";
             this.Param_BinaryNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1752,13 +1772,215 @@
             // 
             // Param_HexNumber
             // 
-            this.Param_HexNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Param_HexNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.Param_HexNumber.Location = new System.Drawing.Point(8, 36);
             this.Param_HexNumber.Name = "Param_HexNumber";
             this.Param_HexNumber.Size = new System.Drawing.Size(128, 21);
             this.Param_HexNumber.TabIndex = 4;
             this.Param_HexNumber.Text = "841500FF";
             this.Param_HexNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tabPage_motorControl
+            // 
+            this.tabPage_motorControl.Controls.Add(this.groupBox_motorPositionInfo);
+            this.tabPage_motorControl.Controls.Add(this.groupBox_motorConnectionInfo);
+            this.tabPage_motorControl.Location = new System.Drawing.Point(4, 34);
+            this.tabPage_motorControl.Name = "tabPage_motorControl";
+            this.tabPage_motorControl.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_motorControl.Size = new System.Drawing.Size(466, 680);
+            this.tabPage_motorControl.TabIndex = 7;
+            this.tabPage_motorControl.Text = "Motor";
+            this.tabPage_motorControl.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_motorPositionInfo
+            // 
+            this.groupBox_motorPositionInfo.Controls.Add(this.panel1);
+            this.groupBox_motorPositionInfo.Controls.Add(this.motor_PositionCheck);
+            this.groupBox_motorPositionInfo.Controls.Add(this.motor_PositionReset);
+            this.groupBox_motorPositionInfo.Controls.Add(this.motor_PositionSet);
+            this.groupBox_motorPositionInfo.Controls.Add(this.motor_MovingPosition);
+            this.groupBox_motorPositionInfo.Controls.Add(this.motor_PresentPosition);
+            this.groupBox_motorPositionInfo.Controls.Add(this.label_moving_position);
+            this.groupBox_motorPositionInfo.Controls.Add(this.label_present_position);
+            this.groupBox_motorPositionInfo.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_motorPositionInfo.Location = new System.Drawing.Point(6, 80);
+            this.groupBox_motorPositionInfo.Name = "groupBox_motorPositionInfo";
+            this.groupBox_motorPositionInfo.Size = new System.Drawing.Size(454, 68);
+            this.groupBox_motorPositionInfo.TabIndex = 29;
+            this.groupBox_motorPositionInfo.TabStop = false;
+            this.groupBox_motorPositionInfo.Text = "Position Setting";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Location = new System.Drawing.Point(202, 21);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1, 35);
+            this.panel1.TabIndex = 34;
+            // 
+            // motor_PositionCheck
+            // 
+            this.motor_PositionCheck.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.motor_PositionCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.motor_PositionCheck.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_PositionCheck.ForeColor = System.Drawing.Color.Transparent;
+            this.motor_PositionCheck.Location = new System.Drawing.Point(117, 18);
+            this.motor_PositionCheck.Name = "motor_PositionCheck";
+            this.motor_PositionCheck.Size = new System.Drawing.Size(74, 39);
+            this.motor_PositionCheck.TabIndex = 33;
+            this.motor_PositionCheck.Text = "CHECK";
+            this.motor_PositionCheck.UseVisualStyleBackColor = false;
+            this.motor_PositionCheck.Click += new System.EventHandler(this.motor_PositionCheck_Click);
+            // 
+            // motor_PositionReset
+            // 
+            this.motor_PositionReset.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.motor_PositionReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.motor_PositionReset.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_PositionReset.ForeColor = System.Drawing.Color.Transparent;
+            this.motor_PositionReset.Location = new System.Drawing.Point(318, 18);
+            this.motor_PositionReset.Name = "motor_PositionReset";
+            this.motor_PositionReset.Size = new System.Drawing.Size(60, 39);
+            this.motor_PositionReset.TabIndex = 32;
+            this.motor_PositionReset.Text = "RSET";
+            this.motor_PositionReset.UseVisualStyleBackColor = false;
+            this.motor_PositionReset.Click += new System.EventHandler(this.motor_PositionReset_Click);
+            // 
+            // motor_PositionSet
+            // 
+            this.motor_PositionSet.BackColor = System.Drawing.Color.Black;
+            this.motor_PositionSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.motor_PositionSet.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_PositionSet.ForeColor = System.Drawing.Color.Transparent;
+            this.motor_PositionSet.Location = new System.Drawing.Point(388, 18);
+            this.motor_PositionSet.Name = "motor_PositionSet";
+            this.motor_PositionSet.Size = new System.Drawing.Size(60, 39);
+            this.motor_PositionSet.TabIndex = 31;
+            this.motor_PositionSet.Text = "MOVE";
+            this.motor_PositionSet.UseVisualStyleBackColor = false;
+            this.motor_PositionSet.Click += new System.EventHandler(this.motor_PositionSet_Click);
+            // 
+            // motor_MovingPosition
+            // 
+            this.motor_MovingPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_MovingPosition.Location = new System.Drawing.Point(213, 35);
+            this.motor_MovingPosition.Name = "motor_MovingPosition";
+            this.motor_MovingPosition.Size = new System.Drawing.Size(92, 21);
+            this.motor_MovingPosition.TabIndex = 30;
+            this.motor_MovingPosition.Text = "3";
+            this.motor_MovingPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.motor_MovingPosition.TextChanged += new System.EventHandler(this.motor_MovingPosition_TextChanged);
+            // 
+            // motor_PresentPosition
+            // 
+            this.motor_PresentPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_PresentPosition.Location = new System.Drawing.Point(6, 35);
+            this.motor_PresentPosition.Name = "motor_PresentPosition";
+            this.motor_PresentPosition.ReadOnly = true;
+            this.motor_PresentPosition.Size = new System.Drawing.Size(105, 21);
+            this.motor_PresentPosition.TabIndex = 29;
+            this.motor_PresentPosition.Text = "0";
+            this.motor_PresentPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.motor_PresentPosition.TextChanged += new System.EventHandler(this.motor_PresentPosition_TextChanged);
+            // 
+            // label_moving_position
+            // 
+            this.label_moving_position.AutoSize = true;
+            this.label_moving_position.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_moving_position.ForeColor = System.Drawing.Color.DimGray;
+            this.label_moving_position.Location = new System.Drawing.Point(210, 20);
+            this.label_moving_position.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_moving_position.Name = "label_moving_position";
+            this.label_moving_position.Size = new System.Drawing.Size(95, 13);
+            this.label_moving_position.TabIndex = 21;
+            this.label_moving_position.Text = "Moving Position";
+            // 
+            // label_present_position
+            // 
+            this.label_present_position.AutoSize = true;
+            this.label_present_position.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_present_position.ForeColor = System.Drawing.Color.DimGray;
+            this.label_present_position.Location = new System.Drawing.Point(5, 20);
+            this.label_present_position.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_present_position.Name = "label_present_position";
+            this.label_present_position.Size = new System.Drawing.Size(93, 13);
+            this.label_present_position.TabIndex = 19;
+            this.label_present_position.Text = "Present Position";
+            // 
+            // groupBox_motorConnectionInfo
+            // 
+            this.groupBox_motorConnectionInfo.Controls.Add(this.motor_ConnectionControl);
+            this.groupBox_motorConnectionInfo.Controls.Add(this.motor_ServoID);
+            this.groupBox_motorConnectionInfo.Controls.Add(this.motor_Comport);
+            this.groupBox_motorConnectionInfo.Controls.Add(this.label_servo_id);
+            this.groupBox_motorConnectionInfo.Controls.Add(this.label_motor_comport);
+            this.groupBox_motorConnectionInfo.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_motorConnectionInfo.Location = new System.Drawing.Point(6, 6);
+            this.groupBox_motorConnectionInfo.Name = "groupBox_motorConnectionInfo";
+            this.groupBox_motorConnectionInfo.Size = new System.Drawing.Size(454, 68);
+            this.groupBox_motorConnectionInfo.TabIndex = 1;
+            this.groupBox_motorConnectionInfo.TabStop = false;
+            this.groupBox_motorConnectionInfo.Text = "Motor System Connection INFO";
+            // 
+            // motor_ConnectionControl
+            // 
+            this.motor_ConnectionControl.BackColor = System.Drawing.Color.Black;
+            this.motor_ConnectionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.motor_ConnectionControl.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_ConnectionControl.ForeColor = System.Drawing.Color.Transparent;
+            this.motor_ConnectionControl.Location = new System.Drawing.Point(318, 18);
+            this.motor_ConnectionControl.Name = "motor_ConnectionControl";
+            this.motor_ConnectionControl.Size = new System.Drawing.Size(130, 39);
+            this.motor_ConnectionControl.TabIndex = 28;
+            this.motor_ConnectionControl.Text = "Connect";
+            this.motor_ConnectionControl.UseVisualStyleBackColor = false;
+            this.motor_ConnectionControl.Click += new System.EventHandler(this.motor_ConnectionControl_Click);
+            // 
+            // motor_ServoID
+            // 
+            this.motor_ServoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_ServoID.Location = new System.Drawing.Point(143, 36);
+            this.motor_ServoID.Name = "motor_ServoID";
+            this.motor_ServoID.Size = new System.Drawing.Size(128, 21);
+            this.motor_ServoID.TabIndex = 27;
+            this.motor_ServoID.Text = "3";
+            this.motor_ServoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.motor_ServoID.TextChanged += new System.EventHandler(this.motor_ServoID_TextChanged);
+            // 
+            // motor_Comport
+            // 
+            this.motor_Comport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.motor_Comport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.motor_Comport.FormattingEnabled = true;
+            this.motor_Comport.Location = new System.Drawing.Point(8, 36);
+            this.motor_Comport.Name = "motor_Comport";
+            this.motor_Comport.Size = new System.Drawing.Size(118, 21);
+            this.motor_Comport.TabIndex = 26;
+            this.motor_Comport.SelectedValueChanged += new System.EventHandler(this.motor_Comport_SelectedValueChanged);
+            // 
+            // label_servo_id
+            // 
+            this.label_servo_id.AutoSize = true;
+            this.label_servo_id.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_servo_id.ForeColor = System.Drawing.Color.DimGray;
+            this.label_servo_id.Location = new System.Drawing.Point(140, 20);
+            this.label_servo_id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_servo_id.Name = "label_servo_id";
+            this.label_servo_id.Size = new System.Drawing.Size(51, 13);
+            this.label_servo_id.TabIndex = 21;
+            this.label_servo_id.Text = "Servo ID";
+            // 
+            // label_motor_comport
+            // 
+            this.label_motor_comport.AutoSize = true;
+            this.label_motor_comport.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_motor_comport.ForeColor = System.Drawing.Color.DimGray;
+            this.label_motor_comport.Location = new System.Drawing.Point(5, 20);
+            this.label_motor_comport.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_motor_comport.Name = "label_motor_comport";
+            this.label_motor_comport.Size = new System.Drawing.Size(94, 13);
+            this.label_motor_comport.TabIndex = 19;
+            this.label_motor_comport.Text = "Motor Comport ";
             // 
             // MITS_SYSTEM
             // 
@@ -1812,6 +2034,11 @@
             this.groupBox9.PerformLayout();
             this.groupBox_HexToBinary.ResumeLayout(false);
             this.groupBox_HexToBinary.PerformLayout();
+            this.tabPage_motorControl.ResumeLayout(false);
+            this.groupBox_motorPositionInfo.ResumeLayout(false);
+            this.groupBox_motorPositionInfo.PerformLayout();
+            this.groupBox_motorConnectionInfo.ResumeLayout(false);
+            this.groupBox_motorConnectionInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1935,6 +2162,22 @@
         private System.Windows.Forms.Button Param_TestDataStart;
         private System.Windows.Forms.GroupBox groupBox_ImagingView;
         private System.Windows.Forms.PictureBox ImagingBox;
+        private System.Windows.Forms.TabPage tabPage_motorControl;
+        private System.Windows.Forms.GroupBox groupBox_motorConnectionInfo;
+        private System.Windows.Forms.Label label_servo_id;
+        private System.Windows.Forms.Label label_motor_comport;
+        private System.Windows.Forms.ComboBox motor_Comport;
+        private System.Windows.Forms.Button motor_ConnectionControl;
+        private System.Windows.Forms.TextBox motor_ServoID;
+        private System.Windows.Forms.GroupBox groupBox_motorPositionInfo;
+        private System.Windows.Forms.Label label_moving_position;
+        private System.Windows.Forms.Label label_present_position;
+        private System.Windows.Forms.TextBox motor_MovingPosition;
+        private System.Windows.Forms.TextBox motor_PresentPosition;
+        private System.Windows.Forms.Button motor_PositionReset;
+        private System.Windows.Forms.Button motor_PositionSet;
+        private System.Windows.Forms.Button motor_PositionCheck;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

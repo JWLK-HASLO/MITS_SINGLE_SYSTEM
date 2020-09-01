@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -55,9 +56,9 @@ namespace MITS_SINGLE_SYSTEM
             Console.WriteLine(String.Format("CH1_Mode_Stimul: {0}", CH1_Mode_Stimul.Checked));
         }
         //*/
-            
-            
-            
+
+
+
 
         //*/N of Scanline Changed
         private void CH1_Scanline_TextChanged(object sender, EventArgs e)
@@ -71,12 +72,12 @@ namespace MITS_SINGLE_SYSTEM
                 {
                     ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
                 }
-            } 
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Exepction : {0}", ex);
             }
-            
+
 
         }
         //*/
@@ -142,7 +143,7 @@ namespace MITS_SINGLE_SYSTEM
 
                 Console.WriteLine(String.Format("CH1_PulseDuration_data: {0}", CH1_PulseDuration_data));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Exception : {0}", ex);
             }
@@ -183,6 +184,8 @@ namespace MITS_SINGLE_SYSTEM
                         CH1_Rx_data = 0;
                         CH1_CM_Divider = 1;
                         CH1_CM_Length = 0 * CH1_CM_Divider;
+                        //BaseTool
+                        LPF_DECI_Load = File.ReadAllLines("LPF_DECI2.txt");
                         // ProcessingTool
                         getData = new double[CH1_CM_Length];
                         ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
@@ -202,6 +205,8 @@ namespace MITS_SINGLE_SYSTEM
                         CH1_Rx_data = 4096;
                         CH1_CM_Divider = 1;
                         CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        //BaseTool
+                        LPF_DECI_Load = File.ReadAllLines("LPF_DECI2.txt");
                         // ProcessingTool
                         getData = new double[CH1_CM_Length];
                         ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
@@ -222,6 +227,8 @@ namespace MITS_SINGLE_SYSTEM
                         CH1_Rx_data = 4096;
                         CH1_CM_Divider = 2;
                         CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        //BaseTool
+                        LPF_DECI_Load = File.ReadAllLines("LPF_DECI2.txt");
                         // ProcessingTool
                         getData = new double[CH1_CM_Length];
                         Envelope = new double[CH1_CM_Length / CH1_CM_Divider];
@@ -239,6 +246,8 @@ namespace MITS_SINGLE_SYSTEM
                         CH1_Rx_data = 4096;
                         CH1_CM_Divider = 3;
                         CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        //BaseTool
+                        LPF_DECI_Load = File.ReadAllLines("LPF_DECI3.txt");
                         // ProcessingTool
                         getData = new double[CH1_CM_Length];
                         ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
@@ -259,6 +268,8 @@ namespace MITS_SINGLE_SYSTEM
                         CH1_Rx_data = 8192;
                         CH1_CM_Divider = 4;
                         CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        //BaseTool
+                        LPF_DECI_Load = File.ReadAllLines("LPF_DECI4.txt");
                         // ProcessingTool
                         getData = new double[CH1_CM_Length];
                         ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
@@ -582,6 +593,10 @@ namespace MITS_SINGLE_SYSTEM
 
                 if (SCAN_Loop)
                 {
+                    //*/Motor Control
+                    Motor_MovingInterface(true);
+                    //*/
+
                     SendParameterReset();
                     CH1_ReisterSet();
                     GraphicImagingDataReset();
@@ -602,6 +617,10 @@ namespace MITS_SINGLE_SYSTEM
                 }
                 else
                 {
+                    //*/Motor Control
+                    Motor_MovingInterface(false);
+                    //*/
+
                     SendParameterReset();
                     setSaveDataFlag = true;
                     _8400_System_On = "84000001";
@@ -634,7 +653,6 @@ namespace MITS_SINGLE_SYSTEM
 
             MessageBox.Show("초기화 되었습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
     }
+
 }

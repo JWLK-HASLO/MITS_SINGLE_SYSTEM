@@ -98,10 +98,10 @@ namespace MITS_SINGLE_SYSTEM
                     TEST_DataArray[x][y] = (y + raiseCounter) % 4096;
                 }
             }
-            SignalProcessing(TEST_DataArray);
-
             //*/
-            if (!drawResultFlag)
+
+
+            if (!drawResultFlag && SignalProcessing(TEST_DataArray))
             {
                 drawResultFlag = true;
 

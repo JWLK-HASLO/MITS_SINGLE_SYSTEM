@@ -50,6 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSdllMightyZap">
+      <HintPath>.\CSdllMightyZap.dll</HintPath>
+    </Reference>
     <Reference Include="CyUSB">
       <HintPath>.\CyUSB.dll</HintPath>
     </Reference>
@@ -70,6 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterfaceSetting\MotorControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InterfaceSetting\FormSizeChanged.cs">
       <SubType>Form</SubType>
     </Compile>
