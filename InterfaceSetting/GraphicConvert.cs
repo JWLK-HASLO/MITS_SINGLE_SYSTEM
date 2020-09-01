@@ -35,7 +35,7 @@ namespace MITS_SINGLE_SYSTEM
                     ScanlineData = (bulkByteSaver[x][bulk + 3] << 8) + (bulkByteSaver[x][bulk + 2]);
                     ScanRealData = ((bulkByteSaver[x][bulk + 1] & 0x0F) << 8) + bulkByteSaver[x][bulk + 0];
 
-                    Console.WriteLine(String.Format("SCANLINE {0} / N of BULK {1}", ScanlineData, ScanRealData));
+                    //Console.WriteLine(String.Format("SCANLINE {0} / N of BULK {1}", ScanlineData, ScanRealData));
 
                     CH1_DataArray[x][y] = ScanRealData;
                 }

@@ -21,8 +21,14 @@ namespace MITS_SINGLE_SYSTEM
         short Position;
         int PresentPosition_Data;
         int SetMovingPosition_Data;
-        
 
+        //*/Rotaion Motor Control SET
+        string _A402_0010 = null;
+        string _A403_0063 = null;
+        string _A404_C34F = null;
+        string _A405_DIRE = null;
+        string _A400_0001 = null;
+        string _A400_0000 = null;
 
         private void MotorControlInit()
         {
@@ -98,6 +104,8 @@ namespace MITS_SINGLE_SYSTEM
          * Motor Tab Button Control 
          *
          */
+
+        //*/ Linear Motor
         private void motor_ConnectionControl_Click(object sender, EventArgs e)
         {
             Motor_ConnectionInterface(MotorConnection_Loop);
@@ -134,6 +142,49 @@ namespace MITS_SINGLE_SYSTEM
         private void motor_PositionSet_Click(object sender, EventArgs e)
         {
             MZap.goalPosition(ServoID, Position);
+        }
+
+
+        //*/ Rotation Motor
+        private void RotationMotorControl_HIFU_Click(object sender, EventArgs e)
+        {
+            SendParameterReset();
+
+            _A402_0010 = "A4020000";
+            _A403_0063 = "A4030063";
+            _A404_C34F = "A404C34F";
+            _A405_DIRE = "A4050000";
+            _A400_0001 = "A4000001";
+            _A400_0000 = "A4000000";
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A402_0010, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A403_0063, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A404_C34F, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A405_DIRE, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A400_0001, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A400_0000, styleHex); RegisterSequencyCounter++;
+
+            writeSendFlag = true;
+        }
+
+        private void RotationMotorControl_Imaging_Click(object sender, EventArgs e)
+        {
+            SendParameterReset();
+
+            _A402_0010 = "A4020000";
+            _A403_0063 = "A4030063";
+            _A404_C34F = "A404C34F";
+            _A405_DIRE = "A4050001";
+            _A400_0001 = "A4000001";
+            _A400_0000 = "A4000000";
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A402_0010, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A403_0063, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A404_C34F, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A405_DIRE, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A400_0001, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A400_0000, styleHex); RegisterSequencyCounter++;
+
+            writeSendFlag = true;
+
         }
 
 

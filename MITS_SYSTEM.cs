@@ -645,6 +645,7 @@ namespace MITS_SINGLE_SYSTEM
         private void CH1_Reset_Click(object sender, EventArgs e)
         {
             SendParameterReset();
+            CH1_SCANInterface(true);
 
             /*Draw Reset*/
             graphicDrawThread.Abort();

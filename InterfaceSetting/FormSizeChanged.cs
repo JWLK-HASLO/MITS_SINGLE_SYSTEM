@@ -14,12 +14,14 @@ namespace MITS_SINGLE_SYSTEM
         Bitmap bitmapRenew;
         int width_ImagingBox = 0;
         int height_ImagingBox = 0;
+        static int globalWidth = 400;
+        static int globalHeight = 1331;
 
         private void FormChangedInit()
         {
             width_ImagingBox = ImagingBox.Width;
             height_ImagingBox = ImagingBox.Height;
-            bitmapImaging = new Bitmap(10, 1331);
+            bitmapImaging = new Bitmap(globalWidth, globalHeight);
             bitmapRenew = bitmapImaging as Bitmap;
             ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }

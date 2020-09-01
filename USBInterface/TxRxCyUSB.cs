@@ -20,6 +20,7 @@ namespace MITS_SINGLE_SYSTEM
         bool drawResultFlag = false;    // DRAW (*IMG) data transfer Trigger
 
         int lastScanlineFinder = 0;
+        int dataCounter = 0;
         int bulkCounter = 0;
         byte[][] bulkByteSaver;
 
@@ -40,25 +41,33 @@ namespace MITS_SINGLE_SYSTEM
                 {
 
 
-                    //for (int i = 0; i < XFERSIZE; i += 4)
-                    //{
-                    //    lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
-                    //    //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
-                    //    //Console.WriteLine(scanRealData);
-                    //}
+                    for (int i = 0; i < XFERSIZE; i += 4)
+                    {
+                        lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
+                        //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
+                        //Console.WriteLine(scanRealData);
+                    }
 
                     for (int i = 0; i < XFERSIZE; i++)
                     {
                         bulkByteSaver[bulkCounter][i] = inData[i];
                         //Console.WriteLine("{0} / {1}", bulkCounter, i);
+                        dataCounter++;
                     }
 
-                    if (bulkCounter == (CH1_Scanline_data - 1))
+                    if (lastScanlineFinder == (CH1_Scanline_data - 1) && dataCounter == 16384)
                     {
                         Param_ScanlineTotalViewFunction();
                         setSaveDataFlag = false;
                         convertDataFlag = true;
                     }
+
+                    //if (bulkCounter == (CH1_Scanline_data - 1))
+                    //{
+                    //    Param_ScanlineTotalViewFunction();
+                    //    setSaveDataFlag = false;
+                    //    convertDataFlag = true;
+                    //}
 
                     if (convertDataFlag)
                     {
@@ -73,6 +82,11 @@ namespace MITS_SINGLE_SYSTEM
                     //*/ Bulk Counter
                     //Console.WriteLine("bulkCounter {0}", bulkCounter);
                     bulkCounter++;
+
+                    if (dataCounter == 16384)
+                    {
+                        dataCounter = 0;
+                    }
 
                 }
 
@@ -158,10 +172,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             rgbIndex = 0;
             rgb = Color.FromArgb(0, 0, 0);
-
-            width_ImagingBox = ImagingBox.Width;
-            height_ImagingBox = ImagingBox.Height;
-            bitmapImaging = new Bitmap(10, 1331);
+            bitmapImaging = new Bitmap(globalWidth, globalHeight);
             bitmapRenew = bitmapImaging as Bitmap;
             ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
             ImagingBox.Image = bitmapRenew;

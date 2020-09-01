@@ -43,43 +43,49 @@
             this.ParameterGroup = new System.Windows.Forms.GroupBox();
             this.tabMainControl = new System.Windows.Forms.TabControl();
             this.tabPage1_main = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.RotationMotorControl_Imaging = new System.Windows.Forms.Button();
+            this.RotationMotorControl_HIFU = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.groupBox_CH2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox_CH2_HV = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox_CH2_ModeSelect = new System.Windows.Forms.GroupBox();
+            this.CH2_Mode_Stimul = new System.Windows.Forms.RadioButton();
+            this.CH2_Mode_Imaging = new System.Windows.Forms.RadioButton();
+            this.groupBox_CH2_AFE = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox_CH2_TxParameter = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CH2_PRF = new System.Windows.Forms.TextBox();
+            this.CH2_label_PRF = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.CH2_Scanline = new System.Windows.Forms.TextBox();
+            this.CH2_label_CF = new System.Windows.Forms.Label();
+            this.CH2_label_Scanline = new System.Windows.Forms.Label();
             this.groupBox_CH1 = new System.Windows.Forms.GroupBox();
             this.CH1_Reset = new System.Windows.Forms.Button();
             this.CH1_ScanControl = new System.Windows.Forms.Button();
@@ -169,11 +175,13 @@
             this.ParameterGroup.SuspendLayout();
             this.tabMainControl.SuspendLayout();
             this.tabPage1_main.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox_CH2.SuspendLayout();
+            this.groupBox_CH2_HV.SuspendLayout();
+            this.groupBox_CH2_ModeSelect.SuspendLayout();
+            this.groupBox_CH2_AFE.SuspendLayout();
+            this.groupBox_CH2_TxParameter.SuspendLayout();
             this.groupBox_CH1.SuspendLayout();
             this.groupBox_CH1_HV.SuspendLayout();
             this.groupBox_CH1_ModeSelect.SuspendLayout();
@@ -379,7 +387,9 @@
             // tabPage1_main
             // 
             this.tabPage1_main.BackColor = System.Drawing.Color.White;
+            this.tabPage1_main.Controls.Add(this.groupBox5);
             this.tabPage1_main.Controls.Add(this.groupBox1);
+            this.tabPage1_main.Controls.Add(this.groupBox_CH2);
             this.tabPage1_main.Controls.Add(this.groupBox_CH1);
             this.tabPage1_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tabPage1_main.Location = new System.Drawing.Point(4, 34);
@@ -390,22 +400,100 @@
             this.tabPage1_main.TabIndex = 5;
             this.tabPage1_main.Text = "MAIN";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.RotationMotorControl_Imaging);
+            this.groupBox5.Controls.Add(this.RotationMotorControl_HIFU);
+            this.groupBox5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupBox5.Location = new System.Drawing.Point(239, 614);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(222, 63);
+            this.groupBox5.TabIndex = 26;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Roatation Motor Control";
+            // 
+            // RotationMotorControl_Imaging
+            // 
+            this.RotationMotorControl_Imaging.BackColor = System.Drawing.Color.Navy;
+            this.RotationMotorControl_Imaging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RotationMotorControl_Imaging.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.RotationMotorControl_Imaging.ForeColor = System.Drawing.Color.Transparent;
+            this.RotationMotorControl_Imaging.Location = new System.Drawing.Point(113, 21);
+            this.RotationMotorControl_Imaging.Name = "RotationMotorControl_Imaging";
+            this.RotationMotorControl_Imaging.Size = new System.Drawing.Size(103, 35);
+            this.RotationMotorControl_Imaging.TabIndex = 35;
+            this.RotationMotorControl_Imaging.Text = "IMAGING";
+            this.RotationMotorControl_Imaging.UseVisualStyleBackColor = false;
+            this.RotationMotorControl_Imaging.Click += new System.EventHandler(this.RotationMotorControl_Imaging_Click);
+            // 
+            // RotationMotorControl_HIFU
+            // 
+            this.RotationMotorControl_HIFU.BackColor = System.Drawing.Color.Red;
+            this.RotationMotorControl_HIFU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RotationMotorControl_HIFU.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.RotationMotorControl_HIFU.ForeColor = System.Drawing.Color.Transparent;
+            this.RotationMotorControl_HIFU.Location = new System.Drawing.Point(6, 21);
+            this.RotationMotorControl_HIFU.Name = "RotationMotorControl_HIFU";
+            this.RotationMotorControl_HIFU.Size = new System.Drawing.Size(103, 35);
+            this.RotationMotorControl_HIFU.TabIndex = 34;
+            this.RotationMotorControl_HIFU.Text = "HIFU";
+            this.RotationMotorControl_HIFU.UseVisualStyleBackColor = false;
+            this.RotationMotorControl_HIFU.Click += new System.EventHandler(this.RotationMotorControl_HIFU_Click);
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.groupBox5);
-            this.groupBox1.Controls.Add(this.groupBox6);
-            this.groupBox1.Controls.Add(this.groupBox8);
-            this.groupBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(5, 305);
+            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(11, 614);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 300);
-            this.groupBox1.TabIndex = 24;
+            this.groupBox1.Size = new System.Drawing.Size(222, 63);
+            this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Channel 2";
+            this.groupBox1.Text = "Linear Motor Control";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Black;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.button7.ForeColor = System.Drawing.Color.Transparent;
+            this.button7.Location = new System.Drawing.Point(113, 21);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(103, 35);
+            this.button7.TabIndex = 34;
+            this.button7.Text = "MOVE";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.button5.ForeColor = System.Drawing.Color.Transparent;
+            this.button5.Location = new System.Drawing.Point(6, 21);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(103, 35);
+            this.button5.TabIndex = 33;
+            this.button5.Text = "RSET";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // groupBox_CH2
+            // 
+            this.groupBox_CH2.Controls.Add(this.button1);
+            this.groupBox_CH2.Controls.Add(this.button2);
+            this.groupBox_CH2.Controls.Add(this.button3);
+            this.groupBox_CH2.Controls.Add(this.groupBox_CH2_HV);
+            this.groupBox_CH2.Controls.Add(this.groupBox_CH2_ModeSelect);
+            this.groupBox_CH2.Controls.Add(this.groupBox_CH2_AFE);
+            this.groupBox_CH2.Controls.Add(this.groupBox_CH2_TxParameter);
+            this.groupBox_CH2.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_CH2.Location = new System.Drawing.Point(5, 311);
+            this.groupBox_CH2.Name = "groupBox_CH2";
+            this.groupBox_CH2.Size = new System.Drawing.Size(456, 300);
+            this.groupBox_CH2.TabIndex = 24;
+            this.groupBox_CH2.TabStop = false;
+            this.groupBox_CH2.Text = "Channel 2";
             // 
             // button1
             // 
@@ -422,7 +510,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -430,12 +518,13 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 31);
             this.button2.TabIndex = 1029;
-            this.button2.Text = "SCAN START";
+            this.button2.Text = "SCAN SET";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.button3.Enabled = false;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
@@ -446,22 +535,22 @@
             this.button3.Text = "Pulser ON";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // groupBox2
+            // groupBox_CH2_HV
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(271, 133);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(182, 124);
-            this.groupBox2.TabIndex = 26;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "High Voltage";
+            this.groupBox_CH2_HV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_CH2_HV.Controls.Add(this.button4);
+            this.groupBox_CH2_HV.Controls.Add(this.label1);
+            this.groupBox_CH2_HV.Controls.Add(this.textBox1);
+            this.groupBox_CH2_HV.Controls.Add(this.radioButton1);
+            this.groupBox_CH2_HV.Controls.Add(this.radioButton2);
+            this.groupBox_CH2_HV.Controls.Add(this.groupBox3);
+            this.groupBox_CH2_HV.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_CH2_HV.Location = new System.Drawing.Point(271, 133);
+            this.groupBox_CH2_HV.Name = "groupBox_CH2_HV";
+            this.groupBox_CH2_HV.Size = new System.Drawing.Size(182, 124);
+            this.groupBox_CH2_HV.TabIndex = 26;
+            this.groupBox_CH2_HV.TabStop = false;
+            this.groupBox_CH2_HV.Text = "High Voltage";
             // 
             // button4
             // 
@@ -476,17 +565,17 @@
             this.button4.Text = "HV ON";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(5, 54);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
-            this.label2.TabIndex = 1026;
-            this.label2.Text = "Voltage Level (V)";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(5, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.TabIndex = 1026;
+            this.label1.Text = "Voltage Level (V)";
             // 
             // textBox1
             // 
@@ -533,94 +622,94 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mode Select";
             // 
-            // groupBox5
+            // groupBox_CH2_ModeSelect
             // 
-            this.groupBox5.Controls.Add(this.radioButton3);
-            this.groupBox5.Controls.Add(this.radioButton4);
-            this.groupBox5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox5.Location = new System.Drawing.Point(6, 21);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(258, 46);
-            this.groupBox5.TabIndex = 25;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Mode Select";
+            this.groupBox_CH2_ModeSelect.Controls.Add(this.CH2_Mode_Stimul);
+            this.groupBox_CH2_ModeSelect.Controls.Add(this.CH2_Mode_Imaging);
+            this.groupBox_CH2_ModeSelect.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_CH2_ModeSelect.Location = new System.Drawing.Point(6, 21);
+            this.groupBox_CH2_ModeSelect.Name = "groupBox_CH2_ModeSelect";
+            this.groupBox_CH2_ModeSelect.Size = new System.Drawing.Size(258, 46);
+            this.groupBox_CH2_ModeSelect.TabIndex = 25;
+            this.groupBox_CH2_ModeSelect.TabStop = false;
+            this.groupBox_CH2_ModeSelect.Text = "Mode Select";
             // 
-            // radioButton3
+            // CH2_Mode_Stimul
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(95, 20);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(74, 16);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.Text = "STIMUL";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.CH2_Mode_Stimul.AutoSize = true;
+            this.CH2_Mode_Stimul.Location = new System.Drawing.Point(95, 20);
+            this.CH2_Mode_Stimul.Name = "CH2_Mode_Stimul";
+            this.CH2_Mode_Stimul.Size = new System.Drawing.Size(74, 16);
+            this.CH2_Mode_Stimul.TabIndex = 1;
+            this.CH2_Mode_Stimul.Text = "STIMUL";
+            this.CH2_Mode_Stimul.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // CH2_Mode_Imaging
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton4.Location = new System.Drawing.Point(8, 20);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(81, 16);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "IMAGING";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.CH2_Mode_Imaging.AutoSize = true;
+            this.CH2_Mode_Imaging.Checked = true;
+            this.CH2_Mode_Imaging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CH2_Mode_Imaging.Location = new System.Drawing.Point(8, 20);
+            this.CH2_Mode_Imaging.Name = "CH2_Mode_Imaging";
+            this.CH2_Mode_Imaging.Size = new System.Drawing.Size(81, 16);
+            this.CH2_Mode_Imaging.TabIndex = 0;
+            this.CH2_Mode_Imaging.TabStop = true;
+            this.CH2_Mode_Imaging.Text = "IMAGING";
+            this.CH2_Mode_Imaging.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // groupBox_CH2_AFE
             // 
-            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox6.Controls.Add(this.label3);
-            this.groupBox6.Controls.Add(this.label4);
-            this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.comboBox1);
-            this.groupBox6.Controls.Add(this.comboBox2);
-            this.groupBox6.Controls.Add(this.comboBox3);
-            this.groupBox6.Controls.Add(this.groupBox7);
-            this.groupBox6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox6.Location = new System.Drawing.Point(270, 10);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(182, 117);
-            this.groupBox6.TabIndex = 24;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "AFE Parameter";
+            this.groupBox_CH2_AFE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_CH2_AFE.Controls.Add(this.label2);
+            this.groupBox_CH2_AFE.Controls.Add(this.label3);
+            this.groupBox_CH2_AFE.Controls.Add(this.label4);
+            this.groupBox_CH2_AFE.Controls.Add(this.comboBox1);
+            this.groupBox_CH2_AFE.Controls.Add(this.comboBox2);
+            this.groupBox_CH2_AFE.Controls.Add(this.comboBox3);
+            this.groupBox_CH2_AFE.Controls.Add(this.groupBox7);
+            this.groupBox_CH2_AFE.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_CH2_AFE.Location = new System.Drawing.Point(270, 10);
+            this.groupBox_CH2_AFE.Name = "groupBox_CH2_AFE";
+            this.groupBox_CH2_AFE.Size = new System.Drawing.Size(182, 117);
+            this.groupBox_CH2_AFE.TabIndex = 24;
+            this.groupBox_CH2_AFE.TabStop = false;
+            this.groupBox_CH2_AFE.Text = "AFE Parameter";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(6, 78);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "ADC Gain";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(6, 78);
+            this.label3.Location = new System.Drawing.Point(6, 49);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "ADC Gain";
+            this.label3.TabIndex = 48;
+            this.label3.Text = "PGA Gain";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(6, 49);
+            this.label4.Location = new System.Drawing.Point(6, 23);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 48;
-            this.label4.Text = "PGA Gain";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(6, 23);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 47;
-            this.label5.Text = "LPF SET";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "LPF SET";
             // 
             // comboBox1
             // 
@@ -684,30 +773,30 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Mode Select";
             // 
-            // groupBox8
+            // groupBox_CH2_TxParameter
             // 
-            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox8.Controls.Add(this.textBox2);
-            this.groupBox8.Controls.Add(this.label6);
-            this.groupBox8.Controls.Add(this.textBox3);
-            this.groupBox8.Controls.Add(this.label7);
-            this.groupBox8.Controls.Add(this.textBox4);
-            this.groupBox8.Controls.Add(this.label8);
-            this.groupBox8.Controls.Add(this.label9);
-            this.groupBox8.Controls.Add(this.comboBox4);
-            this.groupBox8.Controls.Add(this.comboBox5);
-            this.groupBox8.Controls.Add(this.label10);
-            this.groupBox8.Controls.Add(this.comboBox6);
-            this.groupBox8.Controls.Add(this.textBox5);
-            this.groupBox8.Controls.Add(this.label11);
-            this.groupBox8.Controls.Add(this.label12);
-            this.groupBox8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox8.Location = new System.Drawing.Point(6, 73);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(258, 184);
-            this.groupBox8.TabIndex = 23;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Tx Parameter";
+            this.groupBox_CH2_TxParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_CH2_TxParameter.Controls.Add(this.textBox2);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.label5);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.textBox3);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.label6);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.CH2_PRF);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.CH2_label_PRF);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.label8);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.comboBox4);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.comboBox5);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.label9);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.comboBox6);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.CH2_Scanline);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.CH2_label_CF);
+            this.groupBox_CH2_TxParameter.Controls.Add(this.CH2_label_Scanline);
+            this.groupBox_CH2_TxParameter.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_CH2_TxParameter.Location = new System.Drawing.Point(6, 73);
+            this.groupBox_CH2_TxParameter.Name = "groupBox_CH2_TxParameter";
+            this.groupBox_CH2_TxParameter.Size = new System.Drawing.Size(258, 184);
+            this.groupBox_CH2_TxParameter.TabIndex = 23;
+            this.groupBox_CH2_TxParameter.TabStop = false;
+            this.groupBox_CH2_TxParameter.Text = "Tx Parameter";
             // 
             // textBox2
             // 
@@ -716,22 +805,21 @@
             this.textBox2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox2.Location = new System.Drawing.Point(166, 136);
             this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(86, 14);
             this.textBox2.TabIndex = 1028;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label6
+            // label5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(5, 136);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 13);
-            this.label6.TabIndex = 1027;
-            this.label6.Text = "Dynamic Range (dB)";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
+            this.label5.Location = new System.Drawing.Point(5, 136);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 13);
+            this.label5.TabIndex = 1027;
+            this.label5.Text = "Dynamic Range (dB)";
             // 
             // textBox3
             // 
@@ -740,64 +828,63 @@
             this.textBox3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox3.Location = new System.Drawing.Point(166, 112);
             this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(86, 14);
             this.textBox3.TabIndex = 1026;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label7
+            // label6
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(5, 112);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(146, 13);
-            this.label7.TabIndex = 1025;
-            this.label7.Text = "Pulse Duration (micro sec)";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(5, 112);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 13);
+            this.label6.TabIndex = 1025;
+            this.label6.Text = "Pulse Duration (micro sec)";
             // 
-            // textBox4
+            // CH2_PRF
             // 
-            this.textBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox4.Location = new System.Drawing.Point(166, 40);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(86, 14);
-            this.textBox4.TabIndex = 1024;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CH2_PRF.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CH2_PRF.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CH2_PRF.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.CH2_PRF.Location = new System.Drawing.Point(166, 40);
+            this.CH2_PRF.Name = "CH2_PRF";
+            this.CH2_PRF.Size = new System.Drawing.Size(86, 14);
+            this.CH2_PRF.TabIndex = 1024;
+            this.CH2_PRF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // CH2_label_PRF
+            // 
+            this.CH2_label_PRF.AutoSize = true;
+            this.CH2_label_PRF.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.CH2_label_PRF.ForeColor = System.Drawing.Color.DimGray;
+            this.CH2_label_PRF.Location = new System.Drawing.Point(5, 41);
+            this.CH2_label_PRF.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CH2_label_PRF.Name = "CH2_label_PRF";
+            this.CH2_label_PRF.Size = new System.Drawing.Size(52, 13);
+            this.CH2_label_PRF.TabIndex = 1023;
+            this.CH2_label_PRF.Text = "PRF (Hz)";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(5, 41);
+            this.label8.Location = new System.Drawing.Point(5, 160);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 1023;
-            this.label8.Text = "PRF (Hz)";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(5, 160);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 13);
-            this.label9.TabIndex = 1022;
-            this.label9.Text = "View Depth (cm)";
+            this.label8.Size = new System.Drawing.Size(95, 13);
+            this.label8.TabIndex = 1022;
+            this.label8.Text = "View Depth (cm)";
             // 
             // comboBox4
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
-            "No receive",
+            "None",
             "~1cm",
             "~2cm",
             "~3cm",
@@ -821,17 +908,17 @@
             this.comboBox5.Size = new System.Drawing.Size(86, 20);
             this.comboBox5.TabIndex = 1021;
             // 
-            // label10
+            // label9
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.ForeColor = System.Drawing.Color.DimGray;
-            this.label10.Location = new System.Drawing.Point(5, 89);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 13);
-            this.label10.TabIndex = 1019;
-            this.label10.Text = "Pulse Cycles (N)";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.ForeColor = System.Drawing.Color.DimGray;
+            this.label9.Location = new System.Drawing.Point(5, 89);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(92, 13);
+            this.label9.TabIndex = 1019;
+            this.label9.Text = "Pulse Cycles (N)";
             // 
             // comboBox6
             // 
@@ -864,40 +951,40 @@
             this.comboBox6.Size = new System.Drawing.Size(86, 20);
             this.comboBox6.TabIndex = 1018;
             // 
-            // textBox5
+            // CH2_Scanline
             // 
-            this.textBox5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox5.Location = new System.Drawing.Point(166, 20);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(86, 14);
-            this.textBox5.TabIndex = 20;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.CH2_Scanline.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CH2_Scanline.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CH2_Scanline.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.CH2_Scanline.Location = new System.Drawing.Point(166, 20);
+            this.CH2_Scanline.Name = "CH2_Scanline";
+            this.CH2_Scanline.Size = new System.Drawing.Size(86, 14);
+            this.CH2_Scanline.TabIndex = 20;
+            this.CH2_Scanline.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label11
+            // CH2_label_CF
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(5, 63);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(135, 13);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Center Frequency (MHz)";
+            this.CH2_label_CF.AutoSize = true;
+            this.CH2_label_CF.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.CH2_label_CF.ForeColor = System.Drawing.Color.DimGray;
+            this.CH2_label_CF.Location = new System.Drawing.Point(5, 63);
+            this.CH2_label_CF.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CH2_label_CF.Name = "CH2_label_CF";
+            this.CH2_label_CF.Size = new System.Drawing.Size(135, 13);
+            this.CH2_label_CF.TabIndex = 19;
+            this.CH2_label_CF.Text = "Center Frequency (MHz)";
             // 
-            // label12
+            // CH2_label_Scanline
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(5, 22);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 13);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "N of Scanline";
+            this.CH2_label_Scanline.AutoSize = true;
+            this.CH2_label_Scanline.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.CH2_label_Scanline.ForeColor = System.Drawing.Color.DimGray;
+            this.CH2_label_Scanline.Location = new System.Drawing.Point(5, 22);
+            this.CH2_label_Scanline.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CH2_label_Scanline.Name = "CH2_label_Scanline";
+            this.CH2_label_Scanline.Size = new System.Drawing.Size(78, 13);
+            this.CH2_label_Scanline.TabIndex = 18;
+            this.CH2_label_Scanline.Text = "N of Scanline";
             // 
             // groupBox_CH1
             // 
@@ -2003,15 +2090,17 @@
             this.ParameterGroup.ResumeLayout(false);
             this.tabMainControl.ResumeLayout(false);
             this.tabPage1_main.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox_CH2.ResumeLayout(false);
+            this.groupBox_CH2_HV.ResumeLayout(false);
+            this.groupBox_CH2_HV.PerformLayout();
+            this.groupBox_CH2_ModeSelect.ResumeLayout(false);
+            this.groupBox_CH2_ModeSelect.PerformLayout();
+            this.groupBox_CH2_AFE.ResumeLayout(false);
+            this.groupBox_CH2_AFE.PerformLayout();
+            this.groupBox_CH2_TxParameter.ResumeLayout(false);
+            this.groupBox_CH2_TxParameter.PerformLayout();
             this.groupBox_CH1.ResumeLayout(false);
             this.groupBox_CH1_HV.ResumeLayout(false);
             this.groupBox_CH1_HV.PerformLayout();
@@ -2099,43 +2188,6 @@
         private System.Windows.Forms.TextBox Param_BinaryNumber;
         private System.Windows.Forms.Label label_ParamHexNumber;
         private System.Windows.Forms.TextBox Param_HexNumber;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox CH1_DynamicRange;
         private System.Windows.Forms.Label CH1_label_DynamicRange;
         private System.Windows.Forms.GroupBox groupBox9;
@@ -2177,6 +2229,49 @@
         private System.Windows.Forms.Button motor_PositionSet;
         private System.Windows.Forms.Button motor_PositionCheck;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox_CH2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox_CH2_HV;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox_CH2_ModeSelect;
+        private System.Windows.Forms.RadioButton CH2_Mode_Stimul;
+        private System.Windows.Forms.RadioButton CH2_Mode_Imaging;
+        private System.Windows.Forms.GroupBox groupBox_CH2_AFE;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox_CH2_TxParameter;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox CH2_PRF;
+        private System.Windows.Forms.Label CH2_label_PRF;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.TextBox CH2_Scanline;
+        private System.Windows.Forms.Label CH2_label_CF;
+        private System.Windows.Forms.Label CH2_label_Scanline;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button RotationMotorControl_Imaging;
+        private System.Windows.Forms.Button RotationMotorControl_HIFU;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button5;
     }
 }
 

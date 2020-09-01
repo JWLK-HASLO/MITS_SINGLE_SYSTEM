@@ -121,13 +121,16 @@ namespace MITS_SINGLE_SYSTEM
         bool CH1_HV_Select = true;
         int CH1_HV_data = 0;
         //*/
+
+
+
         
         public void CH1_ParameterInit()
         {
             //*/TxParameter Init
             CH1_ModeSelect(true);
-            CH1_Scanline.Text = "10";
-            CH1_PRF.Text = "100";
+            CH1_Scanline.Text = "400";
+            CH1_PRF.Text = "500";
             CH1_CF.Text = "20";
             CH1_PulseCycles.Text = "2";
             CH1_PulseDuration.Text = "10";
