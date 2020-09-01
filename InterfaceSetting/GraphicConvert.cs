@@ -42,9 +42,10 @@ namespace MITS_SINGLE_SYSTEM
             }
             //Console.WriteLine("Data Convert Complete");
             
-            SignalProcessing(CH1_DataArray);
+            //SignalProcessing(CH1_DataArray);
+            
             //Draw Flag
-            if (!drawResultFlag)
+            if (!drawResultFlag && SignalProcessing(CH1_DataArray))
             {
                 drawResultFlag = true;
 

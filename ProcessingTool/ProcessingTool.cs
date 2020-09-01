@@ -25,7 +25,7 @@ namespace MITS_SINGLE_SYSTEM
         double[] cos;
         double[] sin;
 
-        private void SignalProcessing(int[][] dataArray)
+        public bool SignalProcessing(int[][] dataArray)
         {
 
             ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
@@ -75,8 +75,8 @@ namespace MITS_SINGLE_SYSTEM
                 }
 
                 Array.Copy(ScanlineConvertData, 0, ConvertSaveArray[x], 0, CH1_CM_Length / CH1_CM_Divider);
-
             }
+            return true;
 
 
         }

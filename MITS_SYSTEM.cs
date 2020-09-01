@@ -584,6 +584,7 @@ namespace MITS_SINGLE_SYSTEM
                 {
                     SendParameterReset();
                     CH1_ReisterSet();
+                    GraphicImagingDataReset();
                     //*/ Test Data
                     //*/
                     writeSendFlag = true;

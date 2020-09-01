@@ -128,7 +128,7 @@ namespace MITS_SINGLE_SYSTEM
             CH1_ModeSelect(true);
             CH1_Scanline.Text = "10";
             CH1_PRF.Text = "100";
-            CH1_CF.Text = "2";
+            CH1_CF.Text = "20";
             CH1_PulseCycles.Text = "2";
             CH1_PulseDuration.Text = "10";
             CH1_DynamicRange.Text = "50";
