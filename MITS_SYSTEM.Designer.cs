@@ -1802,6 +1802,7 @@
             this.groupBox_motorPositionInfo.Controls.Add(this.motor_PresentPosition);
             this.groupBox_motorPositionInfo.Controls.Add(this.label_moving_position);
             this.groupBox_motorPositionInfo.Controls.Add(this.label_present_position);
+            this.groupBox_motorPositionInfo.Enabled = false;
             this.groupBox_motorPositionInfo.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox_motorPositionInfo.Location = new System.Drawing.Point(6, 80);
             this.groupBox_motorPositionInfo.Name = "groupBox_motorPositionInfo";
@@ -1867,7 +1868,6 @@
             this.motor_MovingPosition.Name = "motor_MovingPosition";
             this.motor_MovingPosition.Size = new System.Drawing.Size(92, 21);
             this.motor_MovingPosition.TabIndex = 30;
-            this.motor_MovingPosition.Text = "3";
             this.motor_MovingPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.motor_MovingPosition.TextChanged += new System.EventHandler(this.motor_MovingPosition_TextChanged);
             // 
@@ -1879,7 +1879,6 @@
             this.motor_PresentPosition.ReadOnly = true;
             this.motor_PresentPosition.Size = new System.Drawing.Size(105, 21);
             this.motor_PresentPosition.TabIndex = 29;
-            this.motor_PresentPosition.Text = "0";
             this.motor_PresentPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.motor_PresentPosition.TextChanged += new System.EventHandler(this.motor_PresentPosition_TextChanged);
             // 
@@ -1941,9 +1940,9 @@
             this.motor_ServoID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.motor_ServoID.Location = new System.Drawing.Point(143, 36);
             this.motor_ServoID.Name = "motor_ServoID";
+            this.motor_ServoID.ReadOnly = true;
             this.motor_ServoID.Size = new System.Drawing.Size(128, 21);
             this.motor_ServoID.TabIndex = 27;
-            this.motor_ServoID.Text = "3";
             this.motor_ServoID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.motor_ServoID.TextChanged += new System.EventHandler(this.motor_ServoID_TextChanged);
             // 

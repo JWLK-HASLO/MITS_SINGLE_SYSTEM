@@ -30,6 +30,7 @@ namespace MITS_SINGLE_SYSTEM
             GraphicConvertInit();
             color_initialize();
             timer_initialize();
+            MotorControlInit();
 
         }
 

@@ -36,6 +36,7 @@ namespace MITS_SINGLE_SYSTEM
             //*/
 
             //*/ Motor Parameter Init
+            motor_ServoID.Text = "3";
             BaudRate = "57600";
             BaudRate_Data = Convert.ToInt32(BaudRate);
             motor_Comport.SelectedItem = "COM25";
@@ -58,7 +59,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             try
             {
-                ServoID = Byte.Parse(string.Format("{0:D}", motor_ServoID.Text), styleInteger);
+                ServoID = Byte.Parse(motor_ServoID.Text);
                 Console.WriteLine(String.Format("ServoID: {0:D}", ServoID));
             }
             catch (Exception ex)
@@ -106,19 +107,23 @@ namespace MITS_SINGLE_SYSTEM
                 MZapTemp = MZap.read_Addr(ServoID, 140, 2);
                 motor_PresentPosition.Clear();
                 motor_MovingPosition.Clear();
-                motor_PresentPosition.AppendText(MZapTemp.ToString());
-                motor_MovingPosition.AppendText(MZapTemp.ToString());
+                motor_PresentPosition.Text = MZapTemp.ToString();
+                motor_MovingPosition.Text = MZapTemp.ToString();
+                groupBox_motorPositionInfo.Enabled = true;
             }
             else
             {
                 MZap.CloseMightyZap();
+                motor_PresentPosition.Clear();
+                motor_MovingPosition.Clear();
+                groupBox_motorPositionInfo.Enabled = false;
             }
         }
 
         private void motor_PositionCheck_Click(object sender, EventArgs e)
         {
             motor_PresentPosition.Clear();
-            motor_PresentPosition.AppendText(MZap.presentPosition(ServoID).ToString());
+            motor_PresentPosition.Text = MZap.presentPosition(ServoID).ToString();
         }
 
         private void motor_PositionReset_Click(object sender, EventArgs e)
@@ -171,13 +176,11 @@ namespace MITS_SINGLE_SYSTEM
                     Position = (short)Convert.ToInt16("2000");
                     MZap.goalPosition(ServoID, Position);
                     MotorMoving_Loop = true;
-                    MotorConnection_Loop = true;
                 }
                 else if (ClickCheck == true)
                 {
                     MZap.goalPosition(ServoID, 0);
                     MotorMoving_Loop = false;
-                    MotorConnection_Loop = false;
                 }
             }
 
