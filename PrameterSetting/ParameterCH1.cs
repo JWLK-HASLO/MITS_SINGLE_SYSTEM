@@ -387,9 +387,10 @@ namespace MITS_SINGLE_SYSTEM
             CH1_HVLoad();
             CH1_HVInterface(false);
 
-            //8005_DebugMode
+            /*/8005_DebugMode
             _8005_DebugMode = "80050001";
             Tx_data[RegisterSequencyCounter] = int.Parse(_8005_DebugMode, styleHex); RegisterSequencyCounter++;
+            //*/
 
             CH1_TxParameterLoad();
             CH1_AFELoad();

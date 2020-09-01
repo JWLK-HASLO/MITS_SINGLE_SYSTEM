@@ -70,6 +70,7 @@ namespace MITS_SINGLE_SYSTEM
                     if (Envelope[i] >= xMin && Envelope[i] <= xMax)
                     {
                         ScanlineConvertData[i] = yMax / LogRange * Math.Log10(Envelope[i] / xMin);
+                        //Console.WriteLine(String.Format("SCANLINE {0} / N of BULK {1}", ScanlineData, ScanRealData));
                     }
                 }
 

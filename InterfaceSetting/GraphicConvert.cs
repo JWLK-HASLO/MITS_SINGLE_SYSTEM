@@ -41,13 +41,15 @@ namespace MITS_SINGLE_SYSTEM
                 }
             }
             //Console.WriteLine("Data Convert Complete");
-            //SignalProcessing(CH1_DataArray);
+            
+            SignalProcessing(CH1_DataArray);
             //Draw Flag
             if (!drawResultFlag)
             {
                 drawResultFlag = true;
 
             }
+
         }
 
         /* TEST DATA INIT */

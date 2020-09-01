@@ -594,7 +594,7 @@ namespace MITS_SINGLE_SYSTEM
                     {
                         graphicDrawThread = new Thread(new ThreadStart(DrawThread));
                         graphicDrawThread.IsBackground = true;
-                        graphicDrawThread.Priority = ThreadPriority.Highest;
+                        graphicDrawThread.Priority = ThreadPriority.Normal;
                         graphicDrawThread.Start();
                     }
                     //*/
@@ -605,6 +605,10 @@ namespace MITS_SINGLE_SYSTEM
                     setSaveDataFlag = true;
                     _8400_System_On = "84000001";
                     Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+
                     _8400_System_On = "84000000";
                     Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
                     writeSendFlag = true;
@@ -620,7 +624,14 @@ namespace MITS_SINGLE_SYSTEM
         private void CH1_Reset_Click(object sender, EventArgs e)
         {
             SendParameterReset();
+
+            /*Draw Reset*/
+            graphicDrawThread.Abort();
+            graphicDrawThread.Join();
+            graphicDrawThread = null;
             GraphicImagingDataReset();
+
+            MessageBox.Show("초기화 되었습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 

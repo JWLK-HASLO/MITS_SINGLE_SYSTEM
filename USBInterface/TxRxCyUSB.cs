@@ -40,12 +40,12 @@ namespace MITS_SINGLE_SYSTEM
                 {
 
 
-                    for (int i = 0; i < XFERSIZE; i += 4)
-                    {
-                        lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
-                        //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
-                        //Console.WriteLine(scanRealData);
-                    }
+                    //for (int i = 0; i < XFERSIZE; i += 4)
+                    //{
+                    //    lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
+                    //    //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
+                    //    //Console.WriteLine(scanRealData);
+                    //}
 
                     for (int i = 0; i < XFERSIZE; i++)
                     {
@@ -57,7 +57,6 @@ namespace MITS_SINGLE_SYSTEM
                     {
                         Param_ScanlineTotalViewFunction();
                         setSaveDataFlag = false;
-                        Console.WriteLine("setSaveDataFlag {0}", setSaveDataFlag);
                         convertDataFlag = true;
                     }
 
@@ -162,7 +161,7 @@ namespace MITS_SINGLE_SYSTEM
 
             width_ImagingBox = ImagingBox.Width;
             height_ImagingBox = ImagingBox.Height;
-            bitmapImaging = new Bitmap(512, 1331);
+            bitmapImaging = new Bitmap(10, 1331);
             bitmapRenew = bitmapImaging as Bitmap;
             ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
             ImagingBox.Image = bitmapRenew;
