@@ -25,6 +25,7 @@ namespace MITS_SINGLE_SYSTEM
             SendParameterReset();
             SendParameterTestReset();
             FormChangedInit();
+            ProcessingBaseToolInit();
             GraphicConvertInit();
             color_initialize();
             timer_initialize();
@@ -150,6 +151,9 @@ namespace MITS_SINGLE_SYSTEM
             {
                 CH1_DynamicRange_data = int.Parse(string.Format("{0:D}", CH1_DynamicRange.Text), styleInteger);
                 Console.WriteLine(String.Format("CH1_DynamicRange_data: {0}", CH1_DynamicRange_data));
+                xMin = Math.Pow(10.0, (-CH1_DynamicRange_data / 20)) * xMax;
+                LogRange = Math.Log10(xMax / xMin);
+                Console.WriteLine("LogRange {0}", LogRange);
 
             }
             catch (Exception ex)
@@ -170,30 +174,100 @@ namespace MITS_SINGLE_SYSTEM
                 switch (CH1_ViewDepth_data)
                 {
                     case "None":
+                        // ParameterCH1
                         CH1_Rx_data = 0;
-                        CH1_CM_Length = 0;
                         CH1_CM_Divider = 1;
+                        CH1_CM_Length = 0 * CH1_CM_Divider;
+                        // ProcessingTool
+                        getData = new double[CH1_CM_Length];
+                        ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
+                        ConvolveLPF_QD_Length = CH1_CM_Length + LPF_QD_Length - 1;
+                        Envelope = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ScanlineConvertData = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ConvertSaveArray = new double[CH1_Scanline_data][];
+                        for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
+                        {
+                            ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
+                        }
+                        cos = new double[CH1_CM_Length];
+                        sin = new double[CH1_CM_Length];
                         break;
                     case "~1cm":
+                        // ParameterCH1
                         CH1_Rx_data = 4096;
-                        CH1_CM_Length = 1331;
                         CH1_CM_Divider = 1;
+                        CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        // ProcessingTool
+                        getData = new double[CH1_CM_Length];
+                        ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
+                        ConvolveLPF_QD_Length = CH1_CM_Length + LPF_QD_Length - 1;
+                        ConvolveLPF_DECI_Length = CH1_CM_Length + LPF_DECI_Length - 1;
+                        Envelope = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ScanlineConvertData = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ConvertSaveArray = new double[CH1_Scanline_data][];
+                        for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
+                        {
+                            ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
+                        }
+                        cos = new double[CH1_CM_Length];
+                        sin = new double[CH1_CM_Length];
                         break;
                     case "~2cm":
+                        // ParameterCH1
                         CH1_Rx_data = 4096;
-                        CH1_CM_Length = 1331 * 2;
                         CH1_CM_Divider = 2;
+                        CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        // ProcessingTool
+                        getData = new double[CH1_CM_Length];
+                        Envelope = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ScanlineConvertData = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ConvertSaveArray = new double[CH1_Scanline_data][];
+                        for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
+                        {
+                            ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
+                        }
+                        cos = new double[CH1_CM_Length];
+                        sin = new double[CH1_CM_Length];
                         break;
                     case "~3cm":
+                        // ParameterCH1
                         CH1_Rx_data = 4096;
-                        CH1_CM_Length = 1331 * 3;
                         CH1_CM_Divider = 3;
+                        CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        // ProcessingTool
+                        getData = new double[CH1_CM_Length];
+                        ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
+                        ConvolveLPF_QD_Length = CH1_CM_Length + LPF_QD_Length - 1;
+                        ConvolveLPF_DECI_Length = CH1_CM_Length + LPF_DECI_Length - 1;
+                        Envelope = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ScanlineConvertData = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ConvertSaveArray = new double[CH1_Scanline_data][];
+                        for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
+                        {
+                            ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
+                        }
+                        cos = new double[CH1_CM_Length];
+                        sin = new double[CH1_CM_Length];
                         break;
                     case "~4cm":
-
+                        // ParameterCH1
                         CH1_Rx_data = 8192;
-                        CH1_CM_Length = 1331 * 4;
                         CH1_CM_Divider = 4;
+                        CH1_CM_Length = 1331 * CH1_CM_Divider;
+                        // ProcessingTool
+                        getData = new double[CH1_CM_Length];
+                        ConvolveHPFLength = CH1_CM_Length + HPF_Length - 1;
+                        ConvolveLPF_QD_Length = CH1_CM_Length + LPF_QD_Length - 1;
+                        ConvolveLPF_DECI_Length = CH1_CM_Length + LPF_DECI_Length - 1;
+                        Envelope = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ScanlineConvertData = new double[CH1_CM_Length / CH1_CM_Divider];
+                        ConvertSaveArray = new double[CH1_Scanline_data][];
+                        for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
+                        {
+                            ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
+                        }
+                        cos = new double[CH1_CM_Length];
+                        sin = new double[CH1_CM_Length];
                         break;
                 }
                 Console.WriteLine(String.Format("CH1_Rx_data: {0} / CH1_CM_Length: {1} / CH1_CM_Divider: {2} ", CH1_Rx_data, CH1_CM_Length, CH1_CM_Divider));

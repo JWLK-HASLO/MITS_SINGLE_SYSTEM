@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MITS_SINGLE_SYSTEM
 {
@@ -39,8 +40,8 @@ namespace MITS_SINGLE_SYSTEM
                     CH1_DataArray[x][y] = ScanRealData;
                 }
             }
-            Console.WriteLine("Data Convert Complete");
-
+            //Console.WriteLine("Data Convert Complete");
+            SignalProcessing(CH1_DataArray);
             //Draw Flag
             if (!drawResultFlag)
             {
@@ -67,7 +68,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             textBox_timer.Text = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
             timer = new System.Timers.Timer();
-            timer.Interval = 50;
+            timer.Interval = 100;
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
         }
 
@@ -94,6 +95,8 @@ namespace MITS_SINGLE_SYSTEM
                     TEST_DataArray[x][y] = (y + raiseCounter) % 4096;
                 }
             }
+            SignalProcessing(TEST_DataArray);
+
             //*/
             if (!drawResultFlag)
             {
@@ -123,21 +126,19 @@ namespace MITS_SINGLE_SYSTEM
                     {
                         for (int x = 0; x < CH1_Scanline_data; x++)
                         {
-                            for (int y = 0; y < height_ImagingBox; y++)
+                            for (int y = 0; y < ConvertSaveArray[x].Length; y++)
                             {
                                 //*/ Real Data
-                                rgbIndex = CH1_DataArray[x][y];
+                                rgbIndex = (int)ConvertSaveArray[x][y];
                                 //*/
 
-                                /*/ Test Data
-                                rgbIndex = TEST_DataArray[x][y];
-                                //*/
-
-                                rgb = colorStepArrayBackGround[rgbIndex];
-                                bitmapImaging.SetPixel(x, y, rgb);
+                                //rgb = colorStepArrayBackGround[rgbIndex];
+                                rgb = Color.FromArgb(rgbIndex, rgbIndex, rgbIndex);
+                                bitmapRenew.SetPixel(x, y, rgb);
                             }
                         }
-                        ImagingBox.Image = bitmapImaging;
+                        ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        ImagingBox.Image = bitmapRenew;
                         ImagingBox.Update();
 
                     }

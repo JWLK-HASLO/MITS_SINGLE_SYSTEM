@@ -64,7 +64,7 @@ namespace MITS_SINGLE_SYSTEM
         string _A01C_ADC_Reg_DB = null;
 
         string _A01D_ADC_EN = null;
-        string _A02E_ADC_Pulse_EN = null;
+        string _A01E_ADC_Pulse_EN = null;
 
         string _A02F_ADC_Reg_00 = null;
         string _A02A_ADC_Reg_01 = null;
@@ -231,6 +231,8 @@ namespace MITS_SINGLE_SYSTEM
 
             _A004_AFE_Pulse_EN = "A004001";
             Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
             _A004_AFE_Pulse_EN = "A004000";
             Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
 
@@ -295,14 +297,16 @@ namespace MITS_SINGLE_SYSTEM
             Tx_data[RegisterSequencyCounter] = int.Parse(_A01B_ADC_Reg_D7, styleHex); RegisterSequencyCounter++;
             Tx_data[RegisterSequencyCounter] = int.Parse(_A01C_ADC_Reg_DB, styleHex); RegisterSequencyCounter++;
 
-            _A02E_ADC_Pulse_EN = "A02E0001";
-            Tx_data[RegisterSequencyCounter] = int.Parse(_A02E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            _A01E_ADC_Pulse_EN = "A01E0001";
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
 
             //Delay 1 Clock
             RegisterSequencyCounter++;
 
-            _A02E_ADC_Pulse_EN = "A02E0000";
-            Tx_data[RegisterSequencyCounter] = int.Parse(_A02E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            _A01E_ADC_Pulse_EN = "A01E0000";
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
 
         }
 

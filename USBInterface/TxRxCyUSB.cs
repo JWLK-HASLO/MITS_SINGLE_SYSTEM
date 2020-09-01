@@ -153,8 +153,9 @@ namespace MITS_SINGLE_SYSTEM
 
             width_ImagingBox = ImagingBox.Width;
             height_ImagingBox = ImagingBox.Height;
-            bitmapImaging = new Bitmap(width_ImagingBox, height_ImagingBox);
-            ImagingBox.Image = bitmapImaging;
+            bitmapImaging = new Bitmap(512, 1331);
+            bitmapRenew = bitmapImaging as Bitmap;
+            ImagingBox.Image = bitmapRenew;
         }
 
 
