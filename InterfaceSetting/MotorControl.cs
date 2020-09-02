@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MITS_SINGLE_SYSTEM
@@ -21,6 +22,9 @@ namespace MITS_SINGLE_SYSTEM
         short Position;
         int PresentPosition_Data;
         int SetMovingPosition_Data;
+
+        Thread motor_scan;
+        Thread motor_loop;
 
         //*/Rotaion Motor Control SET
         string _A402_0010 = null;
@@ -145,6 +149,14 @@ namespace MITS_SINGLE_SYSTEM
         }
 
 
+        //*/ Linear Motor
+
+        private void linear_positionMove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         //*/ Rotation Motor
         bool roation_Loop = false;
         private void RotationMotorControl_HIFU_Click(object sender, EventArgs e)
@@ -157,7 +169,7 @@ namespace MITS_SINGLE_SYSTEM
                 _A402_0010 = "A4020000";
                 _A403_0063 = "A4030063";
                 _A404_C34F = "A404C34F";
-                _A405_DIRE = "A4050000";
+                _A405_DIRE = "A4050001";
                 _A400_0001 = "A4000001";
                 _A400_0000 = "A4000000";
                 Tx_data[RegisterSequencyCounter] = int.Parse(_A402_0010, styleHex); RegisterSequencyCounter++;
@@ -182,7 +194,7 @@ namespace MITS_SINGLE_SYSTEM
                 _A402_0010 = "A4020000";
                 _A403_0063 = "A4030063";
                 _A404_C34F = "A404C34F";
-                _A405_DIRE = "A4050001";
+                _A405_DIRE = "A4050000";
                 _A400_0001 = "A4000001";
                 _A400_0000 = "A4000000";
                 Tx_data[RegisterSequencyCounter] = int.Parse(_A402_0010, styleHex); RegisterSequencyCounter++;
@@ -196,8 +208,6 @@ namespace MITS_SINGLE_SYSTEM
             }
 
         }
-
-
 
 
         /* 
@@ -258,6 +268,86 @@ namespace MITS_SINGLE_SYSTEM
             {
                 MZap.goalPosition(ServoID, 0);
                 SetMovingPosition_Data = 0;
+            }
+        }
+
+
+
+        bool linear_loopModeState = false;
+        private void linear_loopMode_CheckedChanged(object sender, EventArgs e)
+        {
+            if (linear_loopMode.Checked == true)
+            {
+                linear_loopModeState = true;
+            }
+            else
+            {
+                linear_loopModeState = false;
+            }
+        }
+
+        public void motor_scan_thread()
+        {
+            while (true)
+            {
+                try
+                {
+                    Thread.Sleep(100);
+
+                    Position = MZap.presentPosition(ServoID);
+                    motor_PresentPosition.Text = Position.ToString();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Motor Scan Error : " + e);
+                }
+
+
+            }
+        }
+
+        public void motor_loop_thread()
+        {
+            while (true)
+            {
+                //Console.WriteLine("global_toggle : " + global_toggle);
+                if (Int32.Parse(Position.ToString()) >= 1990)
+                {
+
+                    //Data_Check();
+
+                    //Register_reset();
+                    //num = 0;
+                    //Tx_data[num] = Int32.Parse("84000001", System.Globalization.NumberStyles.HexNumber); num++;
+                    //Tx_data[num] = Int32.Parse("84000001", System.Globalization.NumberStyles.HexNumber); num++;
+                    //Tx_data[num] = Int32.Parse("84000001", System.Globalization.NumberStyles.HexNumber); num++;
+                    //Tx_data[num] = Int32.Parse("84000001", System.Globalization.NumberStyles.HexNumber); num++;
+                    //Tx_data[num] = Int32.Parse("84000000", System.Globalization.NumberStyles.HexNumber); num++;
+
+                    Position = (short)Convert.ToInt16("0");
+                    MZap.goalPosition(ServoID, Position);
+                    Thread.Sleep(3000);
+
+                }
+                else if (Int32.Parse(Position.ToString()) <= 6)
+                {
+
+                    SendParameterReset();
+                    _8400_System_On = "84000001";
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+
+                    _8400_System_On = "84000000";
+                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                    writeSendFlag = true;
+                    setSaveDataFlag = true;
+                    Position = (short)Convert.ToInt16("2000");
+                    MZap.goalPosition(ServoID, Position);
+                }
+
+
             }
         }
     }

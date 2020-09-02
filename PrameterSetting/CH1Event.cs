@@ -582,24 +582,49 @@ namespace MITS_SINGLE_SYSTEM
                         graphicDrawThread.Start();
                     }
                     //*/
+
+                    if(linear_loopModeState && motor_scan == null)
+                    {
+                        motor_scan = new Thread(new ThreadStart(motor_scan_thread));
+                        motor_scan.IsBackground = true;
+                        motor_scan.Priority = ThreadPriority.Normal;
+                        motor_scan.Start();
+                    }
+                    else if(linear_loopModeState == false && motor_scan != null)
+                    {
+                        motor_scan.Abort();
+                        motor_scan.Join();
+                        motor_scan = null;
+                    }
                 }
                 else
                 {
-                    //*/Motor Control
-                    Motor_MovingInterface(false);
-                    //*/
+                   
+                    if (!linear_loopModeState)
+                    {
+                        //*/Motor Control
+                        Motor_MovingInterface(false);
+                        //*/
 
-                    SendParameterReset();
-                    setSaveDataFlag = true;
-                    _8400_System_On = "84000001";
-                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
-                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
-                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
-                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        SendParameterReset();
+                        _8400_System_On = "84000001";
+                        Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
 
-                    _8400_System_On = "84000000";
-                    Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
-                    writeSendFlag = true;
+                        _8400_System_On = "84000000";
+                        Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        writeSendFlag = true;
+                        setSaveDataFlag = true;
+                    }
+                    else
+                    {
+                        motor_loop = new Thread(new ThreadStart(motor_loop_thread));
+                        motor_loop.IsBackground = true;
+                        motor_loop.Priority = ThreadPriority.Highest;
+                        motor_loop.Start();
+                    }
 
                 }
             }
@@ -615,13 +640,27 @@ namespace MITS_SINGLE_SYSTEM
             CH1_SCANInterface(true);
 
             /*Draw Reset*/
-            if(graphicDrawThread != null)
+            if(graphicDrawThread.IsAlive)
             {
                 graphicDrawThread.Abort();
                 graphicDrawThread.Join();
                 graphicDrawThread = null;
                 GraphicImagingDataReset();
 
+            }
+
+            if (motor_scan.IsAlive)
+            {
+                motor_scan.Abort();
+                motor_scan.Join();
+                motor_scan = null;
+            }
+
+            if (motor_loop.IsAlive)
+            {
+                motor_loop.Abort();
+                motor_loop.Join();
+                motor_loop = null;
             }
 
             MessageBox.Show("초기화 되었습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);

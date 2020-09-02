@@ -48,7 +48,6 @@
             this.RotationMotorControl_HIFU = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.linear_positionMove = new System.Windows.Forms.Button();
-            this.linear_PositionReset = new System.Windows.Forms.Button();
             this.groupBox_CH2 = new System.Windows.Forms.GroupBox();
             this.CH2_Reset = new System.Windows.Forms.Button();
             this.CH2_ScanControl = new System.Windows.Forms.Button();
@@ -167,6 +166,7 @@
             this.motor_Comport = new System.Windows.Forms.ComboBox();
             this.label_servo_id = new System.Windows.Forms.Label();
             this.label_motor_comport = new System.Windows.Forms.Label();
+            this.linear_loopMode = new System.Windows.Forms.CheckBox();
             this.GraphicGroup.SuspendLayout();
             this.groupBox_ImagingView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).BeginInit();
@@ -442,8 +442,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.linear_loopMode);
             this.groupBox1.Controls.Add(this.linear_positionMove);
-            this.groupBox1.Controls.Add(this.linear_PositionReset);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(11, 614);
             this.groupBox1.Name = "groupBox1";
@@ -464,19 +464,7 @@
             this.linear_positionMove.TabIndex = 34;
             this.linear_positionMove.Text = "MOVE";
             this.linear_positionMove.UseVisualStyleBackColor = false;
-            // 
-            // linear_PositionReset
-            // 
-            this.linear_PositionReset.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.linear_PositionReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.linear_PositionReset.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
-            this.linear_PositionReset.ForeColor = System.Drawing.Color.Transparent;
-            this.linear_PositionReset.Location = new System.Drawing.Point(6, 21);
-            this.linear_PositionReset.Name = "linear_PositionReset";
-            this.linear_PositionReset.Size = new System.Drawing.Size(103, 35);
-            this.linear_PositionReset.TabIndex = 33;
-            this.linear_PositionReset.Text = "RSET";
-            this.linear_PositionReset.UseVisualStyleBackColor = false;
+            this.linear_positionMove.Click += new System.EventHandler(this.linear_positionMove_Click);
             // 
             // groupBox_CH2
             // 
@@ -2084,6 +2072,17 @@
             this.label_motor_comport.TabIndex = 19;
             this.label_motor_comport.Text = "Motor Comport ";
             // 
+            // linear_loopMode
+            // 
+            this.linear_loopMode.AutoSize = true;
+            this.linear_loopMode.Location = new System.Drawing.Point(6, 30);
+            this.linear_loopMode.Name = "linear_loopMode";
+            this.linear_loopMode.Size = new System.Drawing.Size(105, 17);
+            this.linear_loopMode.TabIndex = 35;
+            this.linear_loopMode.Text = "Loop Mode";
+            this.linear_loopMode.UseVisualStyleBackColor = true;
+            this.linear_loopMode.CheckedChanged += new System.EventHandler(this.linear_loopMode_CheckedChanged);
+            // 
             // MITS_SYSTEM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -2108,6 +2107,7 @@
             this.tabPage1_main.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox_CH2.ResumeLayout(false);
             this.groupBox_CH2_HV.ResumeLayout(false);
             this.groupBox_CH2_HV.PerformLayout();
@@ -2287,7 +2287,7 @@
         private System.Windows.Forms.Button RotationMotorControl_Imaging;
         private System.Windows.Forms.Button RotationMotorControl_HIFU;
         private System.Windows.Forms.Button linear_positionMove;
-        private System.Windows.Forms.Button linear_PositionReset;
+        private System.Windows.Forms.CheckBox linear_loopMode;
     }
 }
 
