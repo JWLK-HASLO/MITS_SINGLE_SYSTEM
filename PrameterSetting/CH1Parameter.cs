@@ -85,9 +85,10 @@ namespace MITS_SINGLE_SYSTEM
         string _9406_Reg_12 = null;
 
         string _940F_I2C_EN = null;
+        //*/ 
 
 
-
+        //*/Set Value
         //*/Mode Select
         bool CH1_Mode_Select = true;
         //*/
@@ -159,6 +160,7 @@ namespace MITS_SINGLE_SYSTEM
                 CH1_PulseCycles.Enabled = true;
                 CH1_PulseDuration.Enabled = false;
                 groupBox_CH1_AFE.Enabled = true;
+                CH1_DynamicRange.Enabled = true;
                 CH1_ViewDepth.Enabled = true;
 
                 CH1_ScanControl.Enabled = true;
@@ -173,6 +175,7 @@ namespace MITS_SINGLE_SYSTEM
                 CH1_PulseCycles.Enabled = false;
                 CH1_PulseDuration.Enabled = true;
                 groupBox_CH1_AFE.Enabled = false;
+                CH1_DynamicRange.Enabled = false;
                 CH1_ViewDepth.Enabled = false;
 
                 CH1_ScanControl.Enabled = false;

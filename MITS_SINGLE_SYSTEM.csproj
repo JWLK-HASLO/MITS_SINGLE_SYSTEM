@@ -91,7 +91,13 @@
     <Compile Include="InterfaceSetting\GraphicConvert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrameterSetting\ParameterCH1.cs">
+    <Compile Include="PrameterSetting\CH2Parameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrameterSetting\CH1Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrameterSetting\CH1Parameter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrameterSetting\OptionTab.cs">
