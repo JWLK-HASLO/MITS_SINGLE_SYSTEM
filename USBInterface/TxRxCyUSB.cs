@@ -39,39 +39,47 @@ namespace MITS_SINGLE_SYSTEM
 
                 if (readResultFlag && setSaveDataFlag)
                 {
+                    //for (int i = 0; i < XFERSIZE; i += 4)
+                    //{
+                    //    lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
+                    //    //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
+                    //    //Console.WriteLine(lastScanlineFinder);
+                    //}
 
+                    //if (lastScanlineFinder == (CH1_Scanline_data - 1) && dataCounter == 16384)
+                    //{
+                    //    Param_ScanlineTotalViewFunction();
+                    //    convertDataFlag = true;
+                    //}
 
-                    for (int i = 0; i < XFERSIZE; i += 4)
+                    if (bulkCounter < (CH1_Scanline_data - 1))
                     {
-                        lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
-                        //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
-                        //Console.WriteLine(scanRealData);
-                    }
+                        for (int i = 0; i < XFERSIZE; i++)
+                        {
+                            bulkByteSaver[bulkCounter][i] = inData[i];
+                            //Console.WriteLine("{0} / {1}", bulkCounter, i);
+                            //dataCounter++;
+                        }
 
-                    for (int i = 0; i < XFERSIZE; i++)
-                    {
-                        bulkByteSaver[bulkCounter][i] = inData[i];
-                        //Console.WriteLine("{0} / {1}", bulkCounter, i);
-                        dataCounter++;
+                        bulkCounter++;
                     }
-
-                    if (lastScanlineFinder == (CH1_Scanline_data - 1) && dataCounter == 16384)
+                    else if (bulkCounter == (CH1_Scanline_data - 1))
                     {
                         Param_ScanlineTotalViewFunction();
-                        setSaveDataFlag = false;
                         convertDataFlag = true;
                     }
 
-                    //if (bulkCounter == (CH1_Scanline_data - 1))
-                    //{
-                    //    Param_ScanlineTotalViewFunction();
-                    //    setSaveDataFlag = false;
-                    //    convertDataFlag = true;
-                    //}
 
                     if (convertDataFlag)
                     {
                         convertDataFlag = false;
+                        setSaveDataFlag = false;
+
+                        //Set Timer Setting
+                        motor_timer.Stop();
+                        //Set StopWatch
+                        motor_stopWatch.Stop();
+
                         this.Invoke(new Action(delegate ()
                         {
                             GraphicConvertByteToInt();
@@ -81,12 +89,11 @@ namespace MITS_SINGLE_SYSTEM
 
                     //*/ Bulk Counter
                     //Console.WriteLine("bulkCounter {0}", bulkCounter);
-                    bulkCounter++;
 
-                    if (dataCounter == 16384)
-                    {
-                        dataCounter = 0;
-                    }
+                    //if (dataCounter == 16384)
+                    //{
+                    //    dataCounter = 0;
+                    //}
 
                 }
 
@@ -151,6 +158,7 @@ namespace MITS_SINGLE_SYSTEM
             {
                 CH1_DataArray[i] = new int[CH1_Rx_data];
             }
+            ScanlineConvertData = new double[CH2_CM_Length / CH2_CM_Divider];
 
 
         }
@@ -174,7 +182,7 @@ namespace MITS_SINGLE_SYSTEM
             rgb = Color.FromArgb(0, 0, 0);
             bitmapImaging = new Bitmap(globalWidth, globalHeight);
             bitmapRenew = bitmapImaging as Bitmap;
-            ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            //ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
             ImagingBox.Image = bitmapRenew;
         }
 

@@ -43,10 +43,11 @@
             this.ParameterGroup = new System.Windows.Forms.GroupBox();
             this.tabMainControl = new System.Windows.Forms.TabControl();
             this.tabPage1_main = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox_Roatation_Motor_Control = new System.Windows.Forms.GroupBox();
             this.RotationMotorControl_Imaging = new System.Windows.Forms.Button();
             this.RotationMotorControl_HIFU = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox_LinearMotorControl = new System.Windows.Forms.GroupBox();
+            this.linear_loopMode = new System.Windows.Forms.CheckBox();
             this.linear_positionMove = new System.Windows.Forms.Button();
             this.groupBox_CH2 = new System.Windows.Forms.GroupBox();
             this.CH2_Reset = new System.Windows.Forms.Button();
@@ -151,6 +152,14 @@
             this.label_ParamHexNumber = new System.Windows.Forms.Label();
             this.Param_HexNumber = new System.Windows.Forms.TextBox();
             this.tabPage_motorControl = new System.Windows.Forms.TabPage();
+            this.groupBox_motorMovingInterface = new System.Windows.Forms.GroupBox();
+            this.motor_PositionFlag = new System.Windows.Forms.TextBox();
+            this.label_position_flag = new System.Windows.Forms.Label();
+            this.motor_1Way = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.motor_RepeatControl = new System.Windows.Forms.Button();
+            this.motor_timer_box = new System.Windows.Forms.TextBox();
+            this.label_motor_timer = new System.Windows.Forms.Label();
             this.groupBox_motorPositionInfo = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.motor_PositionCheck = new System.Windows.Forms.Button();
@@ -166,7 +175,6 @@
             this.motor_Comport = new System.Windows.Forms.ComboBox();
             this.label_servo_id = new System.Windows.Forms.Label();
             this.label_motor_comport = new System.Windows.Forms.Label();
-            this.linear_loopMode = new System.Windows.Forms.CheckBox();
             this.GraphicGroup.SuspendLayout();
             this.groupBox_ImagingView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).BeginInit();
@@ -175,8 +183,8 @@
             this.ParameterGroup.SuspendLayout();
             this.tabMainControl.SuspendLayout();
             this.tabPage1_main.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox_Roatation_Motor_Control.SuspendLayout();
+            this.groupBox_LinearMotorControl.SuspendLayout();
             this.groupBox_CH2.SuspendLayout();
             this.groupBox_CH2_HV.SuspendLayout();
             this.groupBox_CH2_ModeSelect.SuspendLayout();
@@ -195,6 +203,7 @@
             this.groupBox9.SuspendLayout();
             this.groupBox_HexToBinary.SuspendLayout();
             this.tabPage_motorControl.SuspendLayout();
+            this.groupBox_motorMovingInterface.SuspendLayout();
             this.groupBox_motorPositionInfo.SuspendLayout();
             this.groupBox_motorConnectionInfo.SuspendLayout();
             this.SuspendLayout();
@@ -387,8 +396,8 @@
             // tabPage1_main
             // 
             this.tabPage1_main.BackColor = System.Drawing.Color.White;
-            this.tabPage1_main.Controls.Add(this.groupBox5);
-            this.tabPage1_main.Controls.Add(this.groupBox1);
+            this.tabPage1_main.Controls.Add(this.groupBox_Roatation_Motor_Control);
+            this.tabPage1_main.Controls.Add(this.groupBox_LinearMotorControl);
             this.tabPage1_main.Controls.Add(this.groupBox_CH2);
             this.tabPage1_main.Controls.Add(this.groupBox_CH1);
             this.tabPage1_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -400,17 +409,18 @@
             this.tabPage1_main.TabIndex = 5;
             this.tabPage1_main.Text = "MAIN";
             // 
-            // groupBox5
+            // groupBox_Roatation_Motor_Control
             // 
-            this.groupBox5.Controls.Add(this.RotationMotorControl_Imaging);
-            this.groupBox5.Controls.Add(this.RotationMotorControl_HIFU);
-            this.groupBox5.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox5.Location = new System.Drawing.Point(239, 614);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(222, 63);
-            this.groupBox5.TabIndex = 26;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Roatation Motor Control";
+            this.groupBox_Roatation_Motor_Control.Controls.Add(this.RotationMotorControl_Imaging);
+            this.groupBox_Roatation_Motor_Control.Controls.Add(this.RotationMotorControl_HIFU);
+            this.groupBox_Roatation_Motor_Control.Enabled = false;
+            this.groupBox_Roatation_Motor_Control.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupBox_Roatation_Motor_Control.Location = new System.Drawing.Point(239, 614);
+            this.groupBox_Roatation_Motor_Control.Name = "groupBox_Roatation_Motor_Control";
+            this.groupBox_Roatation_Motor_Control.Size = new System.Drawing.Size(222, 63);
+            this.groupBox_Roatation_Motor_Control.TabIndex = 26;
+            this.groupBox_Roatation_Motor_Control.TabStop = false;
+            this.groupBox_Roatation_Motor_Control.Text = "Roatation Motor Control";
             // 
             // RotationMotorControl_Imaging
             // 
@@ -440,17 +450,29 @@
             this.RotationMotorControl_HIFU.UseVisualStyleBackColor = false;
             this.RotationMotorControl_HIFU.Click += new System.EventHandler(this.RotationMotorControl_HIFU_Click);
             // 
-            // groupBox1
+            // groupBox_LinearMotorControl
             // 
-            this.groupBox1.Controls.Add(this.linear_loopMode);
-            this.groupBox1.Controls.Add(this.linear_positionMove);
-            this.groupBox1.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(11, 614);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 63);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Linear Motor Control";
+            this.groupBox_LinearMotorControl.Controls.Add(this.linear_loopMode);
+            this.groupBox_LinearMotorControl.Controls.Add(this.linear_positionMove);
+            this.groupBox_LinearMotorControl.Enabled = false;
+            this.groupBox_LinearMotorControl.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupBox_LinearMotorControl.Location = new System.Drawing.Point(11, 614);
+            this.groupBox_LinearMotorControl.Name = "groupBox_LinearMotorControl";
+            this.groupBox_LinearMotorControl.Size = new System.Drawing.Size(222, 63);
+            this.groupBox_LinearMotorControl.TabIndex = 25;
+            this.groupBox_LinearMotorControl.TabStop = false;
+            this.groupBox_LinearMotorControl.Text = "Linear Motor Control";
+            // 
+            // linear_loopMode
+            // 
+            this.linear_loopMode.AutoSize = true;
+            this.linear_loopMode.Location = new System.Drawing.Point(6, 30);
+            this.linear_loopMode.Name = "linear_loopMode";
+            this.linear_loopMode.Size = new System.Drawing.Size(105, 17);
+            this.linear_loopMode.TabIndex = 35;
+            this.linear_loopMode.Text = "Loop Mode";
+            this.linear_loopMode.UseVisualStyleBackColor = true;
+            this.linear_loopMode.CheckedChanged += new System.EventHandler(this.linear_loopMode_CheckedChanged);
             // 
             // linear_positionMove
             // 
@@ -1873,6 +1895,7 @@
             // 
             // tabPage_motorControl
             // 
+            this.tabPage_motorControl.Controls.Add(this.groupBox_motorMovingInterface);
             this.tabPage_motorControl.Controls.Add(this.groupBox_motorPositionInfo);
             this.tabPage_motorControl.Controls.Add(this.groupBox_motorConnectionInfo);
             this.tabPage_motorControl.Location = new System.Drawing.Point(4, 34);
@@ -1882,6 +1905,104 @@
             this.tabPage_motorControl.TabIndex = 7;
             this.tabPage_motorControl.Text = "Motor";
             this.tabPage_motorControl.UseVisualStyleBackColor = true;
+            // 
+            // groupBox_motorMovingInterface
+            // 
+            this.groupBox_motorMovingInterface.Controls.Add(this.motor_PositionFlag);
+            this.groupBox_motorMovingInterface.Controls.Add(this.label_position_flag);
+            this.groupBox_motorMovingInterface.Controls.Add(this.motor_1Way);
+            this.groupBox_motorMovingInterface.Controls.Add(this.panel2);
+            this.groupBox_motorMovingInterface.Controls.Add(this.motor_RepeatControl);
+            this.groupBox_motorMovingInterface.Controls.Add(this.motor_timer_box);
+            this.groupBox_motorMovingInterface.Controls.Add(this.label_motor_timer);
+            this.groupBox_motorMovingInterface.Enabled = false;
+            this.groupBox_motorMovingInterface.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_motorMovingInterface.Location = new System.Drawing.Point(6, 154);
+            this.groupBox_motorMovingInterface.Name = "groupBox_motorMovingInterface";
+            this.groupBox_motorMovingInterface.Size = new System.Drawing.Size(454, 68);
+            this.groupBox_motorMovingInterface.TabIndex = 30;
+            this.groupBox_motorMovingInterface.TabStop = false;
+            this.groupBox_motorMovingInterface.Text = "Motor Moving Interface";
+            // 
+            // motor_PositionFlag
+            // 
+            this.motor_PositionFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_PositionFlag.Location = new System.Drawing.Point(213, 35);
+            this.motor_PositionFlag.Name = "motor_PositionFlag";
+            this.motor_PositionFlag.Size = new System.Drawing.Size(92, 21);
+            this.motor_PositionFlag.TabIndex = 37;
+            this.motor_PositionFlag.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label_position_flag
+            // 
+            this.label_position_flag.AutoSize = true;
+            this.label_position_flag.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_position_flag.ForeColor = System.Drawing.Color.DimGray;
+            this.label_position_flag.Location = new System.Drawing.Point(210, 20);
+            this.label_position_flag.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_position_flag.Name = "label_position_flag";
+            this.label_position_flag.Size = new System.Drawing.Size(76, 13);
+            this.label_position_flag.TabIndex = 36;
+            this.label_position_flag.Text = "Position Flag";
+            // 
+            // motor_1Way
+            // 
+            this.motor_1Way.BackColor = System.Drawing.Color.Black;
+            this.motor_1Way.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.motor_1Way.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_1Way.ForeColor = System.Drawing.Color.Transparent;
+            this.motor_1Way.Location = new System.Drawing.Point(318, 17);
+            this.motor_1Way.Name = "motor_1Way";
+            this.motor_1Way.Size = new System.Drawing.Size(130, 39);
+            this.motor_1Way.TabIndex = 35;
+            this.motor_1Way.Text = "1 Way";
+            this.motor_1Way.UseVisualStyleBackColor = false;
+            this.motor_1Way.Click += new System.EventHandler(this.motor_1Way_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.Location = new System.Drawing.Point(202, 21);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1, 35);
+            this.panel2.TabIndex = 34;
+            // 
+            // motor_RepeatControl
+            // 
+            this.motor_RepeatControl.BackColor = System.Drawing.Color.Black;
+            this.motor_RepeatControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.motor_RepeatControl.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_RepeatControl.ForeColor = System.Drawing.Color.Transparent;
+            this.motor_RepeatControl.Location = new System.Drawing.Point(117, 18);
+            this.motor_RepeatControl.Name = "motor_RepeatControl";
+            this.motor_RepeatControl.Size = new System.Drawing.Size(74, 39);
+            this.motor_RepeatControl.TabIndex = 33;
+            this.motor_RepeatControl.Text = "Start";
+            this.motor_RepeatControl.UseVisualStyleBackColor = false;
+            this.motor_RepeatControl.Click += new System.EventHandler(this.motor_RepeatControl_Click);
+            // 
+            // motor_timer_box
+            // 
+            this.motor_timer_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.motor_timer_box.Location = new System.Drawing.Point(6, 35);
+            this.motor_timer_box.Name = "motor_timer_box";
+            this.motor_timer_box.ReadOnly = true;
+            this.motor_timer_box.Size = new System.Drawing.Size(105, 21);
+            this.motor_timer_box.TabIndex = 29;
+            this.motor_timer_box.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.motor_timer_box.TextChanged += new System.EventHandler(this.motor_NofRepetitions_TextChanged);
+            // 
+            // label_motor_timer
+            // 
+            this.label_motor_timer.AutoSize = true;
+            this.label_motor_timer.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_motor_timer.ForeColor = System.Drawing.Color.DimGray;
+            this.label_motor_timer.Location = new System.Drawing.Point(5, 20);
+            this.label_motor_timer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_motor_timer.Name = "label_motor_timer";
+            this.label_motor_timer.Size = new System.Drawing.Size(73, 13);
+            this.label_motor_timer.TabIndex = 19;
+            this.label_motor_timer.Text = "Motor Timer";
             // 
             // groupBox_motorPositionInfo
             // 
@@ -2072,17 +2193,6 @@
             this.label_motor_comport.TabIndex = 19;
             this.label_motor_comport.Text = "Motor Comport ";
             // 
-            // linear_loopMode
-            // 
-            this.linear_loopMode.AutoSize = true;
-            this.linear_loopMode.Location = new System.Drawing.Point(6, 30);
-            this.linear_loopMode.Name = "linear_loopMode";
-            this.linear_loopMode.Size = new System.Drawing.Size(105, 17);
-            this.linear_loopMode.TabIndex = 35;
-            this.linear_loopMode.Text = "Loop Mode";
-            this.linear_loopMode.UseVisualStyleBackColor = true;
-            this.linear_loopMode.CheckedChanged += new System.EventHandler(this.linear_loopMode_CheckedChanged);
-            // 
             // MITS_SYSTEM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -2105,9 +2215,9 @@
             this.ParameterGroup.ResumeLayout(false);
             this.tabMainControl.ResumeLayout(false);
             this.tabPage1_main.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox_Roatation_Motor_Control.ResumeLayout(false);
+            this.groupBox_LinearMotorControl.ResumeLayout(false);
+            this.groupBox_LinearMotorControl.PerformLayout();
             this.groupBox_CH2.ResumeLayout(false);
             this.groupBox_CH2_HV.ResumeLayout(false);
             this.groupBox_CH2_HV.PerformLayout();
@@ -2139,6 +2249,8 @@
             this.groupBox_HexToBinary.ResumeLayout(false);
             this.groupBox_HexToBinary.PerformLayout();
             this.tabPage_motorControl.ResumeLayout(false);
+            this.groupBox_motorMovingInterface.ResumeLayout(false);
+            this.groupBox_motorMovingInterface.PerformLayout();
             this.groupBox_motorPositionInfo.ResumeLayout(false);
             this.groupBox_motorPositionInfo.PerformLayout();
             this.groupBox_motorConnectionInfo.ResumeLayout(false);
@@ -2282,12 +2394,20 @@
         private System.Windows.Forms.TextBox CH2_Scanline;
         private System.Windows.Forms.Label CH2_label_CF;
         private System.Windows.Forms.Label CH2_label_Scanline;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox_LinearMotorControl;
+        private System.Windows.Forms.GroupBox groupBox_Roatation_Motor_Control;
         private System.Windows.Forms.Button RotationMotorControl_Imaging;
         private System.Windows.Forms.Button RotationMotorControl_HIFU;
         private System.Windows.Forms.Button linear_positionMove;
         private System.Windows.Forms.CheckBox linear_loopMode;
+        private System.Windows.Forms.GroupBox groupBox_motorMovingInterface;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button motor_RepeatControl;
+        private System.Windows.Forms.TextBox motor_timer_box;
+        private System.Windows.Forms.Label label_motor_timer;
+        private System.Windows.Forms.Button motor_1Way;
+        private System.Windows.Forms.TextBox motor_PositionFlag;
+        private System.Windows.Forms.Label label_position_flag;
     }
 }
 

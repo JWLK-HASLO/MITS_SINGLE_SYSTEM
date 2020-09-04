@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -33,11 +34,18 @@ namespace MITS_SINGLE_SYSTEM
             {
                 CH1_Scanline_data = int.Parse(string.Format("{0:D}", CH1_Scanline.Text), styleInteger);
                 Console.WriteLine(String.Format("CH1_Scanline_data: {0}", CH1_Scanline_data));
+                //globalWidth = CH1_Scanline_data;
+                globalWidth = 500;
+                Console.WriteLine(String.Format("globalWidth: {0} / globalHeight: {1}", globalWidth, globalHeight));
+                bitmapImaging = new Bitmap(globalWidth, globalHeight);
+                bitmapRenew = bitmapImaging as Bitmap;
+
                 ConvertSaveArray = new double[CH1_Scanline_data][];
                 for (int i = 0; i < ConvertSaveArray.GetLength(0); i++)
                 {
                     ConvertSaveArray[i] = new double[CH1_CM_Length / CH1_CM_Divider];
                 }
+
             }
             catch (Exception ex)
             {
@@ -71,7 +79,10 @@ namespace MITS_SINGLE_SYSTEM
             {
                 CH1_CF_data = int.Parse(string.Format("{0:D}", CH1_CF.Text), styleInteger);
                 Console.WriteLine(String.Format("CH1_CF_data: {0}", CH1_CF_data));
-
+                fc = CH1_CF_data * 1000000; //1,000,000
+                Console.WriteLine(String.Format("CH1_CF_cal: {0}", fc));
+                radian = (2 * pi * fc) / fs;
+                Console.WriteLine(String.Format("CH1_CF_radian: {0}", radian));
                 //CalDuration = ((double)1 / (double)CH1_CF_data) * CH1_PulseCycles_data;
                 //CH1_PulseDuration_data = CalDuration;
                 //CH1_PulseDuration.Text = CH1_PulseDuration_data.ToString();
@@ -559,10 +570,10 @@ namespace MITS_SINGLE_SYSTEM
             {
                 CH1_SCANInterface(SCAN_Loop);
 
-                if (SCAN_Loop)
+                if (SCAN_Loop) // true = RESET
                 {
                     //*/Motor Control
-                    Motor_MovingInterface(true);
+                    Motor_MovingInterface(true); // Motor Moving Position = 0;
                     //*/
 
                     SendParameterReset();
@@ -583,23 +594,23 @@ namespace MITS_SINGLE_SYSTEM
                     }
                     //*/
 
-                    if(linear_loopModeState && motor_scan == null)
-                    {
-                        motor_scan = new Thread(new ThreadStart(motor_scan_thread));
-                        motor_scan.IsBackground = true;
-                        motor_scan.Priority = ThreadPriority.Normal;
-                        motor_scan.Start();
-                    }
-                    else if(linear_loopModeState == false && motor_scan != null)
-                    {
-                        motor_scan.Abort();
-                        motor_scan.Join();
-                        motor_scan = null;
-                    }
+                    //Set Timer Setting
+                    motor_timer.Stop();
+                    //Set StopWatch
+                    motor_stopWatch.Stop();
+
+                    /*TImer Reset*/
+                    motor_timer.Close();
+                    motor_stopWatch.Reset();
+                    motor_timSpan = new TimeSpan(0, 0, 0, 0);
+                    motor_timer_box.Text = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
+
                 }
                 else
                 {
-                   
+                    MotorCounter_Loop = 0;
+                    MotorRaiseCounter = 0;
+
                     if (!linear_loopModeState)
                     {
                         //*/Motor Control
@@ -620,10 +631,13 @@ namespace MITS_SINGLE_SYSTEM
                     }
                     else
                     {
-                        motor_loop = new Thread(new ThreadStart(motor_loop_thread));
-                        motor_loop.IsBackground = true;
-                        motor_loop.Priority = ThreadPriority.Highest;
-                        motor_loop.Start();
+                        /* Timer Start */
+                        if (motor_timer == null)
+                        {
+                            motor_timer_initialize();
+                        }
+                        motor_timer.Start();
+                        motor_stopWatch.Start();
                     }
 
                 }
@@ -639,8 +653,10 @@ namespace MITS_SINGLE_SYSTEM
             SendParameterReset();
             CH1_SCANInterface(true);
 
+            setSaveDataFlag = false;
+
             /*Draw Reset*/
-            if(graphicDrawThread.IsAlive)
+            if (graphicDrawThread != null)
             {
                 graphicDrawThread.Abort();
                 graphicDrawThread.Join();
@@ -649,19 +665,11 @@ namespace MITS_SINGLE_SYSTEM
 
             }
 
-            if (motor_scan.IsAlive)
-            {
-                motor_scan.Abort();
-                motor_scan.Join();
-                motor_scan = null;
-            }
-
-            if (motor_loop.IsAlive)
-            {
-                motor_loop.Abort();
-                motor_loop.Join();
-                motor_loop = null;
-            }
+            /*TImer Reset*/
+            motor_timer.Close();
+            motor_stopWatch.Reset();
+            motor_timSpan = new TimeSpan(0, 0, 0, 0);
+            motor_timer_box.Text = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
 
             MessageBox.Show("초기화 되었습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

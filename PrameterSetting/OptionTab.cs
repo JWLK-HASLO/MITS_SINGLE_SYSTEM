@@ -231,7 +231,7 @@ namespace MITS_SINGLE_SYSTEM
             Console.WriteLine("Finish :: Request Data :{0} / Receive Data : {1}", CH1_Scanline_data, bulkCounter + 1);
             this.Invoke(new Action(delegate ()
             {
-                SystemLogBox.AppendText(String.Format("Finish :: Request Data :{0} / Receive Data : {1}", CH1_Scanline_data, bulkCounter) + "\r\n");
+                SystemLogBox.AppendText(String.Format("Finish :: Request Data :{0} / Receive Data : {1}", CH1_Scanline_data, bulkCounter + 1) + "\r\n");
             }));
             
         }

@@ -145,7 +145,7 @@ namespace MITS_SINGLE_SYSTEM
                             }
                         }
                         ImagingBox.Image = bitmapRenew;
-                        ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        //ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
                         ImagingBox.Update();
 
                     }

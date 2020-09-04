@@ -24,10 +24,10 @@ namespace MITS_SINGLE_SYSTEM
         //*/
 
         //*/ Static Value
-        static int fc = 8000000;   //  8,000,000
         static int fs = 100000000; //100,000,000
+        int fc = 0;   //  8,000,000
         const double pi = 3.141592;
-        static double radian = (2 * pi * fc) / fs;
+        double radian = 0;//(2 * pi * fc) / fs;
         //*/
 
         //*/ Min Max Value
@@ -65,7 +65,7 @@ namespace MITS_SINGLE_SYSTEM
 
 
             //*/ LPF QD Data
-            //LPF_DECI_Load = File.ReadAllLines("LPF_DECI2.txt");
+            LPF_DECI_Load = File.ReadAllLines("LPF_DECI3.txt");
             LPF_DECI_Length = LPF_DECI_Load.Length;
             LPF_DECI_Data = new double[LPF_DECI_Length];
             for (int i = 0; i < LPF_DECI_Length; i++)

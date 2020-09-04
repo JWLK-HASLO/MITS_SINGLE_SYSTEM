@@ -130,7 +130,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             //*/TxParameter Init
             CH1_ModeSelect(true);
-            CH1_Scanline.Text = "400";
+            CH1_Scanline.Text = "200";
             CH1_PRF.Text = "500";
             CH1_CF.Text = "20";
             CH1_PulseCycles.Text = "2";
@@ -145,7 +145,7 @@ namespace MITS_SINGLE_SYSTEM
 
             //*/High Voltage Parameter Init
             HV_ModeSelect(true);
-            CH1_HVLevel.Text = "30";
+            CH1_HVLevel.Text = "50";
 
         }
 
@@ -204,7 +204,15 @@ namespace MITS_SINGLE_SYSTEM
 
         public void CH1_TxParameterLoad()
         {
-            _8413_ScanLine_Data = String.Format("8413{0}", (CH1_Scanline_data - 1).ToString("X4"));
+            if (!linear_loopModeState)
+            {
+                _8413_ScanLine_Data = String.Format("8413{0}", (CH1_Scanline_data - 1).ToString("X4"));
+                //_8413_ScanLine_Data = "84130000";
+            }
+            else
+            {
+                _8413_ScanLine_Data = "84130000";
+            }
             Tx_data[RegisterSequencyCounter] = int.Parse(_8413_ScanLine_Data, styleHex); RegisterSequencyCounter++;
 
             _8403_PRF_H = String.Format("8403{0}", ((100000000 / CH1_PRF_data - 1).ToString("X8")).Substring(0,4));
@@ -236,6 +244,9 @@ namespace MITS_SINGLE_SYSTEM
             Tx_data[RegisterSequencyCounter] = int.Parse(_A0A3_AFE_Reg_3B, styleHex); RegisterSequencyCounter++;
 
             _A004_AFE_Pulse_EN = "A004001";
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
             Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
             Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
             Tx_data[RegisterSequencyCounter] = int.Parse(_A004_AFE_Pulse_EN, styleHex); RegisterSequencyCounter++;
@@ -304,6 +315,9 @@ namespace MITS_SINGLE_SYSTEM
             Tx_data[RegisterSequencyCounter] = int.Parse(_A01C_ADC_Reg_DB, styleHex); RegisterSequencyCounter++;
 
             _A01E_ADC_Pulse_EN = "A01E0001";
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
+            Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
             Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
             Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;
             Tx_data[RegisterSequencyCounter] = int.Parse(_A01E_ADC_Pulse_EN, styleHex); RegisterSequencyCounter++;

@@ -38,6 +38,8 @@ namespace MITS_SINGLE_SYSTEM
                 {
                     //*/ Real Data
                     getData[y] = Convert.ToDouble(dataArray[x][y] - 2048);
+                    //Console.WriteLine(String.Format("{0}", getData[y]));
+
                     //*/
 
                 }
@@ -64,13 +66,14 @@ namespace MITS_SINGLE_SYSTEM
                 for (int i = 0; i < CH1_CM_Length; i += CH1_CM_Divider)
                 {
                     Envelope[i / CH1_CM_Divider] = Math.Sqrt(Inphase_Final[i] * Inphase_Final[i] + Quadrature_Final[i] * Quadrature_Final[i]);
+                    //Console.WriteLine(String.Format("{0}", Envelope[i / CH1_CM_Divider]));
                 }
                 for (int i = 0; i < CH1_CM_Length / CH1_CM_Divider; i++)
                 {
                     if (Envelope[i] >= xMin && Envelope[i] <= xMax)
                     {
                         ScanlineConvertData[i] = yMax / LogRange * Math.Log10(Envelope[i] / xMin);
-                        //Console.WriteLine(String.Format("SCANLINE {0} / N of BULK {1}", ScanlineData, ScanRealData));
+
                     }
                 }
 
