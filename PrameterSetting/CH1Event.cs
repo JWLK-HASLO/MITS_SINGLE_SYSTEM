@@ -605,6 +605,7 @@ namespace MITS_SINGLE_SYSTEM
                     motor_timSpan = new TimeSpan(0, 0, 0, 0);
                     motor_timer_box.Text = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
 
+
                 }
                 else
                 {
@@ -638,6 +639,7 @@ namespace MITS_SINGLE_SYSTEM
                         }
                         motor_timer.Start();
                         motor_stopWatch.Start();
+
                     }
 
                 }
@@ -663,6 +665,18 @@ namespace MITS_SINGLE_SYSTEM
                 graphicDrawThread = null;
                 GraphicImagingDataReset();
 
+            }
+
+            /*Shot Reset*/
+            if (motorShotThread != null)
+            {
+                motorShotThread.Abort();
+                motorShotThread.Join();
+                motorShotThread = null;
+
+                shotFlag = false;
+                MotorCounter_Loop = 0;
+                MotorRaiseCounter = 0;
             }
 
             /*TImer Reset*/

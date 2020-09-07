@@ -20,8 +20,10 @@ namespace MITS_SINGLE_SYSTEM
         bool drawResultFlag = false;    // DRAW (*IMG) data transfer Trigger
 
         int lastScanlineFinder = 0;
+        int scanRealData = 0;
         int dataCounter = 0;
         int bulkCounter = 0;
+        int bulkCounter_loopMode = 0;
         byte[][] bulkByteSaver;
 
         public void ReadThread()
@@ -52,8 +54,34 @@ namespace MITS_SINGLE_SYSTEM
                     //    convertDataFlag = true;
                     //}
 
-                    if (bulkCounter < (CH1_Scanline_data - 1))
+                    if (!linear_loopModeState)
                     {
+                        if (bulkCounter < CH1_Scanline_data)
+                        {
+                            for (int i = 0; i < XFERSIZE; i++)
+                            {
+                                bulkByteSaver[bulkCounter][i] = inData[i];
+                                //Console.WriteLine("{0} / {1}", bulkCounter, i);
+                                //dataCounter++;
+                            }
+                            //Console.WriteLine("Get Data: {0}", bulkCounter);
+                        }
+                        if (bulkCounter == (CH1_Scanline_data - 1))
+                        {
+                            Param_ScanlineTotalViewFunction();
+                            //Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
+                            convertDataFlag = true;
+                        }
+                        bulkCounter++;
+                    }
+                    else
+                    {
+                        //for (int i = 0; i < XFERSIZE; i += 4)
+                        //{
+                        //    lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
+                        //    scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
+                        //    //Console.WriteLine("BulkCounter : {0} / Scanline : {1} / RealData : {2}", bulkCounter, lastScanlineFinder, scanRealData);
+                        //}
                         for (int i = 0; i < XFERSIZE; i++)
                         {
                             bulkByteSaver[bulkCounter][i] = inData[i];
@@ -61,12 +89,16 @@ namespace MITS_SINGLE_SYSTEM
                             //dataCounter++;
                         }
 
+                        if (bulkCounter == (CH1_Scanline_data - 1))
+                        {
+                            Param_ScanlineTotalViewFunction();
+                            //Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
+                            convertDataFlag = true;
+                        }
+
                         bulkCounter++;
-                    }
-                    else if (bulkCounter == (CH1_Scanline_data - 1))
-                    {
-                        Param_ScanlineTotalViewFunction();
-                        convertDataFlag = true;
+
+
                     }
 
 

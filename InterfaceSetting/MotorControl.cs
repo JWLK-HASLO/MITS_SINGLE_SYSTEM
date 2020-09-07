@@ -254,7 +254,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             if (!roation_Loop)
             {
-                roation_Loop = true;
+                //roation_Loop = true;
                 SendParameterReset();
 
                 _A402_0010 = "A4020000";
@@ -278,9 +278,9 @@ namespace MITS_SINGLE_SYSTEM
         //*/ Main Rotation Motor
         private void RotationMotorControl_Imaging_Click(object sender, EventArgs e)
         {
-            if (roation_Loop)
+            if (!roation_Loop)
             {
-                roation_Loop = false;
+                //roation_Loop = false;
                 SendParameterReset();
 
                 _A402_0010 = "A4020000";
@@ -461,7 +461,6 @@ namespace MITS_SINGLE_SYSTEM
 
 
 
-
         /* TEST DATA INIT */
         delegate void MotorTimerEventFiredDelegate();
         System.Timers.Timer motor_timer = null;
@@ -475,7 +474,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             motor_timer_box.Text = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
             motor_timer = new System.Timers.Timer();
-            motor_timer.Interval = 100;
+            motor_timer.Interval = 100;//100msec -> motor timer worker를100msec마다 동작
             motor_timer.Elapsed += new System.Timers.ElapsedEventHandler(motor_timer_Elapsed);
         }
 
@@ -485,8 +484,6 @@ namespace MITS_SINGLE_SYSTEM
             BeginInvoke(new MotorTimerEventFiredDelegate(motor_Timer_Worker));
         }
 
-        int MotorCounter_Loop = 0;
-        int MotorRaiseCounter = 0;
         private void motor_Timer_Worker()
         {
             /* Time Span Log */
@@ -502,7 +499,7 @@ namespace MITS_SINGLE_SYSTEM
             {
                 MZap.goalPosition(ServoID, (short)MotorRaiseCounter);
 
-                RegisterSequencyCounter = 4000;
+                RegisterSequencyCounter = 0;
                 Tx_data = new int[4096];       // Tx Data Array Reset;
 
                 _8400_System_On = "84000001";
@@ -516,11 +513,11 @@ namespace MITS_SINGLE_SYSTEM
                 writeSendFlag = true;
                 setSaveDataFlag = true;
                 
-                MotorRaiseCounter += 5;
+                MotorRaiseCounter += 5;//motor 간격조절
 
-                Thread.Sleep(1);
+                Console.WriteLine("Set Data: {0}", MotorCounter_Loop);
+                MotorCounter_Loop++;
             }
-            MotorCounter_Loop++;
             //*/
 
 

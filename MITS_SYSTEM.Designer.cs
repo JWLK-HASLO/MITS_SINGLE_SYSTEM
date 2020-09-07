@@ -247,7 +247,6 @@
             this.ImagingBox.Location = new System.Drawing.Point(5, 19);
             this.ImagingBox.Name = "ImagingBox";
             this.ImagingBox.Size = new System.Drawing.Size(800, 600);
-            this.ImagingBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImagingBox.TabIndex = 6;
             this.ImagingBox.TabStop = false;
             this.ImagingBox.SizeChanged += new System.EventHandler(this.ImagingBox_SizeChanged);
@@ -413,7 +412,6 @@
             // 
             this.groupBox_Roatation_Motor_Control.Controls.Add(this.RotationMotorControl_Imaging);
             this.groupBox_Roatation_Motor_Control.Controls.Add(this.RotationMotorControl_HIFU);
-            this.groupBox_Roatation_Motor_Control.Enabled = false;
             this.groupBox_Roatation_Motor_Control.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupBox_Roatation_Motor_Control.Location = new System.Drawing.Point(239, 614);
             this.groupBox_Roatation_Motor_Control.Name = "groupBox_Roatation_Motor_Control";
@@ -454,7 +452,6 @@
             // 
             this.groupBox_LinearMotorControl.Controls.Add(this.linear_loopMode);
             this.groupBox_LinearMotorControl.Controls.Add(this.linear_positionMove);
-            this.groupBox_LinearMotorControl.Enabled = false;
             this.groupBox_LinearMotorControl.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupBox_LinearMotorControl.Location = new System.Drawing.Point(11, 614);
             this.groupBox_LinearMotorControl.Name = "groupBox_LinearMotorControl";

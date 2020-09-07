@@ -135,7 +135,7 @@ namespace MITS_SINGLE_SYSTEM
             CH1_CF.Text = "20";
             CH1_PulseCycles.Text = "2";
             CH1_PulseDuration.Text = "10";
-            CH1_DynamicRange.Text = "50";
+            CH1_DynamicRange.Text = "60";
             CH1_ViewDepth.Text = "~2cm";
 
             //*/AFE Parameter Init
@@ -145,7 +145,7 @@ namespace MITS_SINGLE_SYSTEM
 
             //*/High Voltage Parameter Init
             HV_ModeSelect(true);
-            CH1_HVLevel.Text = "50";
+            CH1_HVLevel.Text = "30";
 
         }
 
