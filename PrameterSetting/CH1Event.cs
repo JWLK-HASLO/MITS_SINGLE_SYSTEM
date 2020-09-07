@@ -667,17 +667,6 @@ namespace MITS_SINGLE_SYSTEM
 
             }
 
-            /*Shot Reset*/
-            if (motorShotThread != null)
-            {
-                motorShotThread.Abort();
-                motorShotThread.Join();
-                motorShotThread = null;
-
-                shotFlag = false;
-                MotorCounter_Loop = 0;
-                MotorRaiseCounter = 0;
-            }
 
             /*TImer Reset*/
             motor_timer.Close();

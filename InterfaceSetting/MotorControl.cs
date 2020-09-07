@@ -484,6 +484,8 @@ namespace MITS_SINGLE_SYSTEM
             BeginInvoke(new MotorTimerEventFiredDelegate(motor_Timer_Worker));
         }
 
+        int MotorCounter_Loop = 0;
+        int MotorRaiseCounter = 0;
         private void motor_Timer_Worker()
         {
             /* Time Span Log */
