@@ -64,8 +64,8 @@ namespace MITS_SINGLE_SYSTEM
             CH2_ModeSelect(false);
             CH2_Scanline.Text = "400";
             CH2_PRF.Text = "500";
-            CH2_CF.Text = "2";
-            CH2_PulseCycles.Text = "2";
+            CH2_CF.Text = "5";
+            CH2_PulseCycles.Text = "20";
             CH2_PulseDuration.Text = "2";
             CH2_DynamicRange.Text = "50";
             CH2_ViewDepth.Text = "~2cm";
