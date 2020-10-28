@@ -151,6 +151,67 @@
             this.Param_BinaryNumber = new System.Windows.Forms.TextBox();
             this.label_ParamHexNumber = new System.Windows.Forms.Label();
             this.Param_HexNumber = new System.Windows.Forms.TextBox();
+            this.tabPage_stageControl = new System.Windows.Forms.TabPage();
+            this.Tabbox = new System.Windows.Forms.TabControl();
+            this.StageControlPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.galvo_Set = new System.Windows.Forms.Button();
+            this.galvo_Reset = new System.Windows.Forms.Button();
+            this.galvo_Start = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.Stage_label = new System.Windows.Forms.ToolStripStatusLabel();
+            this.triggerGroup = new System.Windows.Forms.GroupBox();
+            this.trigger_init = new System.Windows.Forms.Button();
+            this.debug_box = new System.Windows.Forms.GroupBox();
+            this.Recbox = new System.Windows.Forms.TextBox();
+            this.position_box = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_set_origin = new System.Windows.Forms.Button();
+            this.Z_pos_lab = new System.Windows.Forms.Label();
+            this.Y_pos_lab = new System.Windows.Forms.Label();
+            this.X_pos_lab = new System.Windows.Forms.Label();
+            this.Z_lab = new System.Windows.Forms.Label();
+            this.Y_lab = new System.Windows.Forms.Label();
+            this.X_lab = new System.Windows.Forms.Label();
+            this.speed_box = new System.Windows.Forms.GroupBox();
+            this.AutoSpeed_custom = new System.Windows.Forms.TextBox();
+            this.KeySpeed_custom = new System.Windows.Forms.TextBox();
+            this.AutoSpeed_combo = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.KeySpeed_combo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Clear_bt = new System.Windows.Forms.Button();
+            this.Stage_speed_bt = new System.Windows.Forms.Button();
+            this.distance_box = new System.Windows.Forms.GroupBox();
+            this.btn_move_origin = new System.Windows.Forms.Button();
+            this.XYZ_dist_bt = new System.Windows.Forms.Button();
+            this.Z_measure = new System.Windows.Forms.ComboBox();
+            this.Y_measure = new System.Windows.Forms.ComboBox();
+            this.X_measure = new System.Windows.Forms.ComboBox();
+            this.Z_dist_bt = new System.Windows.Forms.Button();
+            this.Y_dist_bt = new System.Windows.Forms.Button();
+            this.X_dist_bt = new System.Windows.Forms.Button();
+            this.Z_dist_pos = new System.Windows.Forms.TextBox();
+            this.Y_dist_pos = new System.Windows.Forms.TextBox();
+            this.X_dist_pos = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.StageControlPage2 = new System.Windows.Forms.TabPage();
+            this.STAGE_WARN_CMD = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.STAGE_MOVE_CMD = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.STAGE_SET_CMD = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Stage_stop_bt = new System.Windows.Forms.Button();
+            this.Stage_Connect = new System.Windows.Forms.Button();
+            this.cboCOMPort = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage_motorControl = new System.Windows.Forms.TabPage();
             this.groupBox_motorMovingInterface = new System.Windows.Forms.GroupBox();
             this.motor_PositionFlag = new System.Windows.Forms.TextBox();
@@ -202,6 +263,21 @@
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox_HexToBinary.SuspendLayout();
+            this.tabPage_stageControl.SuspendLayout();
+            this.Tabbox.SuspendLayout();
+            this.StageControlPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.triggerGroup.SuspendLayout();
+            this.debug_box.SuspendLayout();
+            this.position_box.SuspendLayout();
+            this.speed_box.SuspendLayout();
+            this.distance_box.SuspendLayout();
+            this.StageControlPage2.SuspendLayout();
+            this.STAGE_WARN_CMD.SuspendLayout();
+            this.STAGE_MOVE_CMD.SuspendLayout();
+            this.STAGE_SET_CMD.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabPage_motorControl.SuspendLayout();
             this.groupBox_motorMovingInterface.SuspendLayout();
             this.groupBox_motorPositionInfo.SuspendLayout();
@@ -380,6 +456,7 @@
             // 
             this.tabMainControl.Controls.Add(this.tabPage1_main);
             this.tabMainControl.Controls.Add(this.tabPage2_option);
+            this.tabMainControl.Controls.Add(this.tabPage_stageControl);
             this.tabMainControl.Controls.Add(this.tabPage_motorControl);
             this.tabMainControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMainControl.ItemSize = new System.Drawing.Size(110, 30);
@@ -1890,6 +1967,764 @@
             this.Param_HexNumber.Text = "841500FF";
             this.Param_HexNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // tabPage_stageControl
+            // 
+            this.tabPage_stageControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tabPage_stageControl.Controls.Add(this.Tabbox);
+            this.tabPage_stageControl.Controls.Add(this.groupBox1);
+            this.tabPage_stageControl.Location = new System.Drawing.Point(4, 34);
+            this.tabPage_stageControl.Name = "tabPage_stageControl";
+            this.tabPage_stageControl.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_stageControl.Size = new System.Drawing.Size(466, 680);
+            this.tabPage_stageControl.TabIndex = 8;
+            this.tabPage_stageControl.Text = "StageControl";
+            // 
+            // Tabbox
+            // 
+            this.Tabbox.Controls.Add(this.StageControlPage1);
+            this.Tabbox.Controls.Add(this.StageControlPage2);
+            this.Tabbox.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Tabbox.Location = new System.Drawing.Point(6, 76);
+            this.Tabbox.Name = "Tabbox";
+            this.Tabbox.SelectedIndex = 0;
+            this.Tabbox.Size = new System.Drawing.Size(454, 601);
+            this.Tabbox.TabIndex = 13;
+            // 
+            // StageControlPage1
+            // 
+            this.StageControlPage1.BackColor = System.Drawing.Color.Transparent;
+            this.StageControlPage1.Controls.Add(this.groupBox2);
+            this.StageControlPage1.Controls.Add(this.statusStrip1);
+            this.StageControlPage1.Controls.Add(this.triggerGroup);
+            this.StageControlPage1.Controls.Add(this.debug_box);
+            this.StageControlPage1.Controls.Add(this.position_box);
+            this.StageControlPage1.Controls.Add(this.speed_box);
+            this.StageControlPage1.Controls.Add(this.distance_box);
+            this.StageControlPage1.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StageControlPage1.Location = new System.Drawing.Point(4, 22);
+            this.StageControlPage1.Name = "StageControlPage1";
+            this.StageControlPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.StageControlPage1.Size = new System.Drawing.Size(446, 575);
+            this.StageControlPage1.TabIndex = 2;
+            this.StageControlPage1.Text = "3DStageControl";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.galvo_Set);
+            this.groupBox2.Controls.Add(this.galvo_Reset);
+            this.groupBox2.Controls.Add(this.galvo_Start);
+            this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox2.Location = new System.Drawing.Point(8, 394);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(432, 89);
+            this.groupBox2.TabIndex = 107;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Galvo Motor System";
+            // 
+            // galvo_Set
+            // 
+            this.galvo_Set.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.galvo_Set.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.galvo_Set.ForeColor = System.Drawing.Color.White;
+            this.galvo_Set.Location = new System.Drawing.Point(105, 21);
+            this.galvo_Set.Name = "galvo_Set";
+            this.galvo_Set.Size = new System.Drawing.Size(119, 53);
+            this.galvo_Set.TabIndex = 43;
+            this.galvo_Set.Text = "Set";
+            this.galvo_Set.UseVisualStyleBackColor = false;
+            this.galvo_Set.Click += new System.EventHandler(this.galvo_Set_Click);
+            // 
+            // galvo_Reset
+            // 
+            this.galvo_Reset.BackColor = System.Drawing.Color.DimGray;
+            this.galvo_Reset.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.galvo_Reset.ForeColor = System.Drawing.Color.White;
+            this.galvo_Reset.Location = new System.Drawing.Point(5, 21);
+            this.galvo_Reset.Name = "galvo_Reset";
+            this.galvo_Reset.Size = new System.Drawing.Size(96, 53);
+            this.galvo_Reset.TabIndex = 42;
+            this.galvo_Reset.Text = "Reset";
+            this.galvo_Reset.UseVisualStyleBackColor = false;
+            this.galvo_Reset.Click += new System.EventHandler(this.galvo_Reset_Click);
+            // 
+            // galvo_Start
+            // 
+            this.galvo_Start.BackColor = System.Drawing.Color.Black;
+            this.galvo_Start.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.galvo_Start.ForeColor = System.Drawing.Color.White;
+            this.galvo_Start.Location = new System.Drawing.Point(227, 21);
+            this.galvo_Start.Name = "galvo_Start";
+            this.galvo_Start.Size = new System.Drawing.Size(199, 53);
+            this.galvo_Start.TabIndex = 41;
+            this.galvo_Start.Text = "Start";
+            this.galvo_Start.UseVisualStyleBackColor = false;
+            this.galvo_Start.Click += new System.EventHandler(this.galvo_Start_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Stage_label});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 550);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(440, 22);
+            this.statusStrip1.TabIndex = 106;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // Stage_label
+            // 
+            this.Stage_label.BackColor = System.Drawing.SystemColors.Control;
+            this.Stage_label.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Stage_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Stage_label.ImageTransparentColor = System.Drawing.SystemColors.ScrollBar;
+            this.Stage_label.Name = "Stage_label";
+            this.Stage_label.Size = new System.Drawing.Size(109, 17);
+            this.Stage_label.Text = "Stage disconnected";
+            // 
+            // triggerGroup
+            // 
+            this.triggerGroup.Controls.Add(this.trigger_init);
+            this.triggerGroup.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.triggerGroup.Location = new System.Drawing.Point(229, 88);
+            this.triggerGroup.Name = "triggerGroup";
+            this.triggerGroup.Size = new System.Drawing.Size(211, 68);
+            this.triggerGroup.TabIndex = 105;
+            this.triggerGroup.TabStop = false;
+            this.triggerGroup.Text = "TEST Trigger";
+            // 
+            // trigger_init
+            // 
+            this.trigger_init.BackColor = System.Drawing.Color.Silver;
+            this.trigger_init.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.trigger_init.ForeColor = System.Drawing.Color.Black;
+            this.trigger_init.Location = new System.Drawing.Point(6, 21);
+            this.trigger_init.Name = "trigger_init";
+            this.trigger_init.Size = new System.Drawing.Size(199, 41);
+            this.trigger_init.TabIndex = 41;
+            this.trigger_init.Text = "trigger";
+            this.trigger_init.UseVisualStyleBackColor = false;
+            this.trigger_init.Click += new System.EventHandler(this.trigger_init_Click);
+            // 
+            // debug_box
+            // 
+            this.debug_box.Controls.Add(this.Recbox);
+            this.debug_box.Location = new System.Drawing.Point(229, 6);
+            this.debug_box.Name = "debug_box";
+            this.debug_box.Size = new System.Drawing.Size(211, 76);
+            this.debug_box.TabIndex = 104;
+            this.debug_box.TabStop = false;
+            this.debug_box.Text = "DebugMessage";
+            // 
+            // Recbox
+            // 
+            this.Recbox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Recbox.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Recbox.Location = new System.Drawing.Point(4, 19);
+            this.Recbox.Multiline = true;
+            this.Recbox.Name = "Recbox";
+            this.Recbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Recbox.Size = new System.Drawing.Size(201, 50);
+            this.Recbox.TabIndex = 60;
+            // 
+            // position_box
+            // 
+            this.position_box.Controls.Add(this.label5);
+            this.position_box.Controls.Add(this.label4);
+            this.position_box.Controls.Add(this.label3);
+            this.position_box.Controls.Add(this.btn_set_origin);
+            this.position_box.Controls.Add(this.Z_pos_lab);
+            this.position_box.Controls.Add(this.Y_pos_lab);
+            this.position_box.Controls.Add(this.X_pos_lab);
+            this.position_box.Controls.Add(this.Z_lab);
+            this.position_box.Controls.Add(this.Y_lab);
+            this.position_box.Controls.Add(this.X_lab);
+            this.position_box.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.position_box.ForeColor = System.Drawing.Color.Black;
+            this.position_box.Location = new System.Drawing.Point(8, 12);
+            this.position_box.Name = "position_box";
+            this.position_box.Size = new System.Drawing.Size(215, 144);
+            this.position_box.TabIndex = 63;
+            this.position_box.TabStop = false;
+            this.position_box.Text = "3D Stage Position";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(180, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 17);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "μm";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(180, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 17);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "μm";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(180, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 17);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "μm";
+            // 
+            // btn_set_origin
+            // 
+            this.btn_set_origin.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_set_origin.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_set_origin.ForeColor = System.Drawing.Color.White;
+            this.btn_set_origin.Location = new System.Drawing.Point(2, 95);
+            this.btn_set_origin.Name = "btn_set_origin";
+            this.btn_set_origin.Size = new System.Drawing.Size(210, 45);
+            this.btn_set_origin.TabIndex = 17;
+            this.btn_set_origin.Text = "Set Custom Origin Point (Alt+ENTER)";
+            this.btn_set_origin.UseVisualStyleBackColor = false;
+            this.btn_set_origin.Click += new System.EventHandler(this.Btn_set_origin_Click);
+            // 
+            // Z_pos_lab
+            // 
+            this.Z_pos_lab.AutoSize = true;
+            this.Z_pos_lab.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Z_pos_lab.Location = new System.Drawing.Point(71, 65);
+            this.Z_pos_lab.Name = "Z_pos_lab";
+            this.Z_pos_lab.Size = new System.Drawing.Size(16, 17);
+            this.Z_pos_lab.TabIndex = 40;
+            this.Z_pos_lab.Text = "0";
+            // 
+            // Y_pos_lab
+            // 
+            this.Y_pos_lab.AutoSize = true;
+            this.Y_pos_lab.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Y_pos_lab.Location = new System.Drawing.Point(71, 45);
+            this.Y_pos_lab.Name = "Y_pos_lab";
+            this.Y_pos_lab.Size = new System.Drawing.Size(16, 17);
+            this.Y_pos_lab.TabIndex = 39;
+            this.Y_pos_lab.Text = "0";
+            // 
+            // X_pos_lab
+            // 
+            this.X_pos_lab.AutoSize = true;
+            this.X_pos_lab.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.X_pos_lab.Location = new System.Drawing.Point(71, 25);
+            this.X_pos_lab.Name = "X_pos_lab";
+            this.X_pos_lab.Size = new System.Drawing.Size(16, 17);
+            this.X_pos_lab.TabIndex = 38;
+            this.X_pos_lab.Text = "0";
+            // 
+            // Z_lab
+            // 
+            this.Z_lab.AutoSize = true;
+            this.Z_lab.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Z_lab.Location = new System.Drawing.Point(6, 65);
+            this.Z_lab.Name = "Z_lab";
+            this.Z_lab.Size = new System.Drawing.Size(55, 17);
+            this.Z_lab.TabIndex = 37;
+            this.Z_lab.Text = "Z Axis :";
+            // 
+            // Y_lab
+            // 
+            this.Y_lab.AutoSize = true;
+            this.Y_lab.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Y_lab.Location = new System.Drawing.Point(6, 45);
+            this.Y_lab.Name = "Y_lab";
+            this.Y_lab.Size = new System.Drawing.Size(55, 17);
+            this.Y_lab.TabIndex = 36;
+            this.Y_lab.Text = "Y Axis :";
+            // 
+            // X_lab
+            // 
+            this.X_lab.AutoSize = true;
+            this.X_lab.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.X_lab.Location = new System.Drawing.Point(6, 25);
+            this.X_lab.Name = "X_lab";
+            this.X_lab.Size = new System.Drawing.Size(55, 17);
+            this.X_lab.TabIndex = 35;
+            this.X_lab.Text = "X Axis :";
+            // 
+            // speed_box
+            // 
+            this.speed_box.Controls.Add(this.AutoSpeed_custom);
+            this.speed_box.Controls.Add(this.KeySpeed_custom);
+            this.speed_box.Controls.Add(this.AutoSpeed_combo);
+            this.speed_box.Controls.Add(this.label7);
+            this.speed_box.Controls.Add(this.KeySpeed_combo);
+            this.speed_box.Controls.Add(this.label6);
+            this.speed_box.Controls.Add(this.Clear_bt);
+            this.speed_box.Controls.Add(this.Stage_speed_bt);
+            this.speed_box.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.speed_box.Location = new System.Drawing.Point(8, 312);
+            this.speed_box.Name = "speed_box";
+            this.speed_box.Size = new System.Drawing.Size(432, 76);
+            this.speed_box.TabIndex = 103;
+            this.speed_box.TabStop = false;
+            this.speed_box.Text = "Speed";
+            // 
+            // AutoSpeed_custom
+            // 
+            this.AutoSpeed_custom.Enabled = false;
+            this.AutoSpeed_custom.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.AutoSpeed_custom.Location = new System.Drawing.Point(204, 44);
+            this.AutoSpeed_custom.Name = "AutoSpeed_custom";
+            this.AutoSpeed_custom.Size = new System.Drawing.Size(70, 23);
+            this.AutoSpeed_custom.TabIndex = 103;
+            this.AutoSpeed_custom.Text = "0";
+            // 
+            // KeySpeed_custom
+            // 
+            this.KeySpeed_custom.Enabled = false;
+            this.KeySpeed_custom.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.KeySpeed_custom.Location = new System.Drawing.Point(204, 17);
+            this.KeySpeed_custom.Name = "KeySpeed_custom";
+            this.KeySpeed_custom.Size = new System.Drawing.Size(70, 23);
+            this.KeySpeed_custom.TabIndex = 103;
+            this.KeySpeed_custom.Text = "0";
+            // 
+            // AutoSpeed_combo
+            // 
+            this.AutoSpeed_combo.DropDownHeight = 100;
+            this.AutoSpeed_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AutoSpeed_combo.DropDownWidth = 50;
+            this.AutoSpeed_combo.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.AutoSpeed_combo.FormattingEnabled = true;
+            this.AutoSpeed_combo.IntegralHeight = false;
+            this.AutoSpeed_combo.Items.AddRange(new object[] {
+            "Super Low",
+            "Low",
+            "Normal",
+            "High",
+            "Super High",
+            "Custom"});
+            this.AutoSpeed_combo.Location = new System.Drawing.Point(106, 41);
+            this.AutoSpeed_combo.Name = "AutoSpeed_combo";
+            this.AutoSpeed_combo.Size = new System.Drawing.Size(92, 23);
+            this.AutoSpeed_combo.TabIndex = 104;
+            this.AutoSpeed_combo.SelectedIndexChanged += new System.EventHandler(this.AutoSpeed_combo_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(7, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 15);
+            this.label7.TabIndex = 105;
+            this.label7.Text = "AutoMove CTR";
+            // 
+            // KeySpeed_combo
+            // 
+            this.KeySpeed_combo.DropDownHeight = 100;
+            this.KeySpeed_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KeySpeed_combo.DropDownWidth = 50;
+            this.KeySpeed_combo.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.KeySpeed_combo.FormattingEnabled = true;
+            this.KeySpeed_combo.IntegralHeight = false;
+            this.KeySpeed_combo.Items.AddRange(new object[] {
+            "Super Low",
+            "Low",
+            "Normal",
+            "High",
+            "Super High",
+            "Custom"});
+            this.KeySpeed_combo.Location = new System.Drawing.Point(106, 17);
+            this.KeySpeed_combo.Name = "KeySpeed_combo";
+            this.KeySpeed_combo.Size = new System.Drawing.Size(92, 23);
+            this.KeySpeed_combo.TabIndex = 103;
+            this.KeySpeed_combo.SelectedIndexChanged += new System.EventHandler(this.KeySpeed_combo_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(7, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 15);
+            this.label6.TabIndex = 103;
+            this.label6.Text = "KeyBoard  CTR";
+            // 
+            // Clear_bt
+            // 
+            this.Clear_bt.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Clear_bt.Location = new System.Drawing.Point(464, 126);
+            this.Clear_bt.Name = "Clear_bt";
+            this.Clear_bt.Size = new System.Drawing.Size(53, 19);
+            this.Clear_bt.TabIndex = 62;
+            this.Clear_bt.Text = "Send";
+            this.Clear_bt.UseVisualStyleBackColor = true;
+            // 
+            // Stage_speed_bt
+            // 
+            this.Stage_speed_bt.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Stage_speed_bt.Location = new System.Drawing.Point(285, 17);
+            this.Stage_speed_bt.Name = "Stage_speed_bt";
+            this.Stage_speed_bt.Size = new System.Drawing.Size(141, 47);
+            this.Stage_speed_bt.TabIndex = 61;
+            this.Stage_speed_bt.Text = "Send";
+            this.Stage_speed_bt.UseVisualStyleBackColor = true;
+            this.Stage_speed_bt.Click += new System.EventHandler(this.Stage_speed_bt_Click);
+            // 
+            // distance_box
+            // 
+            this.distance_box.Controls.Add(this.btn_move_origin);
+            this.distance_box.Controls.Add(this.XYZ_dist_bt);
+            this.distance_box.Controls.Add(this.Z_measure);
+            this.distance_box.Controls.Add(this.Y_measure);
+            this.distance_box.Controls.Add(this.X_measure);
+            this.distance_box.Controls.Add(this.Z_dist_bt);
+            this.distance_box.Controls.Add(this.Y_dist_bt);
+            this.distance_box.Controls.Add(this.X_dist_bt);
+            this.distance_box.Controls.Add(this.Z_dist_pos);
+            this.distance_box.Controls.Add(this.Y_dist_pos);
+            this.distance_box.Controls.Add(this.X_dist_pos);
+            this.distance_box.Controls.Add(this.label65);
+            this.distance_box.Controls.Add(this.label66);
+            this.distance_box.Controls.Add(this.label67);
+            this.distance_box.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.distance_box.Location = new System.Drawing.Point(8, 162);
+            this.distance_box.Name = "distance_box";
+            this.distance_box.Size = new System.Drawing.Size(432, 144);
+            this.distance_box.TabIndex = 102;
+            this.distance_box.TabStop = false;
+            this.distance_box.Text = "Distance";
+            // 
+            // btn_move_origin
+            // 
+            this.btn_move_origin.BackColor = System.Drawing.Color.Silver;
+            this.btn_move_origin.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_move_origin.ForeColor = System.Drawing.Color.Black;
+            this.btn_move_origin.Location = new System.Drawing.Point(5, 95);
+            this.btn_move_origin.Name = "btn_move_origin";
+            this.btn_move_origin.Size = new System.Drawing.Size(421, 45);
+            this.btn_move_origin.TabIndex = 41;
+            this.btn_move_origin.Text = "                      Move to Custom Origin Point                          (Alt+H" +
+    "OME)";
+            this.btn_move_origin.UseVisualStyleBackColor = false;
+            this.btn_move_origin.Click += new System.EventHandler(this.Btn_move_origin_Click);
+            // 
+            // XYZ_dist_bt
+            // 
+            this.XYZ_dist_bt.BackColor = System.Drawing.Color.Silver;
+            this.XYZ_dist_bt.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.XYZ_dist_bt.ForeColor = System.Drawing.Color.Black;
+            this.XYZ_dist_bt.Location = new System.Drawing.Point(285, 19);
+            this.XYZ_dist_bt.Name = "XYZ_dist_bt";
+            this.XYZ_dist_bt.Size = new System.Drawing.Size(141, 74);
+            this.XYZ_dist_bt.TabIndex = 42;
+            this.XYZ_dist_bt.Text = "XYZ-Move";
+            this.XYZ_dist_bt.UseVisualStyleBackColor = true;
+            this.XYZ_dist_bt.Click += new System.EventHandler(this.XYZ_dist_bt_Click);
+            // 
+            // Z_measure
+            // 
+            this.Z_measure.DropDownHeight = 100;
+            this.Z_measure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Z_measure.DropDownWidth = 50;
+            this.Z_measure.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Z_measure.FormattingEnabled = true;
+            this.Z_measure.IntegralHeight = false;
+            this.Z_measure.Items.AddRange(new object[] {
+            "cm",
+            "mm",
+            "μm"});
+            this.Z_measure.Location = new System.Drawing.Point(140, 70);
+            this.Z_measure.Name = "Z_measure";
+            this.Z_measure.Size = new System.Drawing.Size(58, 23);
+            this.Z_measure.TabIndex = 102;
+            // 
+            // Y_measure
+            // 
+            this.Y_measure.DropDownHeight = 100;
+            this.Y_measure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Y_measure.DropDownWidth = 50;
+            this.Y_measure.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Y_measure.FormattingEnabled = true;
+            this.Y_measure.IntegralHeight = false;
+            this.Y_measure.Items.AddRange(new object[] {
+            "cm",
+            "mm",
+            "μm"});
+            this.Y_measure.Location = new System.Drawing.Point(140, 45);
+            this.Y_measure.Name = "Y_measure";
+            this.Y_measure.Size = new System.Drawing.Size(58, 23);
+            this.Y_measure.TabIndex = 26;
+            // 
+            // X_measure
+            // 
+            this.X_measure.DropDownHeight = 100;
+            this.X_measure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.X_measure.DropDownWidth = 50;
+            this.X_measure.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.X_measure.FormattingEnabled = true;
+            this.X_measure.IntegralHeight = false;
+            this.X_measure.Items.AddRange(new object[] {
+            "cm",
+            "mm",
+            "μm"});
+            this.X_measure.Location = new System.Drawing.Point(140, 20);
+            this.X_measure.Name = "X_measure";
+            this.X_measure.Size = new System.Drawing.Size(58, 23);
+            this.X_measure.TabIndex = 25;
+            // 
+            // Z_dist_bt
+            // 
+            this.Z_dist_bt.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Z_dist_bt.Location = new System.Drawing.Point(210, 70);
+            this.Z_dist_bt.Name = "Z_dist_bt";
+            this.Z_dist_bt.Size = new System.Drawing.Size(69, 21);
+            this.Z_dist_bt.TabIndex = 24;
+            this.Z_dist_bt.Text = "Z-Move";
+            this.Z_dist_bt.UseVisualStyleBackColor = true;
+            this.Z_dist_bt.Click += new System.EventHandler(this.Z_dist_bt_Click);
+            // 
+            // Y_dist_bt
+            // 
+            this.Y_dist_bt.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Y_dist_bt.Location = new System.Drawing.Point(210, 45);
+            this.Y_dist_bt.Name = "Y_dist_bt";
+            this.Y_dist_bt.Size = new System.Drawing.Size(69, 21);
+            this.Y_dist_bt.TabIndex = 23;
+            this.Y_dist_bt.Text = "Y-Move";
+            this.Y_dist_bt.UseVisualStyleBackColor = true;
+            this.Y_dist_bt.Click += new System.EventHandler(this.Y_dist_bt_Click);
+            // 
+            // X_dist_bt
+            // 
+            this.X_dist_bt.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.X_dist_bt.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.X_dist_bt.Location = new System.Drawing.Point(210, 20);
+            this.X_dist_bt.Name = "X_dist_bt";
+            this.X_dist_bt.Size = new System.Drawing.Size(69, 21);
+            this.X_dist_bt.TabIndex = 4;
+            this.X_dist_bt.Text = "X-Move";
+            this.X_dist_bt.UseVisualStyleBackColor = true;
+            this.X_dist_bt.Click += new System.EventHandler(this.X_dist_bt_Click);
+            // 
+            // Z_dist_pos
+            // 
+            this.Z_dist_pos.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Z_dist_pos.Location = new System.Drawing.Point(65, 70);
+            this.Z_dist_pos.Name = "Z_dist_pos";
+            this.Z_dist_pos.Size = new System.Drawing.Size(70, 23);
+            this.Z_dist_pos.TabIndex = 3;
+            this.Z_dist_pos.Text = "0";
+            // 
+            // Y_dist_pos
+            // 
+            this.Y_dist_pos.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Y_dist_pos.Location = new System.Drawing.Point(65, 45);
+            this.Y_dist_pos.Name = "Y_dist_pos";
+            this.Y_dist_pos.Size = new System.Drawing.Size(70, 23);
+            this.Y_dist_pos.TabIndex = 2;
+            this.Y_dist_pos.Text = "0";
+            // 
+            // X_dist_pos
+            // 
+            this.X_dist_pos.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.X_dist_pos.Location = new System.Drawing.Point(65, 20);
+            this.X_dist_pos.Name = "X_dist_pos";
+            this.X_dist_pos.Size = new System.Drawing.Size(70, 23);
+            this.X_dist_pos.TabIndex = 1;
+            this.X_dist_pos.Text = "0";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label65.Location = new System.Drawing.Point(7, 75);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(52, 15);
+            this.label65.TabIndex = 22;
+            this.label65.Text = "Z_axis : ";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label66.Location = new System.Drawing.Point(7, 50);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(52, 15);
+            this.label66.TabIndex = 21;
+            this.label66.Text = "Y_axis : ";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label67.Location = new System.Drawing.Point(7, 25);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(53, 15);
+            this.label67.TabIndex = 20;
+            this.label67.Text = "X_axis : ";
+            // 
+            // StageControlPage2
+            // 
+            this.StageControlPage2.BackColor = System.Drawing.Color.Transparent;
+            this.StageControlPage2.Controls.Add(this.STAGE_WARN_CMD);
+            this.StageControlPage2.Controls.Add(this.STAGE_MOVE_CMD);
+            this.StageControlPage2.Controls.Add(this.label2);
+            this.StageControlPage2.Controls.Add(this.STAGE_SET_CMD);
+            this.StageControlPage2.Location = new System.Drawing.Point(4, 22);
+            this.StageControlPage2.Name = "StageControlPage2";
+            this.StageControlPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.StageControlPage2.Size = new System.Drawing.Size(446, 575);
+            this.StageControlPage2.TabIndex = 3;
+            this.StageControlPage2.Text = "CMD & Option  ";
+            // 
+            // STAGE_WARN_CMD
+            // 
+            this.STAGE_WARN_CMD.Controls.Add(this.label10);
+            this.STAGE_WARN_CMD.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Bold);
+            this.STAGE_WARN_CMD.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.STAGE_WARN_CMD.Location = new System.Drawing.Point(10, 194);
+            this.STAGE_WARN_CMD.Name = "STAGE_WARN_CMD";
+            this.STAGE_WARN_CMD.Size = new System.Drawing.Size(335, 95);
+            this.STAGE_WARN_CMD.TabIndex = 115;
+            this.STAGE_WARN_CMD.TabStop = false;
+            this.STAGE_WARN_CMD.Text = "Warning";
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Location = new System.Drawing.Point(3, 18);
+            this.label10.Margin = new System.Windows.Forms.Padding(5);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(10);
+            this.label10.Size = new System.Drawing.Size(329, 74);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Stage System Reset                     :    Alt  + / or R\r\n(Go to System Zero Poi" +
+    "nt (0,0,0)\r\n\r\nStage Emergency Stop                 :    Alt + Esc  or END\r\n";
+            // 
+            // STAGE_MOVE_CMD
+            // 
+            this.STAGE_MOVE_CMD.Controls.Add(this.label8);
+            this.STAGE_MOVE_CMD.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.STAGE_MOVE_CMD.Location = new System.Drawing.Point(10, 25);
+            this.STAGE_MOVE_CMD.Name = "STAGE_MOVE_CMD";
+            this.STAGE_MOVE_CMD.Size = new System.Drawing.Size(211, 82);
+            this.STAGE_MOVE_CMD.TabIndex = 114;
+            this.STAGE_MOVE_CMD.TabStop = false;
+            this.STAGE_MOVE_CMD.Text = "STAGE MOVEMENT CONTROL";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(3, 18);
+            this.label8.Margin = new System.Windows.Forms.Padding(5);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(10);
+            this.label8.Size = new System.Drawing.Size(205, 61);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Move X-Axis : Ctrl + ← → or 4 6 \r\nMove Y-Axis : Ctrl + ↑ ↓ or 8 2\r\nMove Z-Axis : " +
+    "Alt  + ↑ ↓ or - +\r\n\r\n";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label2.Location = new System.Drawing.Point(6, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(425, 19);
+            this.label2.TabIndex = 113;
+            this.label2.Text = "---------------------------- Command ----------------------------";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // STAGE_SET_CMD
+            // 
+            this.STAGE_SET_CMD.Controls.Add(this.label9);
+            this.STAGE_SET_CMD.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.STAGE_SET_CMD.Location = new System.Drawing.Point(10, 113);
+            this.STAGE_SET_CMD.Name = "STAGE_SET_CMD";
+            this.STAGE_SET_CMD.Size = new System.Drawing.Size(335, 65);
+            this.STAGE_SET_CMD.TabIndex = 109;
+            this.STAGE_SET_CMD.TabStop = false;
+            this.STAGE_SET_CMD.Text = "ETC.";
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Location = new System.Drawing.Point(3, 18);
+            this.label9.Margin = new System.Windows.Forms.Padding(5);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(10);
+            this.label9.Size = new System.Drawing.Size(329, 44);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Set Custom Origin Point          :   Alt + ENTER\r\nMove to Custom Origin Point   :" +
+    "   Alt + HOME or H\r\n\r\n";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Stage_stop_bt);
+            this.groupBox1.Controls.Add(this.Stage_Connect);
+            this.groupBox1.Controls.Add(this.cboCOMPort);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(454, 64);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Connected Devices";
+            // 
+            // Stage_stop_bt
+            // 
+            this.Stage_stop_bt.BackColor = System.Drawing.Color.Red;
+            this.Stage_stop_bt.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Stage_stop_bt.ForeColor = System.Drawing.Color.White;
+            this.Stage_stop_bt.Location = new System.Drawing.Point(282, 11);
+            this.Stage_stop_bt.Name = "Stage_stop_bt";
+            this.Stage_stop_bt.Size = new System.Drawing.Size(166, 47);
+            this.Stage_stop_bt.TabIndex = 15;
+            this.Stage_stop_bt.Text = "3D Stage Emergency Stop";
+            this.Stage_stop_bt.UseVisualStyleBackColor = false;
+            this.Stage_stop_bt.Click += new System.EventHandler(this.Stage_stop_bt_Click);
+            // 
+            // Stage_Connect
+            // 
+            this.Stage_Connect.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Stage_Connect.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Stage_Connect.ForeColor = System.Drawing.Color.Black;
+            this.Stage_Connect.Location = new System.Drawing.Point(174, 34);
+            this.Stage_Connect.Name = "Stage_Connect";
+            this.Stage_Connect.Size = new System.Drawing.Size(85, 23);
+            this.Stage_Connect.TabIndex = 15;
+            this.Stage_Connect.Text = "Connect";
+            this.Stage_Connect.UseVisualStyleBackColor = false;
+            this.Stage_Connect.Click += new System.EventHandler(this.Stage_Connect_Click);
+            // 
+            // cboCOMPort
+            // 
+            this.cboCOMPort.BackColor = System.Drawing.SystemColors.Window;
+            this.cboCOMPort.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cboCOMPort.FormattingEnabled = true;
+            this.cboCOMPort.Location = new System.Drawing.Point(6, 36);
+            this.cboCOMPort.Name = "cboCOMPort";
+            this.cboCOMPort.Size = new System.Drawing.Size(162, 21);
+            this.cboCOMPort.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(3, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Motion Stage";
+            // 
             // tabPage_motorControl
             // 
             this.tabPage_motorControl.Controls.Add(this.groupBox_motorMovingInterface);
@@ -2245,6 +3080,29 @@
             this.groupBox9.PerformLayout();
             this.groupBox_HexToBinary.ResumeLayout(false);
             this.groupBox_HexToBinary.PerformLayout();
+            this.tabPage_stageControl.ResumeLayout(false);
+            this.Tabbox.ResumeLayout(false);
+            this.StageControlPage1.ResumeLayout(false);
+            this.StageControlPage1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.triggerGroup.ResumeLayout(false);
+            this.debug_box.ResumeLayout(false);
+            this.debug_box.PerformLayout();
+            this.position_box.ResumeLayout(false);
+            this.position_box.PerformLayout();
+            this.speed_box.ResumeLayout(false);
+            this.speed_box.PerformLayout();
+            this.distance_box.ResumeLayout(false);
+            this.distance_box.PerformLayout();
+            this.StageControlPage2.ResumeLayout(false);
+            this.StageControlPage2.PerformLayout();
+            this.STAGE_WARN_CMD.ResumeLayout(false);
+            this.STAGE_MOVE_CMD.ResumeLayout(false);
+            this.STAGE_SET_CMD.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabPage_motorControl.ResumeLayout(false);
             this.groupBox_motorMovingInterface.ResumeLayout(false);
             this.groupBox_motorMovingInterface.PerformLayout();
@@ -2405,6 +3263,67 @@
         private System.Windows.Forms.Button motor_1Way;
         private System.Windows.Forms.TextBox motor_PositionFlag;
         private System.Windows.Forms.Label label_position_flag;
+        private System.Windows.Forms.TabPage tabPage_stageControl;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button Stage_stop_bt;
+        private System.Windows.Forms.Button Stage_Connect;
+        private System.Windows.Forms.ComboBox cboCOMPort;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl Tabbox;
+        private System.Windows.Forms.TabPage StageControlPage1;
+        private System.Windows.Forms.GroupBox debug_box;
+        private System.Windows.Forms.TextBox Recbox;
+        private System.Windows.Forms.GroupBox position_box;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_set_origin;
+        private System.Windows.Forms.Label Z_pos_lab;
+        private System.Windows.Forms.Label Y_pos_lab;
+        private System.Windows.Forms.Label X_pos_lab;
+        private System.Windows.Forms.Label Z_lab;
+        private System.Windows.Forms.Label Y_lab;
+        private System.Windows.Forms.Label X_lab;
+        private System.Windows.Forms.GroupBox speed_box;
+        private System.Windows.Forms.TextBox AutoSpeed_custom;
+        private System.Windows.Forms.TextBox KeySpeed_custom;
+        private System.Windows.Forms.ComboBox AutoSpeed_combo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox KeySpeed_combo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Clear_bt;
+        private System.Windows.Forms.Button Stage_speed_bt;
+        private System.Windows.Forms.GroupBox distance_box;
+        private System.Windows.Forms.Button btn_move_origin;
+        private System.Windows.Forms.Button XYZ_dist_bt;
+        private System.Windows.Forms.ComboBox Z_measure;
+        private System.Windows.Forms.ComboBox Y_measure;
+        private System.Windows.Forms.ComboBox X_measure;
+        private System.Windows.Forms.Button Z_dist_bt;
+        private System.Windows.Forms.Button Y_dist_bt;
+        private System.Windows.Forms.Button X_dist_bt;
+        private System.Windows.Forms.TextBox Z_dist_pos;
+        private System.Windows.Forms.TextBox Y_dist_pos;
+        private System.Windows.Forms.TextBox X_dist_pos;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TabPage StageControlPage2;
+        private System.Windows.Forms.GroupBox STAGE_SET_CMD;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox triggerGroup;
+        private System.Windows.Forms.Button trigger_init;
+        private System.Windows.Forms.GroupBox STAGE_WARN_CMD;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox STAGE_MOVE_CMD;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel Stage_label;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button galvo_Set;
+        private System.Windows.Forms.Button galvo_Reset;
+        private System.Windows.Forms.Button galvo_Start;
     }
 }
 

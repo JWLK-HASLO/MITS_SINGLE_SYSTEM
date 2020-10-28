@@ -26,5 +26,7 @@ namespace MITS_SINGLE_SYSTEM.Properties
                 return defaultInstance;
             }
         }
+
+        public object COMPORT { get; internal set; }
     }
 }

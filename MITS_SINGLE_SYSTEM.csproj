@@ -73,6 +73,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterfaceSetting\StageControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InterfaceSetting\MotorControl.cs">
       <SubType>Form</SubType>
     </Compile>

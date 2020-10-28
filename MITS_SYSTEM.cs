@@ -33,6 +33,7 @@ namespace MITS_SINGLE_SYSTEM
             timer_initialize();
             motor_timer_initialize();
             MotorControlInit();
+            StageControlInit();
 
         }
 
@@ -47,6 +48,8 @@ namespace MITS_SINGLE_SYSTEM
                 e.Cancel = true;
             }
         }
+
+
     }
 
 }

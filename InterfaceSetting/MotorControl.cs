@@ -61,7 +61,7 @@ namespace MITS_SINGLE_SYSTEM
                 PortName = motor_Comport.SelectedItem as string;
                 Console.WriteLine(String.Format("PortName: {0}", PortName));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Exception : {0}", ex);
             }
@@ -228,7 +228,7 @@ namespace MITS_SINGLE_SYSTEM
 
             }
         }
-        
+
         private void motor_1Way_Click(object sender, EventArgs e)
         {
             Motor_MovingInterface(MotorMoving_Loop);
@@ -272,7 +272,7 @@ namespace MITS_SINGLE_SYSTEM
 
                 writeSendFlag = true;
             }
-            
+
         }
 
         //*/ Main Rotation Motor
@@ -514,7 +514,7 @@ namespace MITS_SINGLE_SYSTEM
                 Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
                 writeSendFlag = true;
                 setSaveDataFlag = true;
-                
+
                 MotorRaiseCounter += 5;//motor 간격조절
 
                 Console.WriteLine("Set Data: {0}", MotorCounter_Loop);
