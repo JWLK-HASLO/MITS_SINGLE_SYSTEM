@@ -130,7 +130,7 @@ namespace MITS_SINGLE_SYSTEM
         {
             //*/TxParameter Init
             CH1_ModeSelect(true);
-            CH1_Scanline.Text = "200";
+            CH1_Scanline.Text = "500";
             CH1_PRF.Text = "500";
             CH1_CF.Text = "20";
             CH1_PulseCycles.Text = "2";

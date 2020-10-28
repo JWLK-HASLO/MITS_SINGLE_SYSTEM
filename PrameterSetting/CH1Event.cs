@@ -36,7 +36,7 @@ namespace MITS_SINGLE_SYSTEM
                 Console.WriteLine(String.Format("CH1_Scanline_data: {0}", CH1_Scanline_data));
                 //globalWidth = CH1_Scanline_data;
 
-                globalWidth = 4000;
+                globalWidth = 2000;
                 Console.WriteLine(String.Format("globalWidth: {0} / globalHeight: {1}", globalWidth, globalHeight));
                 bitmapImaging = new Bitmap(globalWidth, globalHeight);
                 bitmapRenew = bitmapImaging as Bitmap;

@@ -763,6 +763,16 @@ namespace MITS_SINGLE_SYSTEM
             {
                 SendParameterReset();
                 CH1_ReisterSet();
+
+                String _8412_triggermode_EN = "84120001";
+                Tx_data[RegisterSequencyCounter] = int.Parse(_8412_triggermode_EN, styleHex); RegisterSequencyCounter++;
+                String _8420_laser_PRF_L = "84200D3F";
+                Tx_data[RegisterSequencyCounter] = int.Parse(_8420_laser_PRF_L, styleHex); RegisterSequencyCounter++;
+                String _8421_laser_PRF_H = "84210003";
+                Tx_data[RegisterSequencyCounter] = int.Parse(_8421_laser_PRF_H, styleHex); RegisterSequencyCounter++;
+                String _8422_laser_scanline = "842203E7";
+                Tx_data[RegisterSequencyCounter] = int.Parse(_8422_laser_scanline, styleHex); RegisterSequencyCounter++;
+
                 GraphicImagingDataReset();
                 //*/ Test Data
                 //*/
@@ -810,6 +820,9 @@ namespace MITS_SINGLE_SYSTEM
                 send_data = "t:m" + "\r\n" + "m:1" + param_x_move + get_x_move.Replace("-", "") + "\r\ng:\r\n";
             }
             Console.WriteLine("Galvo X-Move: " + send_data);
+
+            setSaveDataFlag = true;
+
         }
 
 
