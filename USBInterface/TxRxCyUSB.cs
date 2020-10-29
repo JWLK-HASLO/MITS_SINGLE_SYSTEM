@@ -61,6 +61,7 @@ namespace MITS_SINGLE_SYSTEM
                             for (int i = 0; i < XFERSIZE; i++)
                             {
                                 bulkByteSaver[bulkCounter][i] = inData[i];
+                                streamWriter.WriteLine(String.Format("{0}", inData[i]));
                                 //Console.WriteLine("{0} / {1}", bulkCounter, i);
                                 //dataCounter++;
                             }

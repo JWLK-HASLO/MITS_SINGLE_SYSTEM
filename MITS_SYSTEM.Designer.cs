@@ -155,6 +155,7 @@
             this.Tabbox = new System.Windows.Forms.TabControl();
             this.StageControlPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_data_save = new System.Windows.Forms.Button();
             this.galvo_Set = new System.Windows.Forms.Button();
             this.galvo_Reset = new System.Windows.Forms.Button();
             this.galvo_Start = new System.Windows.Forms.Button();
@@ -2010,16 +2011,30 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_data_save);
             this.groupBox2.Controls.Add(this.galvo_Set);
             this.groupBox2.Controls.Add(this.galvo_Reset);
             this.groupBox2.Controls.Add(this.galvo_Start);
             this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(8, 394);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(432, 89);
+            this.groupBox2.Size = new System.Drawing.Size(432, 153);
             this.groupBox2.TabIndex = 107;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Galvo Motor System";
+            // 
+            // button_data_save
+            // 
+            this.button_data_save.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button_data_save.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_data_save.ForeColor = System.Drawing.Color.White;
+            this.button_data_save.Location = new System.Drawing.Point(5, 86);
+            this.button_data_save.Name = "button_data_save";
+            this.button_data_save.Size = new System.Drawing.Size(219, 53);
+            this.button_data_save.TabIndex = 44;
+            this.button_data_save.Text = "Data Save";
+            this.button_data_save.UseVisualStyleBackColor = false;
+            this.button_data_save.Click += new System.EventHandler(this.button_data_save_Click);
             // 
             // galvo_Set
             // 
@@ -3324,6 +3339,7 @@
         private System.Windows.Forms.Button galvo_Set;
         private System.Windows.Forms.Button galvo_Reset;
         private System.Windows.Forms.Button galvo_Start;
+        private System.Windows.Forms.Button button_data_save;
     }
 }
 

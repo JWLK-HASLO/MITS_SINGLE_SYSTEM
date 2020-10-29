@@ -50,6 +50,51 @@ namespace MITS_SINGLE_SYSTEM
         }
 
 
+        StreamWriter streamWriter;
+
+        private void button_data_save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (timer.Enabled == false)
+                {
+                    if (MessageBox.Show("데이터를 저장 하시겠습니까?", "데이터 저장", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        streamWriter.Flush();
+                        streamWriter.Close();
+                        SaveFileDialog savefile = new SaveFileDialog();
+                        savefile.InitialDirectory = Application.StartupPath + @"\data\";
+                        savefile.Title = "파일 저장";
+                        savefile.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                        savefile.DefaultExt = "txt";
+                        savefile.AddExtension = true;
+
+                        if (savefile.ShowDialog() == DialogResult.OK)
+                        {
+                            File.Move(Application.StartupPath + @"\data\temp_data.txt", savefile.FileName);
+                            MessageBox.Show("저장을 완료하였습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("저장하는데 문제가 발생하였습니다.", "완료", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("STOP!!!");
+                    MessageBox.Show("데이터 스트림을 멈춘 후 다시 시도해 주시기 바랍니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //button_record_play.Focus();
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(exception.Message);
+            }
+        }
     }
 
 }
