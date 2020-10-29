@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MITS_SINGLE_SYSTEM
 {
@@ -19,12 +20,22 @@ namespace MITS_SINGLE_SYSTEM
 
         Thread graphicDrawThread;
 
+        //A-Mode
+        Series AD_Data;
+
         private void GraphicConvertInit()
         {
             rgb = Color.FromArgb(0, 0, 0);
             rgbIndex = 0;
             ScanlineData = 0;
             ScanRealData = 0;
+
+            //A-Mode
+            AD_Data = chart_amode.Series.Add("Log_Data");
+            AD_Data.ChartType = SeriesChartType.Line;
+            AD_Data.Color = Color.Red;
+            chart_amode.Series.Clear();
+
         }
         private void GraphicConvertByteToInt()
         {
@@ -47,7 +58,7 @@ namespace MITS_SINGLE_SYSTEM
             //Draw Flag
             if (!drawResultFlag && SignalProcessing(CH1_DataArray))
             {
-                //drawResultFlag = true;
+                drawResultFlag = true;
 
             }
 
@@ -125,31 +136,47 @@ namespace MITS_SINGLE_SYSTEM
                 if (drawResultFlag)
                 {
                     drawResultFlag = false;
-                    this.Invoke(new Action(delegate ()
+                    if (!CH1_Mode_Amode.Checked)
                     {
-                        for (int x = 0; x < CH1_Scanline_data; x++)
+                        this.Invoke(new Action(delegate ()
                         {
-                            for (int y = 0; y < ConvertSaveArray[x].Length; y++)
+                            for (int x = 0; x < CH1_Scanline_data; x++)
                             {
-                                /*/ TERST Data
-                                rgbIndex = TEST_DataArray[x][y];
-                                rgb = colorStepArrayBackGround[rgbIndex];
-                                //*/
+                                for (int y = 0; y < ConvertSaveArray[x].Length; y++)
+                                {
+                                    /*/ TERST Data
+                                    rgbIndex = TEST_DataArray[x][y];
+                                    rgb = colorStepArrayBackGround[rgbIndex];
+                                    //*/
 
-                                //*/ Real Data
-                                rgbIndex = (int)ConvertSaveArray[x][y];
-                                rgb = Color.FromArgb(rgbIndex, rgbIndex, rgbIndex);
-                                //*/
+                                    //*/ Real Data
+                                    rgbIndex = (int)ConvertSaveArray[x][y];
+                                    rgb = Color.FromArgb(rgbIndex, rgbIndex, rgbIndex);
+                                    //*/
 
-                                bitmapRenew.SetPixel(x, y, rgb);
+                                    bitmapRenew.SetPixel(x, y, rgb);
+                                }
                             }
-                        }
-                        ImagingBox.Image = bitmapRenew;
-                        //ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                        ImagingBox.Update();
+                            ImagingBox.Image = bitmapRenew;
+                            //ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            ImagingBox.Update();
 
+                        }
+                        ));
                     }
-                    ));
+                    else
+                    {
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            AD_Data.Points.Clear();
+                            for (int i = 0; i < 1331; i++)
+                            {
+                                AD_Data.Points.AddXY(i, ConvertSaveArray[0][i]);
+                            }
+                            
+                        });
+                    }
+                    
 
                 }
             }

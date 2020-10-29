@@ -24,6 +24,24 @@ namespace MITS_SINGLE_SYSTEM
         {
             CH1_ModeSelect(!CH1_Mode_Stimul.Checked);
             Console.WriteLine(String.Format("CH1_Mode_Stimul: {0}", CH1_Mode_Stimul.Checked));
+            groupBox_ImagingView.Hide();
+        }
+
+        private void CH1_Mode_Amode_CheckedChanged(object sender, EventArgs e)
+        {
+            //CH1_ModeSelect(CH1_Mode_Amode.Checked);
+            Console.WriteLine(String.Format("CH1_Mode_Amode: {0}", CH1_Mode_Amode.Checked));
+            
+            if (CH1_Mode_Amode.Checked)
+            {
+                groupBox_ImagingView.Visible = false;
+                groupBox_AmodeView.Visible = true;
+            } 
+            else
+            {
+                groupBox_ImagingView.Visible = true;
+                groupBox_AmodeView.Visible = false;
+            }
         }
         //*/
 

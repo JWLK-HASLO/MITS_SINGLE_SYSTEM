@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GraphicGroup = new System.Windows.Forms.GroupBox();
+            this.groupBox_AmodeView = new System.Windows.Forms.GroupBox();
             this.groupBox_ImagingView = new System.Windows.Forms.GroupBox();
             this.ImagingBox = new System.Windows.Forms.PictureBox();
             this.groupBox_BoardData = new System.Windows.Forms.GroupBox();
@@ -87,6 +91,7 @@
             this.CH2_label_CF = new System.Windows.Forms.Label();
             this.CH2_label_Scanline = new System.Windows.Forms.Label();
             this.groupBox_CH1 = new System.Windows.Forms.GroupBox();
+            this.CH1_Mode_Amode = new System.Windows.Forms.CheckBox();
             this.CH1_Reset = new System.Windows.Forms.Button();
             this.CH1_ScanControl = new System.Windows.Forms.Button();
             this.CH1_PulseControl = new System.Windows.Forms.Button();
@@ -237,7 +242,9 @@
             this.motor_Comport = new System.Windows.Forms.ComboBox();
             this.label_servo_id = new System.Windows.Forms.Label();
             this.label_motor_comport = new System.Windows.Forms.Label();
+            this.chart_amode = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GraphicGroup.SuspendLayout();
+            this.groupBox_AmodeView.SuspendLayout();
             this.groupBox_ImagingView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).BeginInit();
             this.groupBox_BoardData.SuspendLayout();
@@ -283,6 +290,7 @@
             this.groupBox_motorMovingInterface.SuspendLayout();
             this.groupBox_motorPositionInfo.SuspendLayout();
             this.groupBox_motorConnectionInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_amode)).BeginInit();
             this.SuspendLayout();
             // 
             // GraphicGroup
@@ -291,6 +299,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GraphicGroup.BackColor = System.Drawing.Color.Transparent;
+            this.GraphicGroup.Controls.Add(this.groupBox_AmodeView);
             this.GraphicGroup.Controls.Add(this.groupBox_ImagingView);
             this.GraphicGroup.Controls.Add(this.groupBox_BoardData);
             this.GraphicGroup.Controls.Add(this.groupBox_SystemLog);
@@ -300,6 +309,23 @@
             this.GraphicGroup.TabIndex = 1;
             this.GraphicGroup.TabStop = false;
             // 
+            // groupBox_AmodeView
+            // 
+            this.groupBox_AmodeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_AmodeView.Controls.Add(this.chart_amode);
+            this.groupBox_AmodeView.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox_AmodeView.ForeColor = System.Drawing.Color.White;
+            this.groupBox_AmodeView.Location = new System.Drawing.Point(6, 12);
+            this.groupBox_AmodeView.Name = "groupBox_AmodeView";
+            this.groupBox_AmodeView.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox_AmodeView.Size = new System.Drawing.Size(810, 624);
+            this.groupBox_AmodeView.TabIndex = 7;
+            this.groupBox_AmodeView.TabStop = false;
+            this.groupBox_AmodeView.Text = "A-ModeView";
+            this.groupBox_AmodeView.Visible = false;
+            // 
             // groupBox_ImagingView
             // 
             this.groupBox_ImagingView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -308,7 +334,7 @@
             this.groupBox_ImagingView.Controls.Add(this.ImagingBox);
             this.groupBox_ImagingView.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox_ImagingView.ForeColor = System.Drawing.Color.White;
-            this.groupBox_ImagingView.Location = new System.Drawing.Point(6, 13);
+            this.groupBox_ImagingView.Location = new System.Drawing.Point(6, 12);
             this.groupBox_ImagingView.Name = "groupBox_ImagingView";
             this.groupBox_ImagingView.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox_ImagingView.Size = new System.Drawing.Size(810, 624);
@@ -1089,6 +1115,7 @@
             // 
             // groupBox_CH1
             // 
+            this.groupBox_CH1.Controls.Add(this.CH1_Mode_Amode);
             this.groupBox_CH1.Controls.Add(this.CH1_Reset);
             this.groupBox_CH1.Controls.Add(this.CH1_ScanControl);
             this.groupBox_CH1.Controls.Add(this.CH1_PulseControl);
@@ -1103,6 +1130,17 @@
             this.groupBox_CH1.TabIndex = 23;
             this.groupBox_CH1.TabStop = false;
             this.groupBox_CH1.Text = "Channel 1";
+            // 
+            // CH1_Mode_Amode
+            // 
+            this.CH1_Mode_Amode.AutoSize = true;
+            this.CH1_Mode_Amode.Location = new System.Drawing.Point(180, 40);
+            this.CH1_Mode_Amode.Name = "CH1_Mode_Amode";
+            this.CH1_Mode_Amode.Size = new System.Drawing.Size(82, 17);
+            this.CH1_Mode_Amode.TabIndex = 1031;
+            this.CH1_Mode_Amode.Text = "A-Mode";
+            this.CH1_Mode_Amode.UseVisualStyleBackColor = true;
+            this.CH1_Mode_Amode.CheckedChanged += new System.EventHandler(this.CH1_Mode_Amode_CheckedChanged);
             // 
             // CH1_Reset
             // 
@@ -1243,7 +1281,7 @@
             this.groupBox_CH1_ModeSelect.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox_CH1_ModeSelect.Location = new System.Drawing.Point(6, 21);
             this.groupBox_CH1_ModeSelect.Name = "groupBox_CH1_ModeSelect";
-            this.groupBox_CH1_ModeSelect.Size = new System.Drawing.Size(258, 46);
+            this.groupBox_CH1_ModeSelect.Size = new System.Drawing.Size(169, 46);
             this.groupBox_CH1_ModeSelect.TabIndex = 25;
             this.groupBox_CH1_ModeSelect.TabStop = false;
             this.groupBox_CH1_ModeSelect.Text = "Mode Select";
@@ -3042,6 +3080,24 @@
             this.label_motor_comport.TabIndex = 19;
             this.label_motor_comport.Text = "Motor Comport ";
             // 
+            // chart_amode
+            // 
+            this.chart_amode.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chart_amode.ChartAreas.Add(chartArea1);
+            this.chart_amode.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart_amode.Legends.Add(legend1);
+            this.chart_amode.Location = new System.Drawing.Point(5, 19);
+            this.chart_amode.Name = "chart_amode";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_amode.Series.Add(series1);
+            this.chart_amode.Size = new System.Drawing.Size(800, 600);
+            this.chart_amode.TabIndex = 0;
+            this.chart_amode.Text = "A-Mode Graph";
+            // 
             // MITS_SYSTEM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -3055,6 +3111,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MITS_SYSTEM_FormClosing);
             this.Load += new System.EventHandler(this.MITS_SYSTEM_Load);
             this.GraphicGroup.ResumeLayout(false);
+            this.groupBox_AmodeView.ResumeLayout(false);
             this.groupBox_ImagingView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).EndInit();
             this.groupBox_BoardData.ResumeLayout(false);
@@ -3077,6 +3134,7 @@
             this.groupBox_CH2_TxParameter.ResumeLayout(false);
             this.groupBox_CH2_TxParameter.PerformLayout();
             this.groupBox_CH1.ResumeLayout(false);
+            this.groupBox_CH1.PerformLayout();
             this.groupBox_CH1_HV.ResumeLayout(false);
             this.groupBox_CH1_HV.PerformLayout();
             this.groupBox_CH1_ModeSelect.ResumeLayout(false);
@@ -3127,6 +3185,7 @@
             this.groupBox_motorPositionInfo.PerformLayout();
             this.groupBox_motorConnectionInfo.ResumeLayout(false);
             this.groupBox_motorConnectionInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_amode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3342,6 +3401,9 @@
         private System.Windows.Forms.Button galvo_Reset;
         private System.Windows.Forms.Button galvo_Start;
         private System.Windows.Forms.Button button_data_save;
+        private System.Windows.Forms.GroupBox groupBox_AmodeView;
+        private System.Windows.Forms.CheckBox CH1_Mode_Amode;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_amode;
     }
 }
 
