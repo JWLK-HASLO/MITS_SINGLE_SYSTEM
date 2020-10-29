@@ -570,7 +570,7 @@ namespace MITS_SINGLE_SYSTEM
             try
             {
                 CH1_SCANInterface(SCAN_Loop);
-
+                streamWriter = new StreamWriter(Application.StartupPath + @"\data\temp_data.txt");
                 if (SCAN_Loop) // true = RESET
                 {
                     //*/Motor Control
