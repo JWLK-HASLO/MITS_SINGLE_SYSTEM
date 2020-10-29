@@ -800,8 +800,7 @@ namespace MITS_SINGLE_SYSTEM
 
         private void galvo_Start_Click(object sender, EventArgs e)
         {
-            streamWriter = new StreamWriter(Application.StartupPath + @"\data\temp_data.txt");
-
+            
             Recbox.Clear();
             // X distance
             x_move_distance = 4 * 10000; // cm = 10000 / mm = 1000 /  μm = 1;

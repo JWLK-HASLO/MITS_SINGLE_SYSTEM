@@ -47,7 +47,7 @@ namespace MITS_SINGLE_SYSTEM
             //Draw Flag
             if (!drawResultFlag && SignalProcessing(CH1_DataArray))
             {
-                drawResultFlag = true;
+                //drawResultFlag = true;
 
             }
 

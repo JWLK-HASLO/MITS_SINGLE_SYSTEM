@@ -2722,10 +2722,12 @@
             // cboCOMPort
             // 
             this.cboCOMPort.BackColor = System.Drawing.SystemColors.Window;
+            this.cboCOMPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCOMPort.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cboCOMPort.FormattingEnabled = true;
             this.cboCOMPort.Location = new System.Drawing.Point(6, 36);
             this.cboCOMPort.Name = "cboCOMPort";
+            this.cboCOMPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cboCOMPort.Size = new System.Drawing.Size(162, 21);
             this.cboCOMPort.TabIndex = 12;
             // 
