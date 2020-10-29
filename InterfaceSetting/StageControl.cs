@@ -766,6 +766,8 @@ namespace MITS_SINGLE_SYSTEM
 
                 String _8412_triggermode_EN = "84120001";
                 Tx_data[RegisterSequencyCounter] = int.Parse(_8412_triggermode_EN, styleHex); RegisterSequencyCounter++;
+                String _8416_laser_wait = "841600C7";
+                Tx_data[RegisterSequencyCounter] = int.Parse(_8416_laser_wait, styleHex); RegisterSequencyCounter++;
                 String _8420_laser_PRF_L = "84200D3F";
                 Tx_data[RegisterSequencyCounter] = int.Parse(_8420_laser_PRF_L, styleHex); RegisterSequencyCounter++;
                 String _8421_laser_PRF_H = "84210003";
