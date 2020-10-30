@@ -39,7 +39,7 @@ namespace MITS_SINGLE_SYSTEM
             {
                 for (int y = 0, bulk = 0; y < CH1_Rx_data; y++, bulk += 4)
                 {
-                    ScanlineData = (bulkByteSaver[x][bulk + 3] << 8) + (bulkByteSaver[x][bulk + 2]);
+                    //ScanlineData = (bulkByteSaver[x][bulk + 3] << 8) + (bulkByteSaver[x][bulk + 2]);
                     ScanRealData = ((bulkByteSaver[x][bulk + 1] & 0x0F) << 8) + bulkByteSaver[x][bulk + 0];
 
                     //Console.WriteLine(String.Format("SCANLINE {0} / N of BULK {1}", ScanlineData, ScanRealData));
@@ -142,7 +142,7 @@ namespace MITS_SINGLE_SYSTEM
                     drawResultFlag = false;
                     if (!CH1_Mode_Amode.Checked)
                     {
-                        this.Invoke(new Action(delegate ()
+                        this.Invoke((MethodInvoker)delegate
                         {
                             for (int x = 0; x < CH1_Scanline_data; x++)
                             {
@@ -165,34 +165,35 @@ namespace MITS_SINGLE_SYSTEM
                             ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
                             ImagingBox.Update();
 
-                        }
-                        ));
+                        });
                     }
                     else
                     {
                         Console.WriteLine("Set Graph");
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            //*/ Convert Data
-                            for(int scanline = 0; scanline < CH1_Scanline_data; scanline++)
-                            {
-                                for (int i = 0; i < 1331; i++)
-                                {
-                                    Console.WriteLine("Set Graph " + ConvertSaveArray[scanline][i]);
-                                    AD_Data.Points.AddXY(i, (int)ConvertSaveArray[scanline][i]);
-                                }
-                            }
-                            //*/
+                       
+                        //this.Invoke((MethodInvoker)delegate
+                        //{
+                        //    //*/ Convert Data
+                        //    for(int scanline = 0; scanline < CH1_Scanline_data; scanline++)
+                        //    {
+                        //        for (int i = 0; i < 1331; i++)
+                        //        {
+                        //            Console.WriteLine("Set Graph " + ConvertSaveArray[scanline][i]);
+                        //            AD_Data.Points.AddXY(i, (int)ConvertSaveArray[scanline][i]);
+                        //        }
+                        //    }
+                        //    //*/
 
-                            /*/ Origin Data
-                            for (int i = 0; i < 4096; i++)
-                            {
-                                Console.WriteLine("Set Graph " + CH1_DataArray[0][i]);
-                                AD_Data.Points.AddXY(i, (int)CH1_DataArray[0][i]);
-                            }
-                            //*/
+                        //    /*/ Origin Data
+                        //    for (int i = 0; i < 4096; i++)
+                        //    {
+                        //        Console.WriteLine("Set Graph " + CH1_DataArray[0][i]);
+                        //        AD_Data.Points.AddXY(i, (int)CH1_DataArray[0][i]);
+                        //    }
+                        //    //*/
 
-                        });
+                        //});
+
                     }
                     
 

@@ -18,6 +18,7 @@ namespace MITS_SINGLE_SYSTEM
         bool setSaveDataFlag = false;   // Data Read Timing Matching (Init Stat Button) Trigger
         bool convertDataFlag = false;   // Convert Byte 1D Data to Int 2D Data Trigger
         bool drawResultFlag = false;    // DRAW (*IMG) data transfer Trigger
+        bool amodeDrawFlag = false;
 
         int lastScanlineFinder = 0;
         int scanRealData = 0;
@@ -25,6 +26,8 @@ namespace MITS_SINGLE_SYSTEM
         int bulkCounter = 0;
         int bulkCounter_loopMode = 0;
         byte[][] bulkByteSaver;
+        int[][] bulkCounvertIntSaver;
+        double[] bulkCounvertProcessingSingle;
 
         public void ReadThread()
         {
@@ -41,12 +44,40 @@ namespace MITS_SINGLE_SYSTEM
 
                 if (readResultFlag && setSaveDataFlag)
                 {
-                    //for (int i = 0; i < XFERSIZE; i += 4)
-                    //{
-                    //    lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
-                    //    //int scanRealData = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
-                    //    //Console.WriteLine(lastScanlineFinder);
-                    //}
+                    for (int i = 0, dataCounter = 0; i < XFERSIZE; i += 4, dataCounter++)
+                    {
+                        //lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
+                        bulkCounvertIntSaver[bulkCounter][dataCounter] = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
+                        //Console.WriteLine(lastScanlineFinder);
+                        if(dataCounter == 4095) {
+                            amodeDrawFlag = true;
+                        }
+                    }
+
+                    if (chart_amode.IsHandleCreated)
+                    {
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            if (amodeDrawFlag)
+                            {
+                                amodeDrawFlag = false;
+                                AD_Data.Points.Clear();
+
+                                bulkCounvertProcessingSingle = SignalProcessingSingle(bulkCounvertIntSaver[bulkCounter]);
+
+                                //*/ Convert Data
+                                for (int i = 0; i < 1331; i++)
+                                {
+                                    Console.WriteLine("Set Graph " + bulkCounvertProcessingSingle[i]);
+                                    AD_Data.Points.AddXY(i, bulkCounvertProcessingSingle[i]);
+                                }
+                                //*/
+
+                            }
+
+                        });
+
+                    }
 
                     //if (lastScanlineFinder == (CH1_Scanline_data - 1) && dataCounter == 16384)
                     //{
@@ -61,18 +92,18 @@ namespace MITS_SINGLE_SYSTEM
                             for (int i = 0; i < XFERSIZE; i++)
                             {
                                 bulkByteSaver[bulkCounter][i] = inData[i];
+
                                 //Console.WriteLine("{0} / {1}", bulkCounter, i);
                                 //dataCounter++;
                             }
                             //Console.WriteLine("Get Data: {0}", bulkCounter);
                         }
-                        if (bulkCounter == (CH1_Scanline_data - 1))
+                        if (bulkCounter >= (CH1_Scanline_data - 1))
                         {
                             Param_ScanlineTotalViewFunction();
                             //Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
                             convertDataFlag = true;
                         }
-                        bulkCounter++;
                     }
                     else
                     {
@@ -89,17 +120,16 @@ namespace MITS_SINGLE_SYSTEM
                             //dataCounter++;
                         }
 
-                        if (bulkCounter == (CH1_Scanline_data - 1))
+                        if (bulkCounter >= (CH1_Scanline_data - 1))
                         {
                             Param_ScanlineTotalViewFunction();
                             //Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
                             convertDataFlag = true;
                         }
 
-                        bulkCounter++;
-
-
                     }
+
+                    bulkCounter++;
 
 
                     if (convertDataFlag)
@@ -107,25 +137,19 @@ namespace MITS_SINGLE_SYSTEM
                         convertDataFlag = false;
                         setSaveDataFlag = false;
 
-                        //Set Timer Setting
+                        /*/Set Timer Setting
                         motor_timer.Stop();
-                        //Set StopWatch
+                        //*/
+                        /*/Set StopWatch
                         motor_stopWatch.Stop();
+                        //*/
 
-                        this.Invoke(new Action(delegate ()
+                        this.Invoke((MethodInvoker)delegate
                         {
                             GraphicConvertByteToInt();
-                        }));
+                        });
                     }
 
-
-                    //*/ Bulk Counter
-                    //Console.WriteLine("bulkCounter {0}", bulkCounter);
-
-                    //if (dataCounter == 16384)
-                    //{
-                    //    dataCounter = 0;
-                    //}
 
                 }
 
