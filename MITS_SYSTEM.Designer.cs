@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GraphicGroup = new System.Windows.Forms.GroupBox();
             this.groupBox_AmodeView = new System.Windows.Forms.GroupBox();
+            this.chart_amode = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox_ImagingView = new System.Windows.Forms.GroupBox();
             this.ImagingBox = new System.Windows.Forms.PictureBox();
             this.groupBox_BoardData = new System.Windows.Forms.GroupBox();
@@ -242,9 +243,9 @@
             this.motor_Comport = new System.Windows.Forms.ComboBox();
             this.label_servo_id = new System.Windows.Forms.Label();
             this.label_motor_comport = new System.Windows.Forms.Label();
-            this.chart_amode = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GraphicGroup.SuspendLayout();
             this.groupBox_AmodeView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_amode)).BeginInit();
             this.groupBox_ImagingView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).BeginInit();
             this.groupBox_BoardData.SuspendLayout();
@@ -290,7 +291,6 @@
             this.groupBox_motorMovingInterface.SuspendLayout();
             this.groupBox_motorPositionInfo.SuspendLayout();
             this.groupBox_motorConnectionInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_amode)).BeginInit();
             this.SuspendLayout();
             // 
             // GraphicGroup
@@ -325,6 +325,29 @@
             this.groupBox_AmodeView.TabStop = false;
             this.groupBox_AmodeView.Text = "A-ModeView";
             this.groupBox_AmodeView.Visible = false;
+            // 
+            // chart_amode
+            // 
+            this.chart_amode.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chart_amode.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart_amode.ChartAreas.Add(chartArea2);
+            this.chart_amode.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chart_amode.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Name = "Legend1";
+            this.chart_amode.Legends.Add(legend2);
+            this.chart_amode.Location = new System.Drawing.Point(5, 19);
+            this.chart_amode.Name = "chart_amode";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.LabelBackColor = System.Drawing.Color.Black;
+            series2.LabelBorderColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart_amode.Series.Add(series2);
+            this.chart_amode.Size = new System.Drawing.Size(800, 600);
+            this.chart_amode.TabIndex = 0;
+            this.chart_amode.Text = "A-Mode Graph";
             // 
             // groupBox_ImagingView
             // 
@@ -1281,7 +1304,7 @@
             this.groupBox_CH1_ModeSelect.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox_CH1_ModeSelect.Location = new System.Drawing.Point(6, 21);
             this.groupBox_CH1_ModeSelect.Name = "groupBox_CH1_ModeSelect";
-            this.groupBox_CH1_ModeSelect.Size = new System.Drawing.Size(169, 46);
+            this.groupBox_CH1_ModeSelect.Size = new System.Drawing.Size(258, 46);
             this.groupBox_CH1_ModeSelect.TabIndex = 25;
             this.groupBox_CH1_ModeSelect.TabStop = false;
             this.groupBox_CH1_ModeSelect.Text = "Mode Select";
@@ -3080,24 +3103,6 @@
             this.label_motor_comport.TabIndex = 19;
             this.label_motor_comport.Text = "Motor Comport ";
             // 
-            // chart_amode
-            // 
-            this.chart_amode.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart_amode.ChartAreas.Add(chartArea1);
-            this.chart_amode.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart_amode.Legends.Add(legend1);
-            this.chart_amode.Location = new System.Drawing.Point(5, 19);
-            this.chart_amode.Name = "chart_amode";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart_amode.Series.Add(series1);
-            this.chart_amode.Size = new System.Drawing.Size(800, 600);
-            this.chart_amode.TabIndex = 0;
-            this.chart_amode.Text = "A-Mode Graph";
-            // 
             // MITS_SYSTEM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -3112,6 +3117,7 @@
             this.Load += new System.EventHandler(this.MITS_SYSTEM_Load);
             this.GraphicGroup.ResumeLayout(false);
             this.groupBox_AmodeView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_amode)).EndInit();
             this.groupBox_ImagingView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).EndInit();
             this.groupBox_BoardData.ResumeLayout(false);
@@ -3185,7 +3191,6 @@
             this.groupBox_motorPositionInfo.PerformLayout();
             this.groupBox_motorConnectionInfo.ResumeLayout(false);
             this.groupBox_motorConnectionInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_amode)).EndInit();
             this.ResumeLayout(false);
 
         }

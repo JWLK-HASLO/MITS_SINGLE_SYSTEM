@@ -64,7 +64,8 @@ namespace MITS_SINGLE_SYSTEM
                     {
                         for (int y = 0; y < CH1_Rx_data; y++)
                         {
-                            streamWriter.WriteLine(String.Format("{0}", CH1_DataArray[x][y]));
+                            //streamWriter.WriteLine(String.Format("{0}", CH1_DataArray[x][y]));
+                            streamWriter.WriteLine(String.Format("{0}", ConvertSaveArray[x][y]));
                         }
                     }
                     

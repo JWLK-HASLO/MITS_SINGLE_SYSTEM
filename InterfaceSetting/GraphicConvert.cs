@@ -22,6 +22,7 @@ namespace MITS_SINGLE_SYSTEM
 
         //A-Mode
         Series AD_Data;
+        
 
         private void GraphicConvertInit()
         {
@@ -29,13 +30,8 @@ namespace MITS_SINGLE_SYSTEM
             rgbIndex = 0;
             ScanlineData = 0;
             ScanRealData = 0;
-
-            //A-Mode
-            AD_Data = chart_amode.Series.Add("Log_Data");
-            AD_Data.ChartType = SeriesChartType.Line;
-            AD_Data.Color = Color.Red;
-            chart_amode.Series.Clear();
-
+            setAmodeChart();
+            chart_amode.Titles.Add("A Mode Graph");
         }
         private void GraphicConvertByteToInt()
         {
@@ -128,6 +124,14 @@ namespace MITS_SINGLE_SYSTEM
         }
 
 
+        public void setAmodeChart()
+        {
+            //A-Mode
+            chart_amode.Series.Clear();
+            AD_Data = chart_amode.Series.Add("Log_Data");
+            AD_Data.ChartType = SeriesChartType.Line;
+            AD_Data.Color = Color.Red;
+        }
         public void DrawThread()
         {
             while (true)
@@ -158,7 +162,7 @@ namespace MITS_SINGLE_SYSTEM
                                 }
                             }
                             ImagingBox.Image = bitmapRenew;
-                            //ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                            ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
                             ImagingBox.Update();
 
                         }
@@ -166,14 +170,28 @@ namespace MITS_SINGLE_SYSTEM
                     }
                     else
                     {
+                        Console.WriteLine("Set Graph");
                         this.Invoke((MethodInvoker)delegate
                         {
-                            AD_Data.Points.Clear();
-                            for (int i = 0; i < 1331; i++)
+                            //*/ Convert Data
+                            for(int scanline = 0; scanline < CH1_Scanline_data; scanline++)
                             {
-                                AD_Data.Points.AddXY(i, ConvertSaveArray[0][i]);
+                                for (int i = 0; i < 1331; i++)
+                                {
+                                    Console.WriteLine("Set Graph " + ConvertSaveArray[scanline][i]);
+                                    AD_Data.Points.AddXY(i, (int)ConvertSaveArray[scanline][i]);
+                                }
                             }
-                            
+                            //*/
+
+                            /*/ Origin Data
+                            for (int i = 0; i < 4096; i++)
+                            {
+                                Console.WriteLine("Set Graph " + CH1_DataArray[0][i]);
+                                AD_Data.Points.AddXY(i, (int)CH1_DataArray[0][i]);
+                            }
+                            //*/
+
                         });
                     }
                     

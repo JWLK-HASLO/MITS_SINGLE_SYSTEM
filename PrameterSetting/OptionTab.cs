@@ -177,7 +177,7 @@ namespace MITS_SINGLE_SYSTEM
             _8414_ScanLine_Reset = "84140000";
             Tx_data[RegisterSequencyCounter] = int.Parse(_8414_ScanLine_Reset, styleHex); RegisterSequencyCounter++;
 
-            _8401_Rx_Data = "84010FFF";
+            //_8401_Rx_Data = "84010FFF";
             _8402_PRF_L = "84021387";
             _8403_PRF_H = "84030000";
             _8413_ScanLine_Data = String.Format("8413{0}", (ScanlineNumberConvert - 1).ToString("X4"));

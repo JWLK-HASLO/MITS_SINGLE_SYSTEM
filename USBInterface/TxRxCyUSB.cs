@@ -216,6 +216,9 @@ namespace MITS_SINGLE_SYSTEM
             bitmapRenew = bitmapImaging as Bitmap;
             //ImagingBox.SizeMode = PictureBoxSizeMode.StretchImage;
             ImagingBox.Image = bitmapRenew;
+
+            // A-Mode
+            setAmodeChart();
         }
 
 
