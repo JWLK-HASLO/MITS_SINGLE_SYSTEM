@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GraphicGroup = new System.Windows.Forms.GroupBox();
             this.groupBox_AmodeView = new System.Windows.Forms.GroupBox();
+            this.Amode_dataSave_active = new System.Windows.Forms.CheckBox();
+            this.button_data_save = new System.Windows.Forms.Button();
             this.chart_amode = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox_ImagingView = new System.Windows.Forms.GroupBox();
             this.ImagingBox = new System.Windows.Forms.PictureBox();
@@ -161,7 +163,6 @@
             this.Tabbox = new System.Windows.Forms.TabControl();
             this.StageControlPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button_data_save = new System.Windows.Forms.Button();
             this.galvo_Set = new System.Windows.Forms.Button();
             this.galvo_Reset = new System.Windows.Forms.Button();
             this.galvo_Start = new System.Windows.Forms.Button();
@@ -314,6 +315,8 @@
             this.groupBox_AmodeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_AmodeView.Controls.Add(this.Amode_dataSave_active);
+            this.groupBox_AmodeView.Controls.Add(this.button_data_save);
             this.groupBox_AmodeView.Controls.Add(this.chart_amode);
             this.groupBox_AmodeView.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox_AmodeView.ForeColor = System.Drawing.Color.White;
@@ -326,25 +329,52 @@
             this.groupBox_AmodeView.Text = "A-ModeView";
             this.groupBox_AmodeView.Visible = false;
             // 
+            // Amode_dataSave_active
+            // 
+            this.Amode_dataSave_active.AutoSize = true;
+            this.Amode_dataSave_active.BackColor = System.Drawing.Color.White;
+            this.Amode_dataSave_active.ForeColor = System.Drawing.Color.Black;
+            this.Amode_dataSave_active.Location = new System.Drawing.Point(668, 489);
+            this.Amode_dataSave_active.Name = "Amode_dataSave_active";
+            this.Amode_dataSave_active.Size = new System.Drawing.Size(106, 16);
+            this.Amode_dataSave_active.TabIndex = 1032;
+            this.Amode_dataSave_active.Text = "Save Enable";
+            this.Amode_dataSave_active.UseVisualStyleBackColor = false;
+            this.Amode_dataSave_active.CheckedChanged += new System.EventHandler(this.Amode_dataSave_active_CheckedChanged);
+            // 
+            // button_data_save
+            // 
+            this.button_data_save.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button_data_save.Enabled = false;
+            this.button_data_save.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_data_save.ForeColor = System.Drawing.Color.White;
+            this.button_data_save.Location = new System.Drawing.Point(668, 511);
+            this.button_data_save.Name = "button_data_save";
+            this.button_data_save.Size = new System.Drawing.Size(134, 53);
+            this.button_data_save.TabIndex = 45;
+            this.button_data_save.Text = "Data Save";
+            this.button_data_save.UseVisualStyleBackColor = false;
+            this.button_data_save.Click += new System.EventHandler(this.button_data_save_Click);
+            // 
             // chart_amode
             // 
             this.chart_amode.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.chart_amode.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chart_amode.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chart_amode.ChartAreas.Add(chartArea1);
             this.chart_amode.Cursor = System.Windows.Forms.Cursors.Default;
             this.chart_amode.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart_amode.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chart_amode.Legends.Add(legend1);
             this.chart_amode.Location = new System.Drawing.Point(5, 19);
             this.chart_amode.Name = "chart_amode";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.LabelBackColor = System.Drawing.Color.Black;
-            series2.LabelBorderColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_amode.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.LabelBackColor = System.Drawing.Color.Black;
+            series1.LabelBorderColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_amode.Series.Add(series1);
             this.chart_amode.Size = new System.Drawing.Size(800, 600);
             this.chart_amode.TabIndex = 0;
             this.chart_amode.Text = "A-Mode Graph";
@@ -2072,7 +2102,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button_data_save);
             this.groupBox2.Controls.Add(this.galvo_Set);
             this.groupBox2.Controls.Add(this.galvo_Reset);
             this.groupBox2.Controls.Add(this.galvo_Start);
@@ -2083,19 +2112,6 @@
             this.groupBox2.TabIndex = 107;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Galvo Motor System";
-            // 
-            // button_data_save
-            // 
-            this.button_data_save.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button_data_save.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button_data_save.ForeColor = System.Drawing.Color.White;
-            this.button_data_save.Location = new System.Drawing.Point(5, 86);
-            this.button_data_save.Name = "button_data_save";
-            this.button_data_save.Size = new System.Drawing.Size(219, 53);
-            this.button_data_save.TabIndex = 44;
-            this.button_data_save.Text = "Data Save";
-            this.button_data_save.UseVisualStyleBackColor = false;
-            this.button_data_save.Click += new System.EventHandler(this.button_data_save_Click);
             // 
             // galvo_Set
             // 
@@ -3117,6 +3133,7 @@
             this.Load += new System.EventHandler(this.MITS_SYSTEM_Load);
             this.GraphicGroup.ResumeLayout(false);
             this.groupBox_AmodeView.ResumeLayout(false);
+            this.groupBox_AmodeView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_amode)).EndInit();
             this.groupBox_ImagingView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImagingBox)).EndInit();
@@ -3405,10 +3422,11 @@
         private System.Windows.Forms.Button galvo_Set;
         private System.Windows.Forms.Button galvo_Reset;
         private System.Windows.Forms.Button galvo_Start;
-        private System.Windows.Forms.Button button_data_save;
         private System.Windows.Forms.GroupBox groupBox_AmodeView;
         private System.Windows.Forms.CheckBox CH1_Mode_Amode;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_amode;
+        private System.Windows.Forms.Button button_data_save;
+        private System.Windows.Forms.CheckBox Amode_dataSave_active;
     }
 }
 

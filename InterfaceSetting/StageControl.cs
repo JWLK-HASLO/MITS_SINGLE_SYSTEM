@@ -764,10 +764,10 @@ namespace MITS_SINGLE_SYSTEM
                 SendParameterReset();
                 CH1_ReisterSet();
 
-                //String _8412_triggermode_EN = "84120000"; //when A mode
-                String _8412_triggermode_EN = "84120001";
+                String _8412_triggermode_EN = "84120000"; //when A mode
+                //String _8412_triggermode_EN = "84120001";
                 Tx_data[RegisterSequencyCounter] = int.Parse(_8412_triggermode_EN, styleHex); RegisterSequencyCounter++;
-                String _8416_laser_wait = "8416000C";
+                String _8416_laser_wait = "841607CF";
                 Tx_data[RegisterSequencyCounter] = int.Parse(_8416_laser_wait, styleHex); RegisterSequencyCounter++;
                 String _8420_laser_PRF_L = "8420869F";
                 Tx_data[RegisterSequencyCounter] = int.Parse(_8420_laser_PRF_L, styleHex); RegisterSequencyCounter++;
@@ -801,7 +801,7 @@ namespace MITS_SINGLE_SYSTEM
 
         private void galvo_Start_Click(object sender, EventArgs e)
         {
-            
+            //*/
             Recbox.Clear();
             // X distance
             x_move_distance = 4 * 10000; // cm = 10000 / mm = 1000 /  μm = 1;
@@ -816,6 +816,7 @@ namespace MITS_SINGLE_SYSTEM
             }
 
             get_x_move = Convert.ToString(x_move_distance);
+        
 
             if (sPort.IsOpen)
             {
@@ -824,9 +825,19 @@ namespace MITS_SINGLE_SYSTEM
             Console.WriteLine("Galvo X-Move: " + send_data);
 
             setSaveDataFlag = true;
+            //*/
+            /*/
+            if (sPort.IsOpen)
+            {
+                send_data = "t:m" + "\r\n";
+            }
+            Console.WriteLine("Galvo X-Move: " + send_data);
+
+            setSaveDataFlag = true;
+            /*/
 
         }
-
+        
 
 
         public void ShowAlertMessage(Exception ex)

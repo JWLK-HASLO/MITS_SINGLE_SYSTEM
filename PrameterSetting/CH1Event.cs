@@ -43,6 +43,21 @@ namespace MITS_SINGLE_SYSTEM
                 groupBox_AmodeView.Visible = false;
             }
         }
+
+        private void Amode_dataSave_active_CheckedChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(String.Format("Amode_dataSave: {0}", Amode_dataSave_active.Checked));
+
+            if (Amode_dataSave_active.Checked)
+            {
+                button_data_save.Enabled = true;
+            }
+            else
+            {
+                button_data_save.Enabled = false;
+            }
+        }
+
         //*/
 
         //*/N of Scanline Changed
@@ -644,7 +659,21 @@ namespace MITS_SINGLE_SYSTEM
                         Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
 
                         _8400_System_On = "84000000";
-                        Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        
+                        if (!CH1_Mode_Amode.Checked)
+                        {
+                            Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        }
+                        else if (CH1_Mode_Amode.Checked && Amode_dataSave_active.Checked)
+                        {
+                            Tx_data[RegisterSequencyCounter] = int.Parse(_8400_System_On, styleHex); RegisterSequencyCounter++;
+                        }
+                        else if (CH1_Mode_Amode.Checked)
+                        {
+
+                        }
+
+
                         writeSendFlag = true;
                         setSaveDataFlag = true;
                     }

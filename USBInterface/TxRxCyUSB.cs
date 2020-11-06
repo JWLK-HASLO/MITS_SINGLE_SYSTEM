@@ -44,40 +44,6 @@ namespace MITS_SINGLE_SYSTEM
 
                 if (readResultFlag && setSaveDataFlag)
                 {
-                    for (int i = 0, dataCounter = 0; i < XFERSIZE; i += 4, dataCounter++)
-                    {
-                        //lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
-                        bulkCounvertIntSaver[bulkCounter][dataCounter] = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
-                        //Console.WriteLine(lastScanlineFinder);
-                        if(dataCounter == 4095) {
-                            amodeDrawFlag = true;
-                        }
-                    }
-
-                    if (chart_amode.IsHandleCreated)
-                    {
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            if (amodeDrawFlag)
-                            {
-                                amodeDrawFlag = false;
-                                AD_Data.Points.Clear();
-
-                                bulkCounvertProcessingSingle = SignalProcessingSingle(bulkCounvertIntSaver[bulkCounter]);
-
-                                //*/ Convert Data
-                                for (int i = 0; i < 1331; i++)
-                                {
-                                    Console.WriteLine("Set Graph " + bulkCounvertProcessingSingle[i]);
-                                    AD_Data.Points.AddXY(i, bulkCounvertProcessingSingle[i]);
-                                }
-                                //*/
-
-                            }
-
-                        });
-
-                    }
 
                     //if (lastScanlineFinder == (CH1_Scanline_data - 1) && dataCounter == 16384)
                     //{
@@ -85,13 +51,14 @@ namespace MITS_SINGLE_SYSTEM
                     //    convertDataFlag = true;
                     //}
 
+                    /*
                     if (!linear_loopModeState)
                     {
                         if (bulkCounter < CH1_Scanline_data)
                         {
                             for (int i = 0; i < XFERSIZE; i++)
                             {
-                                bulkByteSaver[bulkCounter][i] = inData[i];
+                                bulkByteSaver[bulkCounter][i] = inData[i];  
 
                                 //Console.WriteLine("{0} / {1}", bulkCounter, i);
                                 //dataCounter++;
@@ -103,6 +70,68 @@ namespace MITS_SINGLE_SYSTEM
                             Param_ScanlineTotalViewFunction();
                             //Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
                             convertDataFlag = true;
+                        }
+                    }
+                    else*/ 
+                    if (CH1_Mode_Amode.Checked)
+                    {
+                        for (int i = 0, dataCounter = 0; i < XFERSIZE; i += 4, dataCounter++)
+                        {
+                            //lastScanlineFinder = (inData[i + 3] << 8) + (inData[i + 2]);
+                            bulkCounvertIntSaver[bulkCounter][dataCounter] = ((inData[i + 1] & 0x0F) << 8) + (inData[i + 0]);
+                            //Console.WriteLine(lastScanlineFinder);
+                            if (dataCounter == 4095)
+                            {
+                                amodeDrawFlag = true;
+                            }
+                        }
+
+                        if (chart_amode.IsHandleCreated)
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                if (amodeDrawFlag)
+                                {
+                                    amodeDrawFlag = false;
+                                    AD_Data.Points.Clear();
+
+                                    bulkCounvertProcessingSingle = SignalProcessingSingle(bulkCounvertIntSaver[bulkCounter]);
+
+                                    /*/ Convert Data
+                                    for (int i = 0; i < 1331; i++)
+                                    {
+                                        //Console.WriteLine("Set Graph " + bulkCounvertProcessingSingle[i]);
+                                        AD_Data.Points.AddXY(i, bulkCounvertProcessingSingle[i]);
+                                    }
+                                    //*/
+
+                                    //*/ Origin Data
+                                    for (int i = 0; i < 4096; i++)
+                                    {
+                                        //Console.WriteLine("Set Graph " + bulkCounvertProcessingSingle[i]);
+                                        AD_Data.Points.AddXY(i, bulkCounvertIntSaver[bulkCounter][i]);
+                                    }
+                                    //*/
+
+                                }
+                            });
+                        }
+
+                        if (Amode_dataSave_active.Checked)
+                        {
+                            for (int i = 0; i < XFERSIZE; i++)
+                            {
+                                bulkByteSaver[bulkCounter][i] = inData[i];
+                                //Console.WriteLine("{0} / {1}", bulkCounter, i);
+                                //dataCounter++;
+                            }
+
+                            if (bulkCounter >= (CH1_Scanline_data - 1))
+                            {
+                                Param_ScanlineTotalViewFunction();
+                                //Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
+                                convertDataFlag = true;
+                            }
                         }
                     }
                     else
@@ -196,6 +225,18 @@ namespace MITS_SINGLE_SYSTEM
             RegisterSequencyCounter = 0;
             Tx_data = new int[4096];       // Tx Data Array Reset;
             bulkCounter = 0;
+
+            bulkByteSaver = new byte[CH1_Scanline_data][];
+            for (int i = 0; i < bulkByteSaver.GetLength(0); i++)
+            {
+                bulkByteSaver[i] = new byte[CH1_Rx_data * 4];
+            }
+
+            bulkCounvertIntSaver = new int[CH1_Scanline_data][];
+            for (int i = 0; i < bulkCounvertIntSaver.GetLength(0); i++)
+            {
+                bulkCounvertIntSaver[i] = new int[4096];
+            }
 
             bulkByteSaver = new byte[CH1_Scanline_data][];
             for (int i = 0; i < bulkByteSaver.GetLength(0); i++)

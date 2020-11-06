@@ -53,6 +53,11 @@ namespace MITS_SINGLE_SYSTEM
         StreamWriter streamWriter;
         private void button_data_save_Click(object sender, EventArgs e)
         {
+            saveButtonEvent();
+        }
+
+        void saveButtonEvent()
+        {
             try
             {
 
@@ -60,15 +65,15 @@ namespace MITS_SINGLE_SYSTEM
                 {
                     streamWriter = new StreamWriter(Application.StartupPath + @"\data\temp_data");
 
-                    for(int x = 0; x < CH1_Scanline_data; x++)
+                    for (int x = 0; x < CH1_Scanline_data; x++)
                     {
                         for (int y = 0; y < CH1_Rx_data; y++)
                         {
-                            //streamWriter.WriteLine(String.Format("{0}", CH1_DataArray[x][y]));
-                            streamWriter.WriteLine(String.Format("{0}", ConvertSaveArray[x][y]));
+                            streamWriter.WriteLine(String.Format("{0}", CH1_DataArray[x][y]));
+                            //streamWriter.WriteLine(String.Format("{0}", ConvertSaveArray[x][y]));
                         }
                     }
-                    
+
                     streamWriter.Flush();
                     streamWriter.Close();
                     SaveFileDialog savefile = new SaveFileDialog();
@@ -96,7 +101,6 @@ namespace MITS_SINGLE_SYSTEM
                 Console.WriteLine(exception.Message);
             }
         }
-
     }
 
 }

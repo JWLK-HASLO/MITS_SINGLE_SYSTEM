@@ -170,7 +170,7 @@ namespace MITS_SINGLE_SYSTEM
                     else
                     {
                         Console.WriteLine("Set Graph");
-                       
+
                         //this.Invoke((MethodInvoker)delegate
                         //{
                         //    //*/ Convert Data
@@ -195,7 +195,7 @@ namespace MITS_SINGLE_SYSTEM
                         //});
 
                     }
-                    
+
 
                 }
             }
