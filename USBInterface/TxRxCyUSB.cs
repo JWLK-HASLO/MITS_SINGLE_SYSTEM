@@ -148,11 +148,11 @@ namespace MITS_SINGLE_SYSTEM
                             //Console.WriteLine("{0} / {1}", bulkCounter, i);
                             //dataCounter++;
                         }
-
-                        if (bulkCounter >= (CH1_Scanline_data - 1))
+                        Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
+                        if (bulkCounter >= (Math.Round(CH1_Scanline_data*0.7) - 1))
                         {
                             Param_ScanlineTotalViewFunction();
-                            //Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
+                            Console.WriteLine("ConvertDataFlag Data: {0}", bulkCounter);
                             convertDataFlag = true;
                         }
 

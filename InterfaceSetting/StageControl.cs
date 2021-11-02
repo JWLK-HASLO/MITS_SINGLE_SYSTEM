@@ -453,7 +453,7 @@ namespace MITS_SINGLE_SYSTEM
             Recbox.Clear();
             // X distance
             get_x_move = X_dist_pos.Text;
-            x_move_distance = Convert.ToInt32(get_x_move);
+            ////////x_move_distance = Convert.ToInt32(get_x_move);
 
             if (x_move_distance >= 0)
             {
